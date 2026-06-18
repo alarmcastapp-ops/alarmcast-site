@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"
+     role="img" aria-label="Alarmcast: an alarm clock wearing headphones">
+  <title>Alarmcast icon</title>
+  <!-- Palette: navy #16335E, indigo bells #2E3A9E, white face #FFFFFF -->
+
+  <!-- Alarm bells, splayed and peeking over the top -->
+  <g fill="#2E3A9E">
+    <ellipse cx="124" cy="52" rx="23" ry="31" transform="rotate(-14 124 52)"/>
+    <ellipse cx="176" cy="52" rx="23" ry="31" transform="rotate(14 176 52)"/>
+  </g>
+  <!-- Glint on the right bell -->
+  <ellipse cx="186" cy="40" rx="5.5" ry="10" fill="#FFFFFF" opacity="0.85" transform="rotate(14 186 40)"/>
+
+  <!-- Headphone band arcing over the top -->
+  <path d="M50 148 C 64 48, 236 48, 250 148" fill="none"
+        stroke="#16335E" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Clock body: navy ring made from a navy disc + a white face -->
+  <circle cx="150" cy="172" r="86" fill="#16335E"/>
+  <circle cx="150" cy="172" r="64" fill="#FFFFFF"/>
+
+  <!-- Ear cushions -->
+  <rect x="30" y="130" width="40" height="84" rx="20" fill="#16335E"/>
+  <rect x="230" y="130" width="40" height="84" rx="20" fill="#16335E"/>
+
+  <!-- Clock hands: a downward chevron -->
+  <path d="M113 157 L150 186 L187 157" fill="none"
+        stroke="#16335E" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

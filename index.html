@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alarmcast: a podcast alarm clock for Android</title>
+<meta name="description" content="Alarmcast is a podcast alarm clock for Android. It fires every time, even after a reboot, in Doze, or on a slow network, then wakes you to the latest episode of a podcast you chose." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="icon" type="image/png" href="assets/alarmcast-icon.png" />
+<link rel="apple-touch-icon" href="assets/alarmcast-icon.png" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alarmcast: wake up to your podcast" />
+<meta property="og:description" content="A podcast alarm clock for Android that fires every time, then plays the latest episode of the podcast you chose." />
+<meta property="og:url" content="https://alarmcast.app" />
+<meta property="og:image" content="https://alarmcast.app/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<style>
+  :root{
+    --bg:#06080f;
+    --navy-900:#0B1220;
+    --navy-800:#131B2E;
+    --navy-700:#1C2640;
+    --purple-500:#7C5CFF;
+    --purple-400:#9C82FF;
+    --purple-200:#CBBEFF;
+    --teal:#3DD6C0;
+    --wren:#EBC14D;
+    --on-high:#E9ECF4;
+    --on-med:#A3ACBE;
+    --on-low:#6B7388;
+    --divider:rgba(156,130,255,.14);
+    --card:rgba(255,255,255,.025);
+    --radius:20px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--on-high);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ambient glow background */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(60vw 60vw at 78% -8%, rgba(124,92,255,.20), transparent 60%),
+      radial-gradient(50vw 50vw at 8% 12%, rgba(61,214,192,.10), transparent 55%),
+      linear-gradient(180deg,#06080f 0%, #0B1220 40%, #06080f 100%);
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(6,8,15,.55);
+    border-bottom:1px solid var(--divider);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;letter-spacing:-.01em;}
+  .brand .mark{width:30px;height:30px;display:block;object-fit:contain;}
+  .navlinks{display:flex;gap:30px;align-items:center;font-size:14.5px;color:var(--on-med);}
+  .navlinks a:hover{color:var(--on-high);}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:600;font-size:14.5px;
+    padding:11px 20px;border-radius:999px;
+    background:linear-gradient(135deg,var(--purple-500),var(--purple-400));
+    color:#fff;border:none;cursor:pointer;
+    box-shadow:0 8px 26px -10px rgba(124,92,255,.8);
+    transition:transform .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(124,92,255,.9);}
+  .btn.ghost{background:transparent;border:1px solid var(--divider);box-shadow:none;color:var(--on-high);}
+  .btn.ghost:hover{border-color:var(--purple-400);background:rgba(124,92,255,.08);}
+  @media(max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:84px 0 70px;}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--teal);
+    background:rgba(61,214,192,.10);border:1px solid rgba(61,214,192,.25);
+    padding:6px 14px;border-radius:999px;margin-bottom:24px;
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);}
+  h1{
+    font-size:clamp(38px,5.4vw,62px);line-height:1.04;margin:0 0 20px;
+    letter-spacing:-.025em;font-weight:800;
+  }
+  h1 .grad{
+    background:linear-gradient(120deg,var(--purple-200),var(--teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{font-size:clamp(16px,1.7vw,19px);color:var(--on-med);max-width:34ch;margin:0 0 32px;}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .sub-note{font-size:13px;color:var(--on-low);margin-top:18px;}
+  .sub-note b{color:var(--on-med);font-weight:600;}
+
+  /* ---------- phone mock ---------- */
+  .phone-stage{position:relative;display:flex;justify-content:center;}
+  .phone{
+    position:relative;width:300px;height:610px;border-radius:42px;
+    background:linear-gradient(160deg,#1a2233,#0c1018);
+    border:1px solid #232c40;
+    padding:13px;
+    box-shadow:0 50px 90px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(124,92,255,.10);
+  }
+  .screen{
+    position:relative;width:100%;height:100%;border-radius:31px;overflow:hidden;
+    background:linear-gradient(180deg,#0B1220,#131B2E);
+    display:flex;flex-direction:column;
+  }
+  .notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:96px;height:7px;border-radius:99px;background:#000;opacity:.55;z-index:3;}
+  .statusbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 4px;font-size:12px;color:var(--on-med);font-weight:600;}
+  .scr-body{padding:14px 18px;flex:1;display:flex;flex-direction:column;}
+  .scr-title{font-size:13px;color:var(--on-low);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px;}
+  .bigtime{font-size:64px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 2px;}
+  .bigtime small{font-size:24px;font-weight:700;color:var(--on-med);margin-left:6px;}
+  .nextfire{font-size:12.5px;color:var(--teal);font-weight:600;margin-bottom:18px;}
+
+  .alarm-card{
+    background:var(--card);border:1px solid var(--divider);border-radius:18px;
+    padding:14px;margin-bottom:12px;
+  }
+  .alarm-card.active{
+    background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(61,214,192,.06));
+    border-color:rgba(124,92,255,.45);
+  }
+  .ac-top{display:flex;justify-content:space-between;align-items:center;}
+  .ac-time{font-size:30px;font-weight:800;letter-spacing:-.02em;}
+  .ac-time small{font-size:14px;color:var(--on-med);font-weight:700;margin-left:4px;}
+  .toggle{width:42px;height:24px;border-radius:99px;background:var(--purple-500);position:relative;box-shadow:0 0 14px -2px rgba(124,92,255,.8);}
+  .toggle::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:#fff;}
+  .toggle.off{background:#2a3450;box-shadow:none;}
+  .toggle.off::after{left:3px;right:auto;background:#8893ab;}
+  .ac-pod{display:flex;align-items:center;gap:10px;margin-top:11px;}
+  .pod-ico{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--purple-400),var(--teal));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .pod-meta{min-width:0;}
+  .pod-name{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pod-sub{font-size:11.5px;color:var(--on-med);}
+  .days{display:flex;gap:5px;margin-top:11px;}
+  .day{font-size:10px;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);color:var(--on-low);}
+  .day.on{background:rgba(61,214,192,.16);color:var(--teal);}
+
+  .tabbar{margin-top:auto;display:flex;justify-content:space-around;padding:12px 4px 16px;border-top:1px solid var(--divider);background:rgba(6,8,15,.4);}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;color:var(--on-low);font-weight:600;}
+  .tab.on{color:var(--purple-200);}
+  .tab .ti{width:20px;height:20px;border-radius:6px;background:currentColor;opacity:.85;mask-size:contain;-webkit-mask-size:contain;}
+
+  /* perched wren peeking over the phone */
+  .wren-peek{
+    position:absolute;top:-46px;right:6px;width:150px;height:150px;z-index:4;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,.5));
+    pointer-events:none;
+  }
+  /* real screenshot inside the hero phone */
+  .screen .shot{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+
+  /* ---------- fanned screen deck ---------- */
+  .deck-stage{position:relative;height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:6px;}
+  .deck{position:relative;width:250px;height:524px;}
+  .card{
+    position:absolute;top:0;left:0;width:250px;height:524px;cursor:pointer;
+    transition:transform .8s cubic-bezier(.22,.61,.36,1), opacity .8s ease, filter .8s ease;
+    will-change:transform,opacity,filter;
+  }
+  .cphone{
+    width:100%;height:100%;padding:9px;border-radius:36px;
+    background:linear-gradient(160deg,#1a2233,#0c1018);border:1px solid #232c40;
+    box-shadow:0 40px 70px -34px rgba(0,0,0,.9), 0 0 0 1px rgba(124,92,255,.08);
+  }
+  .cscreen{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:#0b0f17;}
+  .cscreen .cshot{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+
+  .deck-caption{text-align:center;color:var(--on-med);font-size:15.5px;max-width:48ch;margin:14px auto 0;min-height:2.8em;}
+  .deck-dots{display:flex;gap:10px;justify-content:center;margin-top:12px;}
+  .deck-dot{width:9px;height:9px;border-radius:50%;background:#2a3450;border:none;cursor:pointer;padding:0;transition:background .2s ease,transform .2s ease;}
+  .deck-dot.on{background:var(--purple-400);transform:scale(1.3);}
+  @media(max-width:640px){ .deck-stage{height:470px;transform:scale(.74);} }
+
+  /* ---------- drawn app screens (live HTML inside the cards) ---------- */
+  .mscr{position:absolute;inset:0;display:flex;flex-direction:column;background:#0b0f17;color:#E9ECF4;font-size:11px;line-height:1.3;}
+  .mscr-body{flex:1;overflow:hidden;padding:18px 14px 0;}
+  .m-nav{display:flex;justify-content:space-around;align-items:flex-start;padding:9px 6px 13px;border-top:1px solid rgba(255,255,255,.05);background:rgba(7,9,15,.4);}
+  .m-tab{display:flex;flex-direction:column;align-items:center;gap:3px;color:#6B7388;}
+  .m-tab svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+  .m-pill{display:flex;align-items:center;justify-content:center;padding:3px 13px;border-radius:11px;}
+  .m-tab-l{font-size:8.5px;font-weight:600;}
+  .m-tab.on{color:#CBBEFF;}
+  .m-tab.on .m-pill{background:rgba(124,92,255,.22);}
+
+  /* Alarms screen */
+  .m-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .m-title{font-size:17px;font-weight:600;}
+  .m-actions{color:#9aa3b4;font-size:15px;letter-spacing:5px;}
+  .m-next{font-size:14.5px;font-weight:600;text-align:center;line-height:1.25;margin:2px 4px 4px;}
+  .m-date{font-size:10.5px;color:#8893a6;text-align:center;margin-bottom:16px;}
+  .m-alarm{display:flex;align-items:center;gap:11px;background:#181c24;border-radius:16px;padding:14px 14px;margin-bottom:12px;}
+  .m-atime{font-size:27px;font-weight:300;letter-spacing:-.02em;flex-shrink:0;}
+  .m-meta{list-style:none;margin:0;padding:0;flex:1;min-width:0;font-size:10px;color:#A3ACBE;}
+  .m-meta li{position:relative;padding-left:10px;margin:1.5px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .m-meta li::before{content:"";position:absolute;left:0;top:5px;width:3px;height:3px;border-radius:50%;background:#6B7388;}
+  .m-toggle{flex-shrink:0;width:34px;height:19px;border-radius:99px;background:#7C5CFF;position:relative;}
+  .m-toggle::after{content:"";position:absolute;top:2.5px;left:2.5px;width:14px;height:14px;border-radius:50%;background:#0b0f17;}
+
+  /* Discover screen */
+  .m-search{display:flex;align-items:center;gap:8px;border:1.5px solid #7C5CFF;border-radius:14px;padding:11px 12px;color:#8893a6;font-size:12px;margin-bottom:18px;}
+  .m-search svg{width:15px;height:15px;stroke:#8893a6;fill:none;flex-shrink:0;}
+  .m-section{font-size:15px;font-weight:600;margin-bottom:13px;}
+  .m-cats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
+  .m-cat{background:#211d27;border-radius:12px;min-height:66px;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;font-size:11px;font-weight:700;line-height:1.18;}
+
+  /* Library screen */
+  .m-libtitle{font-size:24px;font-weight:700;margin:8px 0 14px;}
+  .m-pod{display:flex;align-items:center;gap:10px;background:#181c24;border-radius:14px;padding:9px;margin-bottom:9px;}
+  .m-art{flex-shrink:0;width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:800;text-align:center;line-height:1.05;color:#fff;overflow:hidden;padding:3px;}
+  .m-podmeta{flex:1;min-width:0;}
+  .m-podname{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .m-podauthor{font-size:10px;color:#8893a6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .m-podnext{font-size:10px;color:#9C82FF;font-weight:600;margin-top:1px;}
+  .m-chev{color:#6B7388;font-size:17px;flex-shrink:0;line-height:1;}
+
+  /* ---------- gentle-wake bonus band ---------- */
+  .bonus{
+    display:flex;gap:26px;align-items:center;max-width:880px;margin:14px auto 0;
+    background:linear-gradient(135deg,rgba(235,193,77,.10),rgba(124,92,255,.05));
+    border:1px solid var(--divider);border-left:3px solid var(--wren);
+    border-radius:var(--radius);padding:28px 32px;
+  }
+  .bonus-wren{flex-shrink:0;width:100px;height:100px;}
+  .bonus h3{font-size:21px;margin:6px 0 9px;font-weight:800;letter-spacing:-.01em;}
+  .bonus p{margin:0;color:var(--on-med);font-size:15px;}
+  @media(max-width:760px){ .bonus{flex-direction:column;text-align:center;gap:14px;padding:26px 22px;} }
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:78px 0;}
+  .eyebrow{color:var(--teal);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px;}
+  h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.025em;margin:0 0 16px;font-weight:800;line-height:1.1;}
+  .section-lede{color:var(--on-med);font-size:17px;max-width:60ch;margin:0 0 14px;}
+  .section-head{text-align:center;margin:0 auto 52px;max-width:680px;}
+
+  /* ---------- features ---------- */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .feature{
+    background:var(--card);border:1px solid var(--divider);border-radius:var(--radius);
+    padding:26px 24px;transition:transform .18s ease,border-color .18s ease,background .18s ease;
+  }
+  .feature:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.4);background:rgba(124,92,255,.05);}
+  .ficon{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.25);
+  }
+  .feature.teal .ficon{background:rgba(61,214,192,.12);border-color:rgba(61,214,192,.28);}
+  .feature h3{font-size:18px;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;}
+  .feature p{margin:0;color:var(--on-med);font-size:14.5px;}
+  @media(max-width:880px){ .features{grid-template-columns:1fr;} }
+
+  /* ---------- reliability band ---------- */
+  .band{
+    background:linear-gradient(135deg,rgba(124,92,255,.10),rgba(61,214,192,.05));
+    border:1px solid var(--divider);border-radius:28px;padding:48px;text-align:center;
+  }
+  .band h2{max-width:18ch;margin-left:auto;margin-right:auto;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px;}
+  .chip{
+    font-size:13.5px;font-weight:600;color:var(--on-high);
+    padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.04);
+    border:1px solid var(--divider);
+  }
+  .chip span{color:var(--teal);margin-right:7px;font-weight:800;}
+
+  /* ---------- how it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:step;}
+  .step{position:relative;padding-top:8px;}
+  .step .num{
+    width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:18px;color:var(--purple-200);
+    background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.3);margin-bottom:16px;
+  }
+  .step h3{margin:0 0 8px;font-size:18px;font-weight:700;}
+  .step p{margin:0;color:var(--on-med);font-size:14.5px;}
+  @media(max-width:880px){ .steps{grid-template-columns:1fr;gap:30px;} }
+
+  /* ---------- pricing ---------- */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+  .tier{
+    display:flex;flex-direction:column;
+    background:var(--card);border:1px solid var(--divider);border-radius:var(--radius);
+    padding:30px 26px;
+  }
+  .tier.feature-pop{
+    background:linear-gradient(180deg,rgba(124,92,255,.14),rgba(19,27,46,.4));
+    border-color:rgba(124,92,255,.5);position:relative;
+    box-shadow:0 30px 60px -40px rgba(124,92,255,.8);
+  }
+  .tier .tag{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.05em;text-transform:uppercase;}
+  .tier .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--purple-500),var(--purple-400));padding:5px 14px;border-radius:999px;}
+  .tier h3{font-size:22px;margin:8px 0 4px;font-weight:800;}
+  .tier .price{font-size:15px;color:var(--on-med);margin-bottom:18px;}
+  .tier ul{list-style:none;padding:0;margin:0;flex:1;}
+  .tier li{position:relative;padding:8px 0 8px 26px;font-size:14.5px;color:var(--on-high);border-top:1px solid var(--divider);}
+  .tier li:first-child{border-top:none;}
+  .tier li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:8px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg);}
+  @media(max-width:880px){ .tiers{grid-template-columns:1fr;} }
+
+  /* ---------- makers' story ---------- */
+  .story{
+    display:flex;gap:28px;align-items:flex-start;
+    max-width:860px;margin:56px auto 0;
+    background:linear-gradient(135deg,rgba(124,92,255,.10),rgba(61,214,192,.04));
+    border:1px solid var(--divider);border-left:3px solid var(--teal);
+    border-radius:var(--radius);padding:34px 36px;
+  }
+  .story-wren{flex-shrink:0;width:108px;height:108px;margin-top:-4px;}
+  .story blockquote{margin:0;}
+  .story-eyebrow{color:var(--teal);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
+  .story p{color:var(--on-med);font-size:15.5px;margin:0 0 14px;}
+  .story p em{color:var(--on-high);font-style:italic;}
+  .story-sign{color:var(--on-high) !important;font-weight:600;font-size:14px !important;margin:6px 0 0 !important;}
+  @media(max-width:880px){ .story{flex-direction:column;gap:18px;padding:28px 24px;} .story-wren{width:84px;height:84px;} }
+
+  /* ---------- final CTA ---------- */
+  .final{text-align:center;}
+  .final .wren-big{width:128px;height:128px;margin:0 auto 6px;display:block;}
+  .final h2{margin-bottom:14px;}
+  .final p{color:var(--on-med);max-width:46ch;margin:0 auto 28px;font-size:17px;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--divider);padding:40px 0;color:var(--on-low);font-size:14px;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot a:hover{color:var(--on-high);}
+  .foot-links{display:flex;gap:24px;}
+
+  @media(max-width:880px){
+    .hero{grid-template-columns:1fr;text-align:center;padding:54px 0 40px;}
+    .lede{margin-left:auto;margin-right:auto;}
+    .cta-row{justify-content:center;}
+    .pill{margin-left:auto;margin-right:auto;}
+    .phone-stage{margin-top:30px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">
+        <img class="mark" src="assets/alarmcast-icon.png" alt="" />
+        Alarmcast
+      </a>
+      <div class="navlinks">
+        <a href="#screens">Screens</a>
+        <a href="#features">Features</a>
+        <a href="#reliable">Reliability</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <a class="btn" href="#get">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="pill"><span class="dot"></span> Coming soon to Google Play</span>
+      <h1>Wake up to your <span class="grad">podcast</span>.</h1>
+      <p class="lede">Alarmcast plays the latest episode of a show you actually want to hear, and it fires every single time.</p>
+      <div class="cta-row">
+        <a class="btn" href="#get">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3.5v17c0 .6.7 1 1.2.6L19 12 4.2 2.9C3.7 2.5 3 2.9 3 3.5z"/></svg>
+          Get on Android
+        </a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="sub-note"><b>Fires through anything:</b> reboot, Doze, battery saver, a slow 6:30am network.</p>
+    </div>
+
+    <div class="phone-stage">
+      <!-- perched singing wren -->
+      <img class="wren-peek" src="assets/wren.svg" alt="Wren, the Alarmcast mascot, singing" />
+
+      <div class="phone">
+        <div class="screen">
+          <img class="shot" src="assets/screens/alarm.png" alt="Alarmcast alarm screen showing the time, days, podcast and gentle wake" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SCREENS SLIDER ============ -->
+<div class="wrap">
+  <section id="screens">
+    <div class="section-head">
+      <p class="eyebrow">See it in action</p>
+      <h2>Minimal by design</h2>
+      <p class="section-lede" style="margin-inline:auto;">No clutter. Every screen does one job, the way a good alarm app should, just with a podcast behind it. Tap a card to bring it to the front, or let it cycle.</p>
+    </div>
+
+    <div class="deck-stage">
+      <div class="deck">
+
+        <!-- 1. Alarms tab -->
+        <div class="card">
+          <div class="cphone"><div class="cscreen">
+            <div class="mscr">
+              <div class="mscr-body">
+                <div class="m-head"><span class="m-title">Alarm</span><span class="m-actions">+ &#8942;</span></div>
+                <div class="m-next">Alarm will go off in 20 hours 5 minutes</div>
+                <div class="m-date">Friday, Jun 19, 2026</div>
+                <div class="m-alarm">
+                  <div class="m-atime">06:05</div>
+                  <ul class="m-meta"><li>Week days</li><li>Global News Podcast</li><li>Latest</li></ul>
+                  <span class="m-toggle"></span>
+                </div>
+                <div class="m-alarm">
+                  <div class="m-atime">08:00</div>
+                  <ul class="m-meta"><li>Gentle</li><li>Weekends</li><li>The Diary Of A CEO &#8230;</li><li>Continue</li></ul>
+                  <span class="m-toggle"></span>
+                </div>
+              </div>
+              <div class="m-nav">
+                <span class="m-tab on"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><path d="M12 10v3.5l2 1.3"/><path d="M5 4 2.5 6.5M19 4l2.5 2.5"/></svg></span><span class="m-tab-l">Alarms</span></span>
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5 4 8 4 10 5.5v13C8 17 5 17 3 18.5z"/><path d="M21 5.5C19 4 16 4 14 5.5v13c2-1.5 5-1.5 7 0z"/><path d="M12 6v13"/></svg></span><span class="m-tab-l">Library</span></span>
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></span><span class="m-tab-l">Discover</span></span>
+              </div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- 2. Discover tab -->
+        <div class="card">
+          <div class="cphone"><div class="cscreen">
+            <div class="mscr">
+              <div class="mscr-body">
+                <div class="m-search"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Search podcasts</span></div>
+                <div class="m-section">Categories</div>
+                <div class="m-cats">
+                  <div class="m-cat">News &amp; Current Affairs</div>
+                  <div class="m-cat">Comedy</div>
+                  <div class="m-cat">Business &amp; Money</div>
+                  <div class="m-cat">Investing &amp; Finance</div>
+                  <div class="m-cat">Sports</div>
+                  <div class="m-cat">True Crime</div>
+                  <div class="m-cat">Tech</div>
+                </div>
+              </div>
+              <div class="m-nav">
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><path d="M12 10v3.5l2 1.3"/><path d="M5 4 2.5 6.5M19 4l2.5 2.5"/></svg></span><span class="m-tab-l">Alarms</span></span>
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5 4 8 4 10 5.5v13C8 17 5 17 3 18.5z"/><path d="M21 5.5C19 4 16 4 14 5.5v13c2-1.5 5-1.5 7 0z"/><path d="M12 6v13"/></svg></span><span class="m-tab-l">Library</span></span>
+                <span class="m-tab on"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></span><span class="m-tab-l">Discover</span></span>
+              </div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- 3. Library tab -->
+        <div class="card">
+          <div class="cphone"><div class="cscreen">
+            <div class="mscr">
+              <div class="mscr-body">
+                <div class="m-libtitle">Library</div>
+                <div class="m-pod"><span class="m-art" style="background:#fff;color:#6750A4;">CRIME&nbsp;JUNKIE</span><div class="m-podmeta"><div class="m-podname">Crime Junkie</div><div class="m-podauthor">Audiochuck</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#15110f;color:#e23b2e;">DARKNET</span><div class="m-podmeta"><div class="m-podname">Darknet Diaries</div><div class="m-podauthor">Jack Rhysider</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#c1121f;">GLOBAL NEWS</span><div class="m-podmeta"><div class="m-podname">Global News Podcast</div><div class="m-podauthor">BBC World Service</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#d7e021;color:#16331f;">HARD FORK</span><div class="m-podmeta"><div class="m-podname">Hard Fork</div><div class="m-podauthor">The New York Times</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#3a3a3a;color:#f0a020;">HOW I BUILT THIS</span><div class="m-podmeta"><div class="m-podname">How I Built This with Guy Raz</div><div class="m-podauthor">Guy Raz | Wondery</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+              </div>
+              <div class="m-nav">
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><path d="M12 10v3.5l2 1.3"/><path d="M5 4 2.5 6.5M19 4l2.5 2.5"/></svg></span><span class="m-tab-l">Alarms</span></span>
+                <span class="m-tab on"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5 4 8 4 10 5.5v13C8 17 5 17 3 18.5z"/><path d="M21 5.5C19 4 16 4 14 5.5v13c2-1.5 5-1.5 7 0z"/><path d="M12 6v13"/></svg></span><span class="m-tab-l">Library</span></span>
+                <span class="m-tab"><span class="m-pill"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></span><span class="m-tab-l">Discover</span></span>
+              </div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- 4. Sound (real render) -->
+        <div class="card">
+          <div class="cphone"><div class="cscreen">
+            <img class="cshot" src="assets/screens/sound.png" alt="Sound screen: choose a podcast, latest or continue, with a backup chime" />
+          </div></div>
+        </div>
+
+        <!-- 5. Gentle Wake (real render, the bonus) -->
+        <div class="card">
+          <div class="cphone"><div class="cscreen">
+            <img class="cshot" src="assets/screens/gentle-wake.png" alt="Gentle Wake screen with the Wren mascot" />
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="deck-caption">Your alarms, each tied to a podcast and the days it runs.</p>
+    <div class="deck-dots">
+      <button class="deck-dot on" type="button" aria-label="Alarms screen"></button>
+      <button class="deck-dot" type="button" aria-label="Discover screen"></button>
+      <button class="deck-dot" type="button" aria-label="Library screen"></button>
+      <button class="deck-dot" type="button" aria-label="Sound screen"></button>
+      <button class="deck-dot" type="button" aria-label="Gentle Wake screen"></button>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FEATURES ============ -->
+<div class="wrap">
+  <section id="features">
+    <div class="section-head">
+      <p class="eyebrow">Built around podcasts</p>
+      <h2>The podcast is the point</h2>
+      <p class="section-lede" style="margin-inline:auto;">Set it once and wake to the latest episode of a show you actually want to hear. Everything around it is built to make that effortless.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature teal">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DD6C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4"/></svg>
+        </div>
+        <h3>Wake to the latest episode</h3>
+        <p>Pick a show once. Every morning Alarmcast plays its newest episode, downloaded overnight so it starts the instant the alarm fires, even with no signal.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </div>
+        <h3>A curated catalogue</h3>
+        <p>Browse hand-picked categories, News, Comedy, Business, True Crime, Tech and more, or search the full index. Finding the right show takes seconds.</p>
+      </div>
+
+      <div class="feature teal">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DD6C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 3.5 10 3.5 12 5.5v13C10 16.5 6.5 16.5 4 18.5z"/><path d="M20 5.5C17.5 3.5 14 3.5 12 5.5v13c2-2 5.5-2 8 0z"/></svg>
+        </div>
+        <h3>Your Library, one tap to assign</h3>
+        <p>Subscribe to the shows you love and point any alarm at one. Each shows "Next: Latest episode" so you always know what is queued.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>
+        </div>
+        <h3>Latest, or carry on</h3>
+        <p>Wake to the very latest episode, or continue the one you were part-way through. The choice is per show, set once and then forgotten.</p>
+      </div>
+
+      <div class="feature teal">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DD6C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5 14.5 9.5"/><path d="M11.5 6.5 13 5a4 4 0 0 1 6 6l-1.5 1.5"/><path d="M12.5 17.5 11 19a4 4 0 0 1-6-6l1.5-1.5"/></svg>
+        </div>
+        <h3>Line up a follow-up</h3>
+        <p>Add a second podcast that plays after the first episode ends, so a quick news brief can roll straight into the show you really want.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ficon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+        </div>
+        <h3>Never silent</h3>
+        <p>Lapsed subscription, deleted show, no network? A warm birdsong chime always takes over. You never oversleep to silence.</p>
+      </div>
+    </div>
+
+    <!-- Gentle Wake: shown last, as a bonus -->
+    <div class="bonus">
+      <img class="bonus-wren" src="assets/wren.svg" alt="Wren, the Alarmcast mascot" />
+      <div>
+        <p class="eyebrow" style="color:var(--wren);">A gentle bonus</p>
+        <h3>Gentle Wake eases you in</h3>
+        <p>Not a morning person? Switch on Gentle Wake and soft birdsong fades in before the alarm, then hands over to your podcast at the set time. A calmer start, layered on an alarm that still always fires.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RELIABILITY BAND ============ -->
+<div class="wrap">
+  <section id="reliable">
+    <div class="band">
+      <p class="eyebrow">Reliability first</p>
+      <h2>The alarm fires every time</h2>
+      <p class="section-lede" style="margin-inline:auto;">Other podcast alarms feel clever until the morning one quietly fails to go off. Alarmcast is built around one rule: <b style="color:var(--on-high)">it wakes you up, no matter what Android does.</b></p>
+      <div class="chips">
+        <div class="chip"><span>✓</span>Survives a reboot</div>
+        <div class="chip"><span>✓</span>Pierces Doze mode</div>
+        <div class="chip"><span>✓</span>Beats battery optimisation</div>
+        <div class="chip"><span>✓</span>Rings before unlock</div>
+        <div class="chip"><span>✓</span>Works offline</div>
+        <div class="chip"><span>✓</span>Episode cached overnight</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<div class="wrap">
+  <section id="how">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>From podcast to alarm in three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Find your show</h3>
+        <p>Search the Discover tab, preview episodes, and subscribe to the podcasts you want in your Library.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Set your alarm</h3>
+        <p>Choose a time and the days, then attach a channel. Tune volume, snooze, fade-in and a reminder lead time per alarm.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Wake up informed</h3>
+        <p>When the alarm goes off, it plays the latest episode straight from local storage, so it starts instantly. You wake up already caught up.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PRICING ============ -->
+<div class="wrap">
+  <section id="pricing">
+    <div class="section-head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Free to start, with more when you want it</h2>
+      <p class="section-lede" style="margin-inline:auto;">Every plan fires exactly as reliably; the wake-up never changes between tiers. You pay only to remove ads or unlock the listening extras.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tag">Free</span>
+        <h3>Starter</h3>
+        <div class="price">Free, with ads</div>
+        <ul>
+          <li>Up to 2 alarms</li>
+          <li>Latest-episode wake-up</li>
+          <li>Bundled chime fallback</li>
+          <li>Skip-back 15s &amp; volume fade-in</li>
+          <li>Light / dark / system themes</li>
+        </ul>
+      </div>
+
+      <div class="tier feature-pop">
+        <span class="badge">Most popular</span>
+        <span class="tag">One-off</span>
+        <h3>Unlimited</h3>
+        <div class="price">Single purchase · no subscription</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li><b>No ads, anywhere</b></li>
+          <li>Unlimited alarms</li>
+          <li>Per-channel source &amp; auto-advance</li>
+          <li>Yours forever, one payment</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <span class="tag">Subscription</span>
+        <h3>Pro listener</h3>
+        <div class="price">Monthly or yearly</div>
+        <ul>
+          <li>Everything in Unlimited</li>
+          <li>Timestamp resume across days</li>
+          <li>Skip-forward &amp; jump between episodes</li>
+          <li>Chain a second channel after the first</li>
+          <li>Skip-intro per podcast</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- makers' story: why the Pro tier exists -->
+    <div class="story">
+      <img class="story-wren" src="assets/wren.svg" alt="" aria-hidden="true" />
+      <blockquote>
+        <p class="story-eyebrow">Why there's a Pro listener plan</p>
+        <p>We got the core working first: the part that <em>has</em> to fire every morning. Then we wanted more for ourselves. We fall behind on long episodes and want to pick them back up days later. We want to skip around, or jump to another episode while the alarm is still ringing, and line up a second show after the first.</p>
+        <p>That was the hardest part of the app to build. Doing live episode controls on top of an alarm that is already going off, without ever risking the wake-up, took months of work and a lot of rewrites. The Pro listener plan is where that work lives. If you spend as much time in your feed as we do, it is for you.</p>
+        <p class="story-sign">The Alarmcast team</p>
+      </blockquote>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FINAL CTA ============ -->
+<div class="wrap">
+  <section id="get">
+    <div class="band final">
+      <img class="wren-big" src="assets/wren.svg" alt="Wren, the Alarmcast mascot" />
+      <h2>Meet Wren. She'll get you up.</h2>
+      <p>Alarmcast is almost ready. Leave your email and we'll tell you the day it lands on Google Play.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn" href="mailto:tarlmb@gmail.com?subject=Notify%20me%20when%20Alarmcast%20launches">Notify me at launch</a>
+        <a class="btn ghost" href="#features">Explore features</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px;">
+      <img class="mark" src="assets/alarmcast-icon.png" alt="" />
+      Alarmcast
+    </div>
+    <div class="foot-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="mailto:tarlmb@gmail.com">Contact</a>
+    </div>
+    <div>© 2026 Alarmcast · alarmcast.app</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.getElementById('screens');
+  if (!root) return;
+  var deck  = root.querySelector('.deck');
+  var cards = [].slice.call(deck.querySelectorAll('.card'));
+  var dots  = [].slice.call(root.querySelectorAll('.deck-dot'));
+  var capEl = root.querySelector('.deck-caption');
+  var caps = [
+    'Your alarms, each tied to a podcast and the days it runs.',
+    'A hand-picked, curated catalogue, so finding a show takes seconds.',
+    'Your subscribed shows, each set to play its latest episode.',
+    'Latest or continue where you left off, with a backup chime that never stays silent.',
+    'A gentle bonus: birdsong fades in, then hands over to your podcast.'
+  ];
+  var n = cards.length, active = 0, timer = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function layout() {
+    for (var k = 0; k < n; k++) {
+      var d = k - active;
+      if (d >  n / 2) d -= n;
+      if (d < -n / 2) d += n;
+      var ad = Math.abs(d);
+      var tx = d * 132, ty = ad * 16, rot = d * 7, sc = 1 - ad * 0.13;
+      var card = cards[k];
+      card.style.transform = 'translateX(' + tx + 'px) translateY(' + ty + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
+      card.style.zIndex = String(100 - ad);
+      card.style.opacity = ad > 2 ? '0' : String(1 - ad * 0.16);
+      card.style.filter = 'brightness(' + (1 - ad * 0.12) + ')';
+      card.style.pointerEvents = ad > 2 ? 'none' : 'auto';
+    }
+    dots.forEach(function (dt, idx) { dt.classList.toggle('on', idx === active); });
+    if (capEl) capEl.textContent = caps[active] || '';
+  }
+  function go(k)  { active = (k % n + n) % n; layout(); }
+  function next() { go(active + 1); }
+  function prev() { go(active - 1); }
+  function play() { if (reduce) return; stop(); timer = setInterval(next, 4500); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  cards.forEach(function (card, idx) { card.addEventListener('click', function () { go(idx); play(); }); });
+  dots.forEach(function (dt, idx) { dt.addEventListener('click', function () { go(idx); play(); }); });
+
+  var stage = root.querySelector('.deck-stage');
+  stage.addEventListener('mouseenter', stop);
+  stage.addEventListener('mouseleave', play);
+
+  var x0 = null;
+  stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); play(); }
+    x0 = null;
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { next(); play(); }
+    else if (e.key === 'ArrowLeft') { prev(); play(); }
+  });
+
+  layout();
+  play();
+})();
+</script>
+</body>
+</html>

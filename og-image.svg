@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080f"/>
+      <stop offset="0.5" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#06080f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#7C5CFF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#CBBEFF"/>
+      <stop offset="1" stop-color="#3DD6C0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- pill -->
+  <rect x="80" y="120" width="360" height="46" rx="23" fill="#3DD6C0" fill-opacity="0.12" stroke="#3DD6C0" stroke-opacity="0.3"/>
+  <circle cx="108" cy="143" r="5" fill="#3DD6C0"/>
+  <text x="126" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#3DD6C0">Coming soon to Google Play</text>
+
+  <!-- headline -->
+  <text x="80" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="76" font-weight="800" fill="#E9ECF4">Wake up to your</text>
+  <text x="80" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="76" font-weight="800" fill="url(#grad)">podcast.</text>
+
+  <text x="80" y="440" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="400" fill="#A3ACBE">The alarm clock that fires every time,</text>
+  <text x="80" y="482" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="400" fill="#A3ACBE">then plays the latest episode you chose.</text>
+
+  <!-- brand -->
+  <text x="80" y="575" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#9C82FF">Alarmcast</text>
+  <text x="265" y="575" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="400" fill="#6B7388">· alarmcast.app</text>
+
+  <!-- wren -->
+  <g transform="translate(760,150) scale(0.95)">
+    <g fill="#3DD6C0">
+      <g transform="translate(300,196)"><circle cx="0" cy="12" r="7.5"/><rect x="6" y="-16" width="4" height="28" rx="2"/><path d="M6 -16 q14 2.5 14 13 q-4 -7 -14 -7 Z"/></g>
+    </g>
+    <g stroke="#E0982E" stroke-width="6" stroke-linecap="round"><line x1="186" y1="276" x2="186" y2="302"/><line x1="214" y1="276" x2="214" y2="302"/></g>
+    <path d="M122 222 q-44 0 -60 18 q40 8 62 -4 Z" fill="#D69A33"/>
+    <g fill="#D69A33"><path d="M210 131 q-6 -20 -7 -35 q12 9 14 28 Z"/><path d="M220 131 q-1 -23 1 -40 q5 16 3 33 Z"/><path d="M230 131 q6 -20 7 -35 q-12 9 -14 28 Z"/></g>
+    <circle cx="200" cy="206" r="86" fill="#EBC14D" stroke="#C0892A" stroke-width="2"/>
+    <ellipse cx="206" cy="248" rx="50" ry="32" fill="#F7E09A"/>
+    <path d="M160 198 q50 -16 86 10 q-34 36 -86 4 Z" fill="#D69A33"/>
+    <ellipse cx="233" cy="206" rx="12" ry="9" fill="#EF9B6B" opacity="0.5"/>
+    <circle cx="250" cy="180" r="13" fill="#3A2A12"/><circle cx="245" cy="175" r="4.5" fill="#fff"/>
+    <path d="M278 192 L298 196 L278 200 Z" fill="#D9731F"/>
+    <path d="M278 192 L298 196 L278 188 Z" fill="#F08A2E"/>
+  </g>
+</svg>
