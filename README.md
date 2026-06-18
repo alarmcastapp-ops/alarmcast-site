@@ -87,5 +87,6 @@ All text and styles live in `index.html`. The colour palette is defined once in 
 `:root` block at the top (navy background, `#7C5CFF` purple, `#3DD6C0` teal,
 `#EBC14D` Wren yellow). Change it there and the whole page follows.
 
-The launch CTA currently points to `mailto:tarlmb@gmail.com`. Swap it for the real
-Google Play link once the app is published (search `#get` and the `mailto:` links).
+Contact links point to `mailto:hello@alarmcast.app` (set up as Porkbun email forwarding to
+the project Gmail). The launch CTA is still a `mailto:` — swap it for the real Google Play
+link once the app is published (search `#get` and the `mailto:` links).
