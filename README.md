@@ -1,83 +1,85 @@
 # Alarmcast one-page website
 
-The marketing one-pager for **Alarmcast**, served at **https://alarmcast.app**.
+The marketing one-pager for **Alarmcast**, live at **https://alarmcast.app**.
 
-Everything is static (no build step). Just HTML + inline CSS + a couple of SVGs.
+Everything is static (no build step) — HTML + inline CSS + a few SVGs/PNGs.
+
+## Contents
 
 ```
-website/
-├── index.html      ← the whole page (inline CSS)
-├── favicon.svg     ← browser tab icon (Wren)
-├── og-image.svg    ← social/preview card (referenced by Open Graph tags)
-├── assets/
-│   └── wren.svg    ← the animated singing mascot (used in hero + footer)
-├── CNAME           ← custom domain for GitHub Pages (alarmcast.app)
-└── .nojekyll       ← tells GitHub Pages to serve files as-is
+website/                          (this folder == the deployed repo root)
+├── index.html                    ← the whole page (inline CSS in a :root block)
+├── favicon.svg                   ← browser tab icon (Wren)
+├── og-image.svg                  ← social / link-preview card (Open Graph tags)
+├── CNAME                         ← custom domain for GitHub Pages (alarmcast.app)
+├── .nojekyll                     ← tells GitHub Pages to serve files as-is
+├── .gitignore                    ← ignores OS cruft (.DS_Store, Thumbs.db, …)
+└── assets/
+    ├── alarmcast-icon.png / .svg ← app icon (hero, header, footer)
+    ├── wren.svg                  ← the singing-mascot Wren
+    └── screens/                  ← app screenshots: alarm, sound, gentle-wake, snooze
 ```
 
-## Preview locally
+## Live deployment (already set up)
 
-Open `index.html` directly in a browser, or serve the folder:
+| | |
+|---|---|
+| **Repo** | [`alarmcastapp-ops/alarmcast-site`](https://github.com/alarmcastapp-ops/alarmcast-site) — branch `main`, repo root = these files |
+| **Host** | GitHub Pages — *Settings → Pages → Deploy from a branch* `main` / `/ (root)` |
+| **Domain** | `alarmcast.app` (declared in `CNAME`), registrar **Porkbun** |
+| **www** | `www.alarmcast.app` → CNAME → `alarmcastapp-ops.github.io` |
+| **HTTPS** | Auto Let's Encrypt cert via GitHub Pages (`.app` is HTTPS-only) |
 
+This folder is its **own git repo**, initialised in place and separate from the parent
+`alarmcast` monorepo (which gitignores `website/`). Push as the **alarmcastapp-ops**
+GitHub account — a personal account without write access gets a `403`.
+
+### Update the live site
+Edit files here, then **from inside `website/`**:
+
+```bash
+git add -A
+git commit -m "your message"
+git push
+```
+
+GitHub Pages redeploys within a minute or two. (From the monorepo root you can also run
+the same commands prefixed with `git -C website …`.)
+
+### Preview locally
 ```bash
 # from inside website/
-python -m http.server 8000
-# then visit http://localhost:8000
+python -m http.server 8000   # then visit http://localhost:8000
 ```
 
-## Deploy to GitHub Pages (with the alarmcast.app domain)
+## First-time setup (reference — already done)
 
-GitHub Pages serves a site from the **root** of a repo (or a `/docs` folder), so the
-cleanest setup is a **dedicated repo** whose root is the contents of this `website/`
-folder.
+<details>
+<summary>How this was wired up, in case it ever needs re-creating</summary>
 
-### 1. Create the repo
-Create a new GitHub repo named **`alarmcast-site`** (empty, no README).
+1. **Repo** — created an empty GitHub repo `alarmcast-site` under the **alarmcastapp-ops**
+   account (no README/license/.gitignore).
+2. **Push** — from inside `website/`:
+   ```bash
+   git init -b main
+   git add -A && git commit -m "Alarmcast landing page"
+   git remote add origin https://github.com/alarmcastapp-ops/alarmcast-site.git
+   git push -u origin main          # authenticate as alarmcastapp-ops
+   ```
+3. **Pages** — *Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)`*.
+   The `CNAME` file auto-fills the custom domain as `alarmcast.app`.
+4. **DNS (Porkbun)** — on the apex `alarmcast.app` (Host field left **blank**):
+   - **A** (IPv4): `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - **AAAA** (IPv6): `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+   - **CNAME**: `www` → `alarmcastapp-ops.github.io`
 
-### 2. Push the contents of this folder to it
-From inside `website/`:
+   Delete any default `pixie.porkbun.com` parking records (incl. the wildcard `*` CNAME).
+5. **HTTPS** — once the DNS check goes green in *Settings → Pages*, tick **Enforce HTTPS**.
 
-```bash
-git init
-git add .
-git commit -m "Alarmcast landing page"
-git branch -M main
-git remote add origin https://github.com/<your-username>/alarmcast-site.git
-git push -u origin main
-```
-
-### 3. Turn on Pages
-Repo → **Settings → Pages** → *Build and deployment* → Source: **Deploy from a branch**
-→ Branch: **main**, folder: **/ (root)** → Save.
-
-### 4. Point the domain at GitHub
-The `CNAME` file in this folder already declares `alarmcast.app`. At your domain
-registrar, add these DNS records for the apex domain:
-
-**A records** (IPv4):
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-**AAAA records** (IPv6):
-```
-2606:50c0:8000::153
-2606:50c0:8001::153
-2606:50c0:8002::153
-2606:50c0:8003::153
-```
-Optionally add a **CNAME record** for `www` → `<your-username>.github.io` so
-`www.alarmcast.app` redirects too.
-
-### 5. Enforce HTTPS
-Back in **Settings → Pages**, confirm the custom domain shows `alarmcast.app`,
-wait for the DNS check to go green, then tick **Enforce HTTPS**.
-
-> Note: `.app` is an HSTS-preloaded TLD, so HTTPS is *mandatory*. GitHub provisions a
-> free Let's Encrypt certificate automatically. It can take a few minutes to an hour
-> after DNS resolves.
+> A freshly-added `www` record can read *"improperly configured (InvalidDNSError)"* in
+> GitHub for ~15–60 min because of negative DNS caching. The apex still works; the warning
+> clears on its own.
+</details>
 
 ## Editing copy
 
