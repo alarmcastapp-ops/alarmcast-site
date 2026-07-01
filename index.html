@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Alarmcast: a podcast alarm clock for Android</title>
-<meta name="description" content="Alarmcast is a podcast alarm clock for Android. It fires every time, even after a reboot, in Doze, or on a slow network, then wakes you to the latest episode of a podcast you chose." />
+<meta name="description" content="Alarmcast is a podcast alarm clock for Android. It fires every time, even after a reboot, in Doze, or on a slow network, then plays the podcast you chose — latest episode or right where you left off." />
 <meta name="theme-color" content="#0B1220" />
 <link rel="icon" type="image/png" href="assets/alarmcast-icon.png" />
 <link rel="apple-touch-icon" href="assets/alarmcast-icon.png" />
@@ -12,7 +12,7 @@
 <!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Alarmcast: wake up to your podcast" />
-<meta property="og:description" content="A podcast alarm clock for Android that fires every time, then plays the latest episode of the podcast you chose." />
+<meta property="og:description" content="A podcast alarm clock for Android that fires every time, then plays the podcast you chose — latest episode or right where you left off." />
 <meta property="og:url" content="https://alarmcast.app" />
 <meta property="og:image" content="https://alarmcast.app/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
   }
   nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
   .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;letter-spacing:-.01em;}
-  .brand .mark{width:30px;height:30px;display:block;object-fit:contain;}
+  .brand .mark{width:30px;height:30px;display:block;object-fit:contain;background:#fff;border-radius:50%;padding:1px;box-sizing:border-box;}
   .navlinks{display:flex;gap:30px;align-items:center;font-size:14.5px;color:var(--on-med);}
   .navlinks a:hover{color:var(--on-high);}
   .btn{
@@ -191,7 +191,10 @@
   .deck-dots{display:flex;gap:10px;justify-content:center;margin-top:12px;}
   .deck-dot{width:9px;height:9px;border-radius:50%;background:#2a3450;border:none;cursor:pointer;padding:0;transition:background .2s ease,transform .2s ease;}
   .deck-dot.on{background:var(--purple-400);transform:scale(1.3);}
-  @media(max-width:640px){ .deck-stage{height:470px;transform:scale(.74);} }
+  @media(max-width:640px){
+    .deck-stage{height:388px;}
+    .deck{transform:scale(.74);}
+  }
 
   /* ---------- drawn app screens (live HTML inside the cards) ---------- */
   .mscr{position:absolute;inset:0;display:flex;flex-direction:column;background:#0b0f17;color:#E9ECF4;font-size:11px;line-height:1.3;}
@@ -237,7 +240,7 @@
 
   /* ---------- gentle-wake bonus band ---------- */
   .bonus{
-    display:flex;gap:26px;align-items:center;max-width:880px;margin:14px auto 0;
+    display:flex;gap:26px;align-items:center;margin:14px 0 0;
     background:linear-gradient(135deg,rgba(235,193,77,.10),rgba(124,92,255,.05));
     border:1px solid var(--divider);border-left:3px solid var(--wren);
     border-radius:var(--radius);padding:28px 32px;
@@ -326,13 +329,13 @@
     border:1px solid var(--divider);border-left:3px solid var(--teal);
     border-radius:var(--radius);padding:34px 36px;
   }
-  .story-wren{flex-shrink:0;width:108px;height:108px;margin-top:-4px;}
+  .story-icon{flex-shrink:0;width:108px;height:108px;margin-top:-4px;}
   .story blockquote{margin:0;}
   .story-eyebrow{color:var(--teal);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
   .story p{color:var(--on-med);font-size:15.5px;margin:0 0 14px;}
   .story p em{color:var(--on-high);font-style:italic;}
   .story-sign{color:var(--on-high) !important;font-weight:600;font-size:14px !important;margin:6px 0 0 !important;}
-  @media(max-width:880px){ .story{flex-direction:column;gap:18px;padding:28px 24px;} .story-wren{width:84px;height:84px;} }
+  @media(max-width:880px){ .story{flex-direction:column;gap:18px;padding:28px 24px;} .story-icon{width:84px;height:84px;} }
 
   /* ---------- final CTA ---------- */
   .final{text-align:center;}
@@ -385,7 +388,7 @@
     <div class="hero-copy">
       <span class="pill"><span class="dot"></span> Coming soon to Google Play</span>
       <h1>Wake up to your <span class="grad">podcast</span>.</h1>
-      <p class="lede">Alarmcast plays the latest episode of a show you actually want to hear, and it fires every single time.</p>
+      <p class="lede">Alarmcast plays a show you actually want to hear, latest episode or right where you left off, and it fires every single time.</p>
       <div class="cta-row">
         <a class="btn" href="#get">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3.5v17c0 .6.7 1 1.2.6L19 12 4.2 2.9C3.7 2.5 3 2.9 3 3.5z"/></svg>
@@ -482,9 +485,9 @@
               <div class="mscr-body">
                 <div class="m-libtitle">Library</div>
                 <div class="m-pod"><span class="m-art" style="background:#fff;color:#6750A4;">CRIME&nbsp;JUNKIE</span><div class="m-podmeta"><div class="m-podname">Crime Junkie</div><div class="m-podauthor">Audiochuck</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
-                <div class="m-pod"><span class="m-art" style="background:#15110f;color:#e23b2e;">DARKNET</span><div class="m-podmeta"><div class="m-podname">Darknet Diaries</div><div class="m-podauthor">Jack Rhysider</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#15110f;color:#e23b2e;">DARKNET</span><div class="m-podmeta"><div class="m-podname">Darknet Diaries</div><div class="m-podauthor">Jack Rhysider</div><div class="m-podnext">Next: Continue</div></div><span class="m-chev">&rsaquo;</span></div>
                 <div class="m-pod"><span class="m-art" style="background:#c1121f;">GLOBAL NEWS</span><div class="m-podmeta"><div class="m-podname">Global News Podcast</div><div class="m-podauthor">BBC World Service</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
-                <div class="m-pod"><span class="m-art" style="background:#d7e021;color:#16331f;">HARD FORK</span><div class="m-podmeta"><div class="m-podname">Hard Fork</div><div class="m-podauthor">The New York Times</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
+                <div class="m-pod"><span class="m-art" style="background:#d7e021;color:#16331f;">HARD FORK</span><div class="m-podmeta"><div class="m-podname">Hard Fork</div><div class="m-podauthor">The New York Times</div><div class="m-podnext">Next: Continue</div></div><span class="m-chev">&rsaquo;</span></div>
                 <div class="m-pod"><span class="m-art" style="background:#3a3a3a;color:#f0a020;">HOW I BUILT THIS</span><div class="m-podmeta"><div class="m-podname">How I Built This with Guy Raz</div><div class="m-podauthor">Guy Raz | Wondery</div><div class="m-podnext">Next: Latest episode</div></div><span class="m-chev">&rsaquo;</span></div>
               </div>
               <div class="m-nav">
@@ -530,7 +533,7 @@
     <div class="section-head">
       <p class="eyebrow">Built around podcasts</p>
       <h2>The podcast is the point</h2>
-      <p class="section-lede" style="margin-inline:auto;">Set it once and wake to the latest episode of a show you actually want to hear. Everything around it is built to make that effortless.</p>
+      <p class="section-lede" style="margin-inline:auto;">Set it once and wake to a show you actually want to hear, latest episode or right where you left off. Everything around it is built to make that effortless.</p>
     </div>
 
     <div class="features">
@@ -539,7 +542,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DD6C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4"/></svg>
         </div>
         <h3>Wake to the latest episode</h3>
-        <p>Pick a show once. Every morning Alarmcast plays its newest episode, downloaded overnight so it starts the instant the alarm fires, even with no signal.</p>
+        <p>Pick a show once. Every morning Alarmcast plays its newest episode, or picks up where you left off if you'd rather, downloaded overnight so it starts the instant the alarm fires, even with no signal.</p>
       </div>
 
       <div class="feature">
@@ -555,7 +558,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DD6C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 3.5 10 3.5 12 5.5v13C10 16.5 6.5 16.5 4 18.5z"/><path d="M20 5.5C17.5 3.5 14 3.5 12 5.5v13c2-2 5.5-2 8 0z"/></svg>
         </div>
         <h3>Your Library, one tap to assign</h3>
-        <p>Subscribe to the shows you love and point any alarm at one. Each shows "Next: Latest episode" so you always know what is queued.</p>
+        <p>Subscribe to the shows you love and point any alarm at one. Each shows what's queued next, latest episode or right where you left off, so you always know.</p>
       </div>
 
       <div class="feature">
@@ -585,9 +588,9 @@
 
     <!-- Gentle Wake: shown last, as a bonus -->
     <div class="bonus">
-      <img class="bonus-wren" src="assets/wren.svg" alt="Wren, the Alarmcast mascot" />
+      <img class="bonus-wren" src="assets/wren-branch.svg" alt="Wren perched calmly on a branch" />
       <div>
-        <p class="eyebrow" style="color:var(--wren);">A gentle bonus</p>
+        <p class="eyebrow" style="color:var(--wren);">One more thing</p>
         <h3>Gentle Wake eases you in</h3>
         <p>Not a morning person? Switch on Gentle Wake and soft birdsong fades in before the alarm, then hands over to your podcast at the set time. A calmer start, layered on an alarm that still always fires.</p>
       </div>
@@ -635,7 +638,7 @@
       <div class="step">
         <div class="num">3</div>
         <h3>Wake up informed</h3>
-        <p>When the alarm goes off, it plays the latest episode straight from local storage, so it starts instantly. You wake up already caught up.</p>
+        <p>When the alarm goes off, it plays straight from local storage — the latest episode, or right where you left off, whichever you chose — so it starts instantly.</p>
       </div>
     </div>
   </section>
@@ -693,7 +696,7 @@
 
     <!-- makers' story: why the Pro tier exists -->
     <div class="story">
-      <img class="story-wren" src="assets/wren.svg" alt="" aria-hidden="true" />
+      <img class="story-icon" src="assets/headphones-icon.svg" alt="" aria-hidden="true" />
       <blockquote>
         <p class="story-eyebrow">Why there's a Pro listener plan</p>
         <p>We got the core working first: the part that <em>has</em> to fire every morning. Then we wanted more for ourselves. We fall behind on long episodes and want to pick them back up days later. We want to skip around, or jump to another episode while the alarm is still ringing, and line up a second show after the first.</p>
@@ -730,6 +733,7 @@
     <div class="foot-links">
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
+      <a href="/privacy/">Privacy</a>
       <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
     </div>
     <div>© 2026 Alarmcast · alarmcast.app</div>
@@ -747,9 +751,9 @@
   var caps = [
     'Your alarms, each tied to a podcast and the days it runs.',
     'A hand-picked, curated catalogue, so finding a show takes seconds.',
-    'Your subscribed shows, each set to play its latest episode.',
+    'Your subscribed shows, each set to play its latest episode or pick up where you paused.',
     'Latest or continue where you left off, with a backup chime that never stays silent.',
-    'A gentle bonus: birdsong fades in, then hands over to your podcast.'
+    'Soft birdsong fades in, then hands over to your podcast.'
   ];
   var n = cards.length, active = 0, timer = null;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

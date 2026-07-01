@@ -9,6 +9,7 @@ Everything is static (no build step) — HTML + inline CSS + a few SVGs/PNGs.
 ```
 website/                          (this folder == the deployed repo root)
 ├── index.html                    ← the whole page (inline CSS in a :root block)
+├── privacy/index.html            ← privacy policy, served at alarmcast.app/privacy/
 ├── favicon.svg                   ← browser tab icon (Wren)
 ├── og-image.svg                  ← social / link-preview card (Open Graph tags)
 ├── CNAME                         ← custom domain for GitHub Pages (alarmcast.app)
@@ -90,3 +91,21 @@ All text and styles live in `index.html`. The colour palette is defined once in 
 Contact links point to `mailto:hello@alarmcast.app` (set up as Porkbun email forwarding to
 the project Gmail). The launch CTA is still a `mailto:` — swap it for the real Google Play
 link once the app is published (search `#get` and the `mailto:` links).
+
+## Privacy policy
+
+`privacy/index.html` is served at `https://alarmcast.app/privacy/`, required by Google Play
+before the app can be listed (Data Safety section + store listing both need this URL). It's
+also linked from the Android app's About screen and from this site's footer.
+
+It uses `help@alarmcast.app` as its contact address — a separate, confirmed-working forward
+from `hello@alarmcast.app`, used deliberately so privacy/legal inquiries don't mix with
+general contact.
+
+The policy text reflects an actual code audit of the Android app's data practices (no
+accounts, no ads, no billing SDK, Crashlytics only). **Revisit it once AdMob or Play Billing
+ship** — both add data collection (advertising ID, purchase data) that needs new disclosure
+sections and, for EU users, a consent flow.
+
+Two things Google Play requires that live outside this repo: the Play Console **Data Safety
+form** (filled in at submission time) and the **in-app link** to this page.

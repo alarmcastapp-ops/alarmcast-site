@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Alarmcast</title>
+<meta name="description" content="Alarmcast's privacy policy: what data the podcast alarm clock app for Android collects, why, and what it does not do." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="canonical" href="https://alarmcast.app/privacy/" />
+<link rel="icon" type="image/png" href="/assets/alarmcast-icon.png" />
+<link rel="apple-touch-icon" href="/assets/alarmcast-icon.png" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alarmcast Privacy Policy" />
+<meta property="og:description" content="What data the Alarmcast Android app collects, why, and what it does not do." />
+<meta property="og:url" content="https://alarmcast.app/privacy/" />
+<meta property="og:image" content="https://alarmcast.app/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<style>
+  :root{
+    --bg:#06080f;
+    --navy-900:#0B1220;
+    --navy-800:#131B2E;
+    --navy-700:#1C2640;
+    --purple-500:#7C5CFF;
+    --purple-400:#9C82FF;
+    --purple-200:#CBBEFF;
+    --teal:#3DD6C0;
+    --wren:#EBC14D;
+    --on-high:#E9ECF4;
+    --on-med:#A3ACBE;
+    --on-low:#6B7388;
+    --divider:rgba(156,130,255,.14);
+    --card:rgba(255,255,255,.025);
+    --radius:20px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--on-high);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ambient glow background */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(60vw 60vw at 78% -8%, rgba(124,92,255,.20), transparent 60%),
+      radial-gradient(50vw 50vw at 8% 12%, rgba(61,214,192,.10), transparent 55%),
+      linear-gradient(180deg,#06080f 0%, #0B1220 40%, #06080f 100%);
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(6,8,15,.55);
+    border-bottom:1px solid var(--divider);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;letter-spacing:-.01em;}
+  .brand .mark{width:30px;height:30px;display:block;object-fit:contain;background:#fff;border-radius:50%;padding:1px;box-sizing:border-box;}
+  .navlinks{display:flex;gap:30px;align-items:center;font-size:14.5px;color:var(--on-med);}
+  .navlinks a:hover{color:var(--on-high);}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:600;font-size:14.5px;
+    padding:11px 20px;border-radius:999px;
+    background:linear-gradient(135deg,var(--purple-500),var(--purple-400));
+    color:#fff;border:none;cursor:pointer;
+    box-shadow:0 8px 26px -10px rgba(124,92,255,.8);
+    transition:transform .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(124,92,255,.9);}
+  @media(max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- policy content ---------- */
+  .policy{padding:60px 0 100px;}
+  .policy h1{
+    font-size:clamp(30px,4.2vw,44px);letter-spacing:-.02em;margin:0 0 10px;font-weight:800;
+  }
+  .eff-date{color:var(--on-low);font-size:14px;margin:0 0 32px;}
+  .policy h2{
+    font-size:22px;margin:44px 0 12px;font-weight:800;letter-spacing:-.01em;
+    padding-top:20px;border-top:1px solid var(--divider);
+  }
+  .policy h2:first-of-type{border-top:none;padding-top:0;margin-top:32px;}
+  .policy h3{font-size:16.5px;margin:22px 0 8px;font-weight:700;color:var(--on-high);}
+  .policy p{color:var(--on-med);font-size:15.5px;margin:0 0 14px;max-width:72ch;}
+  .policy ul{color:var(--on-med);font-size:15.5px;margin:0 0 14px;padding-left:22px;max-width:72ch;}
+  .policy li{margin-bottom:6px;}
+  .policy strong{color:var(--on-high);font-weight:700;}
+  .policy a{color:var(--purple-200);text-decoration:underline;text-decoration-color:rgba(124,92,255,.35);text-underline-offset:2px;}
+  .policy a:hover{color:var(--teal);}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--divider);padding:40px 0;color:var(--on-low);font-size:14px;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot a:hover{color:var(--on-high);}
+  .foot-links{display:flex;gap:24px;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+        Alarmcast
+      </a>
+      <div class="navlinks">
+        <a href="/#screens">Screens</a>
+        <a href="/#features">Features</a>
+        <a href="/#reliable">Reliability</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <a class="btn" href="/#get">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ POLICY ============ -->
+<div class="wrap">
+  <article class="policy">
+    <h1>Alarmcast Privacy Policy</h1>
+    <p class="eff-date"><strong>Effective date:</strong> July 1, 2026</p>
+
+    <p>Alarmcast ("we," "our," "the app") is a podcast alarm clock for Android. This policy describes what data the app collects, why, and what it does not do.</p>
+
+    <h2>Summary</h2>
+    <p>Alarmcast does not require an account, does not know who you are, and does not sell or share your data with advertisers. Almost everything the app knows about you — your alarms, your podcast subscriptions, your listening history — stays on your device.</p>
+
+    <h2>Data we collect and why</h2>
+
+    <h3>Podcast search and subscription data (sent to Podcast Index)</h3>
+    <p>When you search for a podcast or subscribe to one, the search term and the podcast's feed URL/ID are sent to the <a href="https://podcastindex.org" target="_blank" rel="noopener">Podcast Index</a> API so we can find and display podcast results and fetch episode metadata. This request is authenticated with an app-level key — it does not include your name, email, or any personal identifier. Podcast Index's own privacy practices govern their handling of this request; see their <a href="https://podcastindex.org/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+
+    <h3>Episode downloads (sent to the podcast's own host)</h3>
+    <p>When you subscribe to a podcast, the app connects directly to that podcast's RSS feed and audio host to download episodes for playback — the same as any podcast app or web browser would. That host will see your device's IP address, as it would for any direct connection.</p>
+
+    <h3>Crash and error reports (sent to Firebase Crashlytics)</h3>
+    <p>If the app crashes or hits a serious error, a crash report is sent to Firebase Crashlytics (a Google service) so we can fix the bug. Alongside the crash stack trace and app version, Crashlytics automatically collects some technical information about your device as part of how it works: device model, OS version, CPU/memory characteristics, and your IP address at the time of the report. We do not attach any user identifier, name, or email to these reports. Under Firebase's standard data protection terms, Google processes this data on our behalf; see Google's <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy and security page</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a> for details.</p>
+
+    <h2>Data that stays on your device</h2>
+    <p>The following is stored locally on your device only, and is never uploaded to us or anyone else:</p>
+    <ul>
+      <li>Your alarms (times, repeat days, chosen podcast, volume, and related settings)</li>
+      <li>Your podcast subscriptions and listening position/history</li>
+      <li>Your app preferences (theme, time format, download settings, etc.)</li>
+    </ul>
+    <p>If you uninstall the app, this data is deleted along with it.</p>
+
+    <h2>Data we do not collect</h2>
+    <p>We do not collect or have access to: your name, email address, phone number, contacts, location, microphone or camera data, photos, or any advertising identifier. The app does not have user accounts or sign-in, and it does not currently show ads or offer in-app purchases.</p>
+
+    <h2>Security</h2>
+    <p>Requests to Podcast Index and Firebase Crashlytics are made over encrypted (HTTPS) connections. We don't control the transport security of individual podcasts' own RSS/audio hosts, which are run by the podcasts themselves. Because Alarmcast has no accounts or servers of its own, there is no Alarmcast-operated database of user data to secure or breach — data either stays on your device or passes through the third-party services described above.</p>
+
+    <h2>Permissions</h2>
+    <p>Alarmcast requests permissions needed to reliably schedule and ring alarms, play audio, and show notifications (exact alarms, notifications, foreground service, wake lock, network state, boot). None of these permissions are used to collect personal data — see the "Data we collect" section above for the only data that ever leaves your device.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Alarmcast is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
+
+    <h2>Data retention and deletion</h2>
+    <ul>
+      <li><strong>Local data</strong> (alarms, subscriptions, preferences): deleted when you uninstall the app, or by clearing app data in Android settings.</li>
+      <li><strong>Crash reports:</strong> retained by Firebase per Google's standard retention policy. Since no user identifier is attached, we cannot look up or delete an individual's crash history — deleting the app going forward stops any new reports.</li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold about you. Because Alarmcast doesn't collect personal identifiers, there is generally nothing tied to you individually to access or delete beyond what's already local to your device. If you have questions or a request, contact us at the email below.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes — for example, when ads or subscriptions are introduced — we'll update this page and the effective date above.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:help@alarmcast.app">help@alarmcast.app</a><br />Website: <a href="https://alarmcast.app">https://alarmcast.app</a></p>
+  </article>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px;">
+      <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+      Alarmcast
+    </div>
+    <div class="foot-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
+    </div>
+    <div>© 2026 Alarmcast · alarmcast.app</div>
+  </div>
+</footer>
+
+</body>
+</html>
