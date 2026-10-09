@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Waking up to Spotify, YouTube Music or Apple Podcasts on Android</title>
+<meta name="description" content="What actually works if you want to wake up to Spotify, YouTube Music or Apple Podcasts on Android, which options need a paid account, and what each one does at 6 am when the connection is bad. Checked against the developers' own documentation." />
+<meta name="theme-color" content="#1A1A1A" />
+<link rel="canonical" href="https://alarmcast.app/blog/wake-up-to-spotify-android/" />
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Waking up to Spotify, YouTube Music or Apple Podcasts on Android" />
+<meta property="og:description" content="What works, what needs a paid account, and what each setup does when the network is bad at 6 am." />
+<meta property="og:url" content="https://alarmcast.app/blog/wake-up-to-spotify-android/" />
+<meta property="og:image" content="https://alarmcast.app/og-image.svg" />
+<meta property="article:published_time" content="2026-08-21" />
+<meta property="article:modified_time" content="2026-08-21" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="stylesheet" href="/assets/site.css" />
+<link rel="stylesheet" href="/assets/blog.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
+      </a>
+      <div class="navlinks">
+        <a href="/#how">How it works</a>
+        <a href="/#reliable">Reliability</a>
+        <a href="/#screens">Screens</a>
+        <a href="/#features">Features</a>
+        <a href="/#discover">Discover</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <a class="btn" href="/#get">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<article class="blog post">
+
+  <p class="crumbs"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span>Waking up to Spotify on Android</p>
+
+  <h1>Waking up to Spotify, YouTube Music or Apple Podcasts</h1>
+  <p class="standfirst">All of it is possible on Android, most of it needs a paid account, and every option hands your morning to the network. Checked against the developers' own documentation, 21 August 2026.</p>
+
+  <p class="byline">
+    <b>By the Alarmcast team</b>
+    <span>Published 21 August 2026</span>
+    <span>About 9 minutes</span>
+  </p>
+
+  <p>People have been waking up to their own music for as long as phones have let them. You find the song, you set it as the alarm sound, and it plays at seven the next morning. It has never needed an account and it has never needed a signal.</p>
+
+  <p>What the streaming integrations add is reach. Instead of the one file you remembered to put on your phone, you get everything Spotify has. That is a genuinely nice upgrade to the sound picker. It is worth being clear that it is an upgrade to the sound picker, and not a different kind of alarm.</p>
+
+  <div class="tldr">
+    <p class="k">The short answer</p>
+    <p>Yes, you can wake up to Spotify or YouTube Music on Android. Google's Clock app integrates Spotify, YouTube Music, Pandora and Calm directly, and Samsung's Clock integrates Spotify. Picking a specific song needs a paid account on the service: Google documents that a Spotify free account can choose playlists rather than songs and may play ads, and that no-charge YouTube Music accounts do not work with Clock at all. There is no Apple Podcasts app for Android, so that one is not possible at all.</p>
+    <p>What every streaming alarm has in common is that the audio is fetched when the alarm goes off. If the connection is bad at that moment, you get whatever the app falls back to, which is usually a default ringtone. Sleep as Android is the only one that documents this properly: it waits up to 30 seconds for a connection and then rings a local ringtone instead. A downloaded file on your own phone has never had that problem, and neither does an alarm that pre-downloads what it is going to play.</p>
+  </div>
+
+  <h2>What actually works today</h2>
+
+  <p><strong>Google Clock</strong> is the most capable of them. It integrates Spotify, YouTube Music, Pandora and Calm, and Google states the account requirements for each in the same help page: "To choose a song, use a premium account. No-charge accounts can choose playlists and might play ads" for Spotify, and for YouTube Music, "To choose a song or album, use a premium account. No-charge accounts don't work with Clock."<sup>1</sup> Pandora is US only.</p>
+
+  <p><strong>Samsung Clock</strong> integrates Spotify, and Samsung documents choosing a playlist for the alarm.<sup>2</sup> Whether Spotify Premium is required for the alarm specifically is not stated on Samsung's page.</p>
+
+  <p><strong>Sleep as Android</strong> reaches Spotify playlists and albums, internet radio, its own nature sounds and your own files.<sup>3</sup> It is also the only app here whose documentation tells you what happens when things go wrong, which is worth more than the feature list.</p>
+
+  <p><strong>MixerBox Music Alarm Clock</strong> plays YouTube-sourced audio as an alarm, and its developer states in a reply on its own Play listing that videos require the internet and that the default ringtone is used when there is no connection.<sup>4</sup></p>
+
+  <p><strong>Alarmy</strong>, at 50 million-plus installs, does not mention Spotify, YouTube Music or podcasts anywhere in its own Play description.<sup>5</sup> Its own site says you can record a sound or bring audio in from YouTube and other platforms, which ends up as a file on the phone rather than a live stream.<sup>12</sup></p>
+
+  <p><strong>Spotify itself has never shipped an alarm.</strong> Its answer to years of requests was the 2018 partnership with Google's Clock app, announced under the headline "Wake Up to the Perfect Soundtrack with Spotify and Clock App from Google" and describing the feature as a top user request for years.<sup>6</sup> Spotify's own Android SDK documentation explains part of why third parties find this awkward: it requires the Spotify app to be installed on the device, so any alarm built on it is really two apps that have to cooperate at 6 am.<sup>7</sup></p>
+
+  <h2>Is there an Apple Podcasts app for Android?</h2>
+
+  <p>No. Apple's own Apple Podcasts page lists where the app runs: iPhone, Mac, iPad, Apple Watch, Apple TV 4K, Apple Vision Pro, CarPlay, HomePod and selected car systems.<sup>8</sup> Android is not among them. Apple publishes Apple Music and Apple TV on Google Play, so this is a decision rather than an oversight.</p>
+
+  <p>If you follow a show through Apple Podcasts, the practical route on Android is to find the same show in any podcast app, since almost every podcast is distributed as an open RSS feed that any player can read. What you lose is your play position and your subscription list, not the shows.</p>
+
+  <h2>It is your old MP3, streamed</h2>
+
+  <p>Setting a song as your alarm is one of the oldest customisations a phone allows, and the streaming integrations are the same transaction with a bigger catalogue behind it. You pick a thing, the thing plays at you tomorrow morning, you turn it off.</p>
+
+  <p>Two consequences follow, and neither is a criticism of the feature. The first is that tomorrow it plays the same 40 seconds again. Repetition is what turns a song you love into a sound you flinch at, and it is the reason people who wake to music change the track every few weeks. The second is that nobody is talking to you. A song does not tell you what happened while you were asleep, and it does not carry on into your morning in a way that gives you a reason to stay awake.</p>
+
+  <p>The old MP3 had one quiet advantage over all of this. It was on your phone.</p>
+
+  <h2>What you give up for the bigger library</h2>
+
+  <p><strong>The network at the worst moment.</strong> A streamed alarm has to establish a connection while you are asleep and least able to fix anything. Sleep as Android's manual is blunt about the consequence: "If the service is not responding for too long, the app will use a built-in ringtone", and for internet radio it gives the exact timeout, 30 seconds of trying before it plays the local ringtone instead.<sup>3</sup> MixerBox's developer says the same in fewer words.<sup>4</sup> Google's help pages document six things that can stop a Clock alarm sounding correctly, including Do Not Disturb, a silent ringtone and volume below 30%, and a streaming service failing to play is not among them.<sup>9</sup></p>
+
+  <p><strong>Integrations that are not partnerships.</strong> Sleep as Android tells you plainly what its Spotify support is built on: "Our Spotify integration is all reverse-engineered and thus may stop working whenever Spotify updates their app."<sup>10</sup> That is unusually honest documentation, and it describes the general condition of streaming alarms that were not announced by the streaming service.</p>
+
+  <p><strong>It may not even play what you picked.</strong> The same page documents a case worth knowing before you rely on it: if the phone is locked when the alarm fires, the app cannot switch Spotify to your chosen playlist or album, so Spotify plays wherever you last left it.<sup>10</sup> A sound picker that cannot always pick the sound is a fair description of the state of the art.</p>
+
+  <p><strong>A paid account, usually.</strong> Free Spotify gets playlists rather than a chosen song, with possible ads. Free YouTube Music does not work with Clock at all.<sup>1</sup></p>
+
+  <p>Worth noting who agrees. Mornify, a music alarm with over a million installs, now advertises the absence of streaming as the feature: "It does not require an internet connection when the alarm clock works. It just works. Even without the Internet."<sup>11</sup></p>
+
+  <div class="tablewrap">
+  <table class="cmp">
+    <colgroup><col class="c-opt" /><col class="c-rel" /><col class="c-what" /><col class="c-catch" /></colgroup>
+    <thead>
+      <tr><th>Setup</th><th>What you can pick</th><th>Free account</th><th>If the network is bad at 6 am</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Google Clock + Spotify</th>
+        <td>A song on premium, playlists on free</td>
+        <td>Playlists only, may play ads</td>
+        <td class="no">Not documented</td>
+      </tr>
+      <tr>
+        <th>Google Clock + YouTube Music</th>
+        <td>A song or album</td>
+        <td class="no">Does not work</td>
+        <td class="no">Not documented</td>
+      </tr>
+      <tr>
+        <th>Google Clock + Pandora</th>
+        <td>A song on premium, stations otherwise. US only</td>
+        <td>Stations, may play ads</td>
+        <td class="no">Not documented</td>
+      </tr>
+      <tr>
+        <th>Samsung Clock + Spotify</th>
+        <td>A playlist</td>
+        <td class="no">Not stated</td>
+        <td class="no">Not documented</td>
+      </tr>
+      <tr>
+        <th>Sleep as Android + Spotify</th>
+        <td>The current playlist, or any playlist in your library</td>
+        <td class="no">Not stated</td>
+        <td>A built-in ringtone, and on a locked phone it plays wherever Spotify was left</td>
+      </tr>
+      <tr>
+        <th>Sleep as Android + internet radio</th>
+        <td>A station</td>
+        <td>Yes</td>
+        <td>30 seconds of trying, then a local ringtone</td>
+      </tr>
+      <tr>
+        <th>MixerBox Music Alarm Clock</th>
+        <td>YouTube-sourced music, and podcasts by its listing</td>
+        <td>Yes, with ads</td>
+        <td>The default ringtone</td>
+      </tr>
+      <tr>
+        <th>Alarmy</th>
+        <td>Its own library, your files, and audio brought in from YouTube</td>
+        <td>Yes</td>
+        <td class="no">Not documented</td>
+      </tr>
+      <tr>
+        <th>An audio file on your phone</th>
+        <td>Whatever you put there</td>
+        <td>Yes</td>
+        <td class="yes">Nothing changes. It is already on the phone</td>
+      </tr>
+      <tr>
+        <th>Apple Podcasts on Android</th>
+        <td class="no">No app exists</td>
+        <td>n/a</td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <th>Alarmcast</th>
+        <td>A podcast episode, newest or where you left off</td>
+        <td>Yes, the alarm is free</td>
+        <td class="yes">The episode plays from storage, and a chime backs it up</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Which one you actually want</h2>
+
+  <ul>
+    <li><strong>A specific song, and you pay for Spotify or YouTube Music.</strong> Google Clock. It is already on the phone and it costs nothing, though Google's instructions start by telling you to install the streaming app and sign in, so it is still two apps cooperating at 6 am.</li>
+    <li><strong>A specific song, and you do not pay.</strong> Put the file on your phone and point the built-in clock at it. It plays with no signal and no account, forever.</li>
+    <li><strong>Sleep tracking with a music alarm attached.</strong> Sleep as Android, and read its documentation, which is better than anyone else's.</li>
+    <li><strong>Someone talking to you.</strong> None of the above does this. That is what a podcast alarm is for, and <a href="/blog/why-your-alarm-clock-ruins-your-morning/">why we built one</a>.</li>
+    <li><strong>Music, from us.</strong> Alarmcast is the wrong app. It plays podcasts, not your music library and not a streaming subscription.</li>
+  </ul>
+
+  <h2>Questions people actually ask</h2>
+
+  <div class="faq">
+    <details>
+      <summary>Can you set Spotify as an alarm on Android?</summary>
+      <p>Yes. Google's Clock app and Samsung's Clock app both integrate Spotify directly, and third-party alarm apps such as Sleep as Android reach it too. Spotify itself has never shipped an alarm; the 2018 Google Clock partnership was its answer to the request.</p>
+    </details>
+    <details>
+      <summary>Do you need Spotify Premium for an alarm?</summary>
+      <p>For a specific song in Google Clock, yes. Google documents that a no-charge Spotify account can choose playlists rather than individual songs, and that ads might play. Samsung does not state whether Premium is required for its own Spotify alarm.</p>
+    </details>
+    <details>
+      <summary>Can YouTube Music be an alarm sound?</summary>
+      <p>Only with a paid account. Google's own wording is that to choose a song or album you need a premium account, and that no-charge accounts do not work with Clock.</p>
+    </details>
+    <details>
+      <summary>Is there an Apple Podcasts app for Android?</summary>
+      <p>No. Apple lists Apple Podcasts on iPhone, Mac, iPad, Apple Watch, Apple TV 4K, Apple Vision Pro, CarPlay, HomePod and some car systems, and Android is not among them. Apple Music and Apple TV are on Google Play, so it is a choice rather than a technical limit. Most podcasts are open RSS feeds, so the shows themselves are available in any Android podcast app.</p>
+    </details>
+    <details>
+      <summary>What happens if my Spotify alarm has no internet?</summary>
+      <p>It depends on the app, and most of them do not say. Sleep as Android documents that it falls back to a built-in ringtone, and for internet radio that it waits 30 seconds first. MixerBox's developer says the default ringtone plays. Google does not document what its Clock app does when a streaming service will not play.</p>
+    </details>
+    <details>
+      <summary>Why did my alarm play the wrong playlist?</summary>
+      <p>On Sleep as Android this is documented: if the phone is locked when the alarm fires, the app cannot switch Spotify to your chosen playlist or album, so Spotify plays wherever you last left it.</p>
+    </details>
+  </div>
+
+  <div class="endcard">
+    <h2>Or wake up to someone talking</h2>
+    <p>Alarmcast is an Android alarm clock that plays a podcast episode instead of a sound. The episode downloads in roughly the half hour before the alarm, so it normally plays from storage rather than streaming, and a chime backs it up if anything upstream breaks.</p>
+    <a class="btn" href="/#how">See how it works</a>
+  </div>
+
+  <div class="sources">
+    <h2>Sources</h2>
+    <p>Every page below was fetched on 21 August 2026. Store listings and help pages change; where a developer does not document something, this article says so rather than inferring it.</p>
+    <ol>
+      <li><a href="https://support.google.com/clock/answer/2840926?hl=en" rel="nofollow">Google Clock Help, alarm sounds and streaming services</a>.</li>
+      <li><a href="https://www.samsung.com/us/support/answer/ANS10003417/" rel="nofollow">Samsung US Support, Spotify features on Galaxy phones</a>.</li>
+      <li><a href="https://sleep.urbandroid.org/docs/alarms/ringtone.html" rel="nofollow">Sleep as Android manual, alarm sound options and fallback behaviour</a>.</li>
+      <li><a href="https://play.google.com/store/apps/details?id=com.mixerbox.android.clock" rel="nofollow">MixerBox Music Alarm Clock on Google Play</a>, developer reply on its listing.</li>
+      <li><a href="https://play.google.com/store/apps/details?id=droom.sleepIfUCan" rel="nofollow">Alarmy on Google Play</a>.</li>
+      <li><a href="https://newsroom.spotify.com/2018-07-31/wake-up-to-the-perfect-soundtrack-with-spotify-and-clock-app-from-google/" rel="nofollow">Spotify Newsroom, 31 July 2018</a>.</li>
+      <li><a href="https://developer.spotify.com/documentation/android/tutorials/getting-started" rel="nofollow">Spotify Android SDK documentation</a>.</li>
+      <li><a href="https://www.apple.com/apple-podcasts/" rel="nofollow">Apple, Apple Podcasts</a>.</li>
+      <li><a href="https://support.google.com/clock/faq/6273949?hl=en" rel="nofollow">Google Clock Help, fixing alarm problems</a>.</li>
+      <li><a href="https://sleep.urbandroid.org/docs/faqs/alarms_spotify_does_not_play.html" rel="nofollow">Sleep as Android FAQ, my selected Spotify playlist does not play</a>.</li>
+      <li><a href="https://play.google.com/store/apps/details?id=net.fredericosilva.mornify" rel="nofollow">Mornify on Google Play</a>.</li>
+      <li><a href="https://alar.my/en/blog/alarm-ringtones-for-heavy-sleepers" rel="nofollow">Alarmy's own blog on custom alarm sounds</a>.</li>
+    </ol>
+  </div>
+
+</article>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px;">
+      <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
+    </div>
+    <div class="foot-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
+    </div>
+    <div>&copy; 2026 Alarmcast &middot; alarmcast.app</div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Waking up to Spotify, YouTube Music or Apple Podcasts on Android",
+      "description": "What works, what needs a paid account, and what each setup does when the network is bad at 6 am.",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "author": { "@type": "Organization", "name": "Alarmcast", "url": "https://alarmcast.app" },
+      "publisher": { "@type": "Organization", "name": "Alarmcast", "url": "https://alarmcast.app" },
+      "mainEntityOfPage": "https://alarmcast.app/blog/wake-up-to-spotify-android/",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://alarmcast.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://alarmcast.app/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Waking up to Spotify on Android" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Can you set Spotify as an alarm on Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google's Clock app and Samsung's Clock app both integrate Spotify directly, and third-party alarm apps such as Sleep as Android reach it too. Spotify itself has never shipped an alarm; the 2018 Google Clock partnership was its answer to the request." } },
+        { "@type": "Question", "name": "Do you need Spotify Premium for an alarm?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For a specific song in Google Clock, yes. Google documents that a no-charge Spotify account can choose playlists rather than individual songs, and that ads might play. Samsung does not state whether Premium is required for its own Spotify alarm." } },
+        { "@type": "Question", "name": "Can YouTube Music be an alarm sound?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only with a paid account. Google's own wording is that to choose a song or album you need a premium account, and that no-charge accounts do not work with Clock." } },
+        { "@type": "Question", "name": "Is there an Apple Podcasts app for Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Apple lists Apple Podcasts on iPhone, Mac, iPad, Apple Watch, Apple TV 4K, Apple Vision Pro, CarPlay, HomePod and some car systems, and Android is not among them. Apple Music and Apple TV are on Google Play, so it is a choice rather than a technical limit. Most podcasts are open RSS feeds, so the shows themselves are available in any Android podcast app." } },
+        { "@type": "Question", "name": "What happens if my Spotify alarm has no internet?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the app, and most of them do not say. Sleep as Android documents that it falls back to a built-in ringtone, and for internet radio that it waits 30 seconds first. MixerBox's developer says the default ringtone plays. Google does not document what its Clock app does when a streaming service will not play." } },
+        { "@type": "Question", "name": "Why did my alarm play the wrong playlist?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On Sleep as Android this is documented: if the phone is locked when the alarm fires, the app cannot switch Spotify to your chosen playlist or album, so Spotify plays wherever you last left it." } }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

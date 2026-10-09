@@ -1,0 +1,134 @@
+/* Alarmcast blog: shared article and index styles.
+   Linked by /blog/ and every post under it, alongside site.css. The palette, page
+   ground, header and footer all come from site.css and are not repeated here. */
+
+/* ---------- shared shell ----------
+   One measure for the whole column. Capping only the paragraphs and letting the boxes
+   run the full 1120px wrap left a ragged right edge down the page. */
+.blog{padding:56px 0 96px;max-width:768px;margin-inline:auto;}
+.crumbs{font-size:13.5px;color:var(--on-low);margin:0 0 26px;}
+.crumbs a{color:var(--on-med);}
+.crumbs a:hover{color:var(--on-high);}
+.crumbs span{margin:0 8px;opacity:.5;}
+
+.blog h1{
+  font-size:clamp(32px,4.6vw,50px);line-height:1.08;letter-spacing:-.025em;
+  font-weight:800;margin:0 0 16px;max-width:20ch;
+}
+.blog .standfirst{
+  font-size:clamp(17px,1.8vw,20px);color:var(--on-med);max-width:56ch;margin:0 0 26px;
+}
+.byline{
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+  font-size:13.5px;color:var(--on-low);
+  padding-bottom:26px;border-bottom:1px solid var(--divider);margin-bottom:38px;
+}
+.byline b{color:var(--on-med);font-weight:600;}
+
+/* ---------- article body ---------- */
+.post h2{
+  font-size:clamp(23px,2.6vw,30px);letter-spacing:-.015em;font-weight:800;
+  margin:56px 0 14px;max-width:26ch;scroll-margin-top:90px;
+}
+.post h3{font-size:18px;font-weight:700;margin:32px 0 8px;color:var(--on-high);}
+.post p{font-size:17px;line-height:1.7;color:var(--on-med);margin:0 0 18px;}
+.post ul,.post ol{font-size:17px;line-height:1.7;color:var(--on-med);margin:0 0 20px;padding-left:22px;}
+.post li{margin-bottom:9px;}
+.post li::marker{color:var(--purple-400);}
+.post strong{color:var(--on-high);font-weight:700;}
+.post a{color:var(--purple-200);text-decoration:underline;text-decoration-color:rgba(124,92,255,.35);text-underline-offset:2px;}
+.post a:hover{color:var(--purple-400);}
+
+/* ---------- the answer box ---------- */
+.tldr{
+  background:var(--surface);border:1px solid var(--divider);border-left:3px solid var(--purple-500);
+  border-radius:var(--radius);padding:24px 26px;margin:0 0 44px;box-shadow:var(--elev-1);
+}
+.tldr p.k{
+  font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--purple-400);margin:0 0 10px;
+}
+.tldr p{font-size:16.5px;line-height:1.65;color:var(--on-med);margin:0 0 12px;}
+.tldr p:last-child{margin-bottom:0;}
+
+/* ---------- pull figure ---------- */
+.stat{
+  display:flex;gap:20px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--divider);border-radius:var(--radius);
+  padding:22px 24px;margin:28px 0 30px;box-shadow:var(--elev-1);
+}
+.stat .n{font-size:30px;font-weight:800;color:var(--amber);line-height:1.1;white-space:nowrap;}
+.stat p{margin:0;font-size:15.5px;}
+
+/* ---------- comparison table ---------- */
+.tablewrap{overflow-x:auto;margin:26px 0 30px;border:1px solid var(--divider);border-radius:var(--radius);}
+/* Fixed layout with explicit column widths. Left to itself the browser gave the wide
+   "catch" column the leftovers and collapsed it to a sliver against the 768px measure. */
+table.cmp{border-collapse:collapse;width:100%;min-width:660px;font-size:15px;table-layout:fixed;}
+table.cmp col.c-opt{width:21%;}
+table.cmp col.c-rel{width:15%;}
+table.cmp col.c-what{width:16%;}
+table.cmp col.c-catch{width:48%;}
+table.cmp th,table.cmp td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--divider);}
+table.cmp thead th{
+  background:var(--surface-hi);color:var(--on-high);font-weight:700;font-size:13.5px;
+  letter-spacing:.02em;
+}
+table.cmp tbody th{color:var(--on-high);font-weight:700;}
+table.cmp td{color:var(--on-med);}
+table.cmp tbody tr:last-child th,table.cmp tbody tr:last-child td{border-bottom:none;}
+.yes{color:var(--purple-200);font-weight:600;}
+.no{color:var(--on-low);}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:14px;}
+.faq details{
+  border:1px solid var(--divider);border-radius:14px;background:var(--surface);
+  padding:0 20px;margin-bottom:10px;
+}
+.faq summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:16px;color:var(--on-high);
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--purple-400);font-weight:700;font-size:20px;line-height:1;}
+.faq details[open] summary::after{content:"\2212";}
+.faq details[open] summary{border-bottom:1px solid var(--divider);}
+.faq details p{font-size:16px;margin:14px 0;}
+
+/* ---------- sources ---------- */
+.sources{margin-top:56px;padding-top:24px;border-top:1px solid var(--divider);}
+.sources h2{font-size:17px;margin:0 0 12px;}
+.sources ol{font-size:14.5px;color:var(--on-low);line-height:1.6;}
+.sources li{margin-bottom:8px;}
+.sources a{color:var(--on-med);}
+
+/* ---------- end-of-post card ---------- */
+.endcard{
+  margin-top:56px;background:var(--surface);border:1px solid var(--divider);
+  border-radius:var(--radius);padding:30px 28px;box-shadow:var(--elev-1);
+}
+.endcard h2{margin:0 0 10px;font-size:22px;}
+.endcard p{margin:0 0 20px;font-size:16px;}
+
+/* ---------- index listing ---------- */
+.postlist{display:grid;gap:16px;margin-top:36px;}
+.postcard{
+  display:block;background:var(--surface);border:1px solid var(--divider);
+  border-radius:var(--radius);padding:26px 28px;box-shadow:var(--elev-1);
+  transition:border-color .15s ease, transform .15s ease;
+}
+.postcard:hover{border-color:rgba(124,92,255,.42);transform:translateY(-2px);}
+.postcard .kicker{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--purple-400);margin:0 0 9px;}
+.postcard h2{font-size:22px;font-weight:800;letter-spacing:-.015em;margin:0 0 10px;line-height:1.25;}
+.postcard p{color:var(--on-med);font-size:16px;margin:0 0 14px;line-height:1.6;}
+.postcard .meta{font-size:13.5px;color:var(--on-low);}
+.soon{color:var(--on-low);font-size:15px;margin-top:34px;}
+.soon ul{margin:12px 0 0;padding-left:22px;}
+.soon li{margin-bottom:7px;}
+
+@media(max-width:640px){
+  .blog{padding:40px 0 70px;}
+  .post p,.post ul,.post ol{font-size:16px;}
+  .stat{flex-direction:column;gap:10px;}
+}

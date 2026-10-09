@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why your alarm clock ruins your morning, and what to do about it</title>
+<meta name="description" content="A harsh alarm wakes you badly and Android alarms fail more often than they should. What the research says about jarring wake-up sounds, why alarms on Android miss, and an honest comparison of every way to wake up to a podcast, the radio or the news." />
+<meta name="theme-color" content="#1A1A1A" />
+<link rel="canonical" href="https://alarmcast.app/blog/why-your-alarm-clock-ruins-your-morning/" />
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why your alarm clock ruins your morning, and what to do about it" />
+<meta property="og:description" content="What the research says about harsh wake-up sounds, why Android alarms miss, and an honest comparison of every way to wake up to a podcast." />
+<meta property="og:url" content="https://alarmcast.app/blog/why-your-alarm-clock-ruins-your-morning/" />
+<meta property="og:image" content="https://alarmcast.app/og-image.svg" />
+<meta property="article:published_time" content="2026-08-21" />
+<meta property="article:modified_time" content="2026-08-21" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="stylesheet" href="/assets/site.css" />
+<link rel="stylesheet" href="/assets/blog.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
+      </a>
+      <div class="navlinks">
+        <a href="/#how">How it works</a>
+        <a href="/#reliable">Reliability</a>
+        <a href="/#screens">Screens</a>
+        <a href="/#features">Features</a>
+        <a href="/#discover">Discover</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <a class="btn" href="/#get">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<article class="blog post">
+
+  <p class="crumbs"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span>Why your alarm ruins your morning</p>
+
+  <h1>Why your alarm clock ruins your morning, and what to do about it</h1>
+  <p class="standfirst">Harsh alarms wake you badly, and on Android they also miss more often than they should. The fix is the clock radio, and it is worth knowing exactly why that worked.</p>
+
+  <p class="byline">
+    <b>By the Alarmcast team</b>
+    <span>Published 21 August 2026</span>
+    <span>About 15 minutes</span>
+  </p>
+
+  <p>Ask people what they miss about clock radios and nobody mentions sound quality. They say they woke up to someone talking.</p>
+
+  <p>Two presenters mid-argument about the football, somebody reading the traffic for a road you never drove on, a jingle you had heard nine hundred times. None of it aimed at you, which is why it worked. The day was already running and you had woken up inside it.</p>
+
+  <p>The phone on your nightstand makes a noise until you make it stop. Then the house is quiet again, with you as the only person in it who is awake.</p>
+
+  <div class="tldr">
+    <p class="k">The short answer</p>
+    <p>A loud, abrupt alarm triggers a startle response and drops you straight into sleep inertia, the groggy, slow-thinking state that follows a sudden waking. Published research on the sounds people set as alarms found melodic sounds associated with less reported grogginess and melodically neutral sounds with more, which is why gentle tones, music and spoken word are better wake-up material than a siren.</p>
+    <p>The old fix was the clock radio, and it worked because you woke to people talking rather than to a machine. A podcast alarm is that, with the voices chosen by you and a new episode every morning. Reliability is the hard part. On Android, Doze mode, per-manufacturer battery managers, the exact-alarm permission changes and a force-stop all end in an alarm that does not ring. A gentle alarm that does not go off is worse than a harsh one that does.</p>
+  </div>
+
+  <h2>What a jarring alarm actually does to you</h2>
+
+  <p>A sudden loud sound while you are asleep sets off the acoustic startle response: heart rate jumps, muscles tense, and you surface out of whatever sleep stage you were in with no warning. That is the mechanism we have relied on for a century, and it is closer to fright than to waking.</p>
+
+  <p>What follows is <strong>sleep inertia</strong>, the impaired alertness, slow reactions and poor decisions that come immediately after waking. The sleep literature calls it a transitional state of lowered arousal that degrades performance,<sup>1</sup> and researchers put the window at up to four hours.<sup>2</sup> Everyone gets it, every morning. The sound you wake to does seem to change how bad it is: in an analysis of the sounds people set as their alarms, melodic sounds were linked to reports of <i>less</i> sleep inertia and melodically neutral sounds to reports of <i>more</i>, with the authors pointing at melody and rhythm rather than volume.<sup>2</sup></p>
+
+  <h2>Why spoken word wakes people differently</h2>
+
+  <p>A standard alarm has one setting: off, then maximum. A gradual alarm crosses that boundary over minutes instead of milliseconds, so the startle response never fires and you are already surfacing when the alarm proper arrives. Alarmcast fades an ambient bed up from silence beforehand for that reason, birdsong by default.</p>
+
+  <p>Spoken word does something else again, and it shows up in what you do next. A siren gives you nothing to do except switch it off, which is why hitting snooze is so automatic that most people do not remember doing it. A voice gives your attention somewhere to go, and staying in bed to hear the end of something tends to end with you getting up.</p>
+
+  <p>None of which means a podcast cures sleep inertia, because nothing does. It means the sound you wake to is one of the few things about your morning you control completely, and most of us have never once changed it from whatever the phone shipped with.</p>
+
+  <h2>Why Android alarms do not go off</h2>
+
+  <p>On Android, "my alarm did not go off" is a real and well-documented failure with six causes. Five are documented by Google or visible in Android's own source. The sixth is documented only by the developers who ran into it, because the manufacturers responsible do not write it down.</p>
+
+  <h3>1. Doze mode</h3>
+  <p>Since Android 6.0, a phone left unplugged, stationary and with the screen off enters Doze, which defers background work to periodic maintenance windows. Alarms scheduled the ordinary way get deferred with everything else, including the one confusingly named <code>setExact()</code>. Android documents a separate method for alarm clocks, which the system leaves Doze to deliver. An app that did not use it fires late or not at all on a phone that sat still all night, which is every phone, every night.</p>
+
+  <h3>2. App Standby buckets</h3>
+  <p>Since Android 9, Android sorts apps by how often you open them and rations the rest: 10 alarms an hour in the working set, two in the frequent bucket, one in the rare bucket, one a day in the restricted bucket. The bottom two lose network access altogether.</p>
+  <p>Alarm-clock alarms are <strong>exempt</strong> from those quotas in Android's own alarm service, so a properly built alarm is never rationed to one an hour. The jobs and network around it are not exempt, and those are what fetch your audio. What the bucket usually takes is the download that was meant to give the alarm something to play.</p>
+
+  <h3>3. The exact-alarm permission changes</h3>
+  <p>Android 12 introduced a user-revocable permission for scheduling exact alarms. Android 13 added a second one, granted at install and reserved for apps whose core function needs precise timing; Google Play limits it to alarm and timer apps and to calendars that show event notifications, and reviews the apps that ask. From Android 14 the first permission is denied by default for newly installed apps targeting Android 13 or higher, so someone has to grant it in Settings. Google grants the install-time permission to alarm and timer apps, so a media app with an alarm bolted on has to ask you for the revocable one instead.</p>
+  <p>There is also a trap for people who have done nothing wrong. Move to a new phone and restore from a backup, and the permission does not come back with your apps. The alarm looks fine in the app and is no longer exact.</p>
+
+  <h3>4. Force-stop, which is more common than it sounds</h3>
+  <p>Force-stopping an app, from Settings or with a task killer, cancels every alarm it had scheduled. It cannot re-arm on its own either, because the boot broadcast it would use is withheld until a person opens it again. Swiping it out of the recents list is fine; the Force stop button in Settings is the one that clears the schedule.</p>
+
+  <h3>5. The manufacturers, who are the worst offender</h3>
+  <p>Manufacturers layer their own battery management on top of Android's, and theirs is harsher. <a href="https://dontkillmyapp.com" rel="nofollow">dontkillmyapp.com</a>, the community reference, puts Huawei, Xiaomi, OnePlus and Samsung in its worst tier, Oppo just behind, Vivo behind that. Several kill an app outright while the screen is off, alarms and all, under names like autostart management or adaptive battery. Developers and users compile that site rather than the manufacturers, so read it as the best available map rather than a vendor statement.</p>
+
+  <h3>6. Rebooting</h3>
+  <p>Android cancels every scheduled alarm when a device shuts down, so an app has to notice it has started again and set them all back. If your phone updated itself at 3 am and the app does not handle that, your alarm is gone.</p>
+
+  <p>So when you read a review calling an alarm app unreliable, it is usually one of these six, and usually not the one the reviewer guessed.</p>
+
+  <h2>The extra problem with waking to a podcast</h2>
+
+  <p>A ringtone is a file inside the app and cannot go missing. An episode is a URL on someone else's server, and at 6 am it might be gone, moved, or slow.</p>
+
+  <div class="stat">
+    <span class="n">9.4%</span>
+    <p>Nearly one episode in eleven has a different download link in the public podcast directory than in the publisher's own feed. Most of those still play. You cannot tell which ones are broken until the morning you need one. Measured by us across the 129,997 episodes present in both sources.</p>
+  </div>
+
+  <p>Captive Wi-Fi, the hotel and airport kind, answers a download request with its own login page, which looks like a valid file until you check that the bytes are audio. Media players report that playback started before any sound comes out of the speaker. Episodes occasionally turn out to be enormous.</p>
+
+  <p>So there is one question to ask of any wake-up-to-audio setup, and it is the one the marketing pages avoid: <strong>what does it do at 6 am when the connection is bad?</strong> Anything that starts fetching audio at that moment is betting your morning on your network. Silence, a spinner and a default beep are the same outcome to someone who needed to be at work.</p>
+
+  <h2>Your options, compared honestly</h2>
+
+  <p>We read the Google Play listing and the developer's own documentation for every app that could plausibly wake you to spoken audio on Android. Listings change, so the table is dated: <strong>checked 18 August 2026</strong>. Of the big podcast players, only two ship an alarm at all.</p>
+
+  <h3>What a sound picker gives you, and where it stops</h3>
+
+  <p>Most of the apps below hand you a list of sounds, and Google Clock's list is a good one: hundreds of tones, any audio file you own, and a track from Spotify or YouTube Music if you connect an account. If you still wake to the factory beep, change it. That costs nothing and it is the biggest improvement available to you. The one thing none of them can do is talk to you. You choose a sound, the sound plays at you tomorrow morning, you switch it off, and that is the whole of it.</p>
+
+  <p>Two apps in the table go further and start playing a podcast at a time you choose, which reads like the same feature and behaves differently at six in the morning. Android keeps alarm audio on its own channel with its own volume, which is why an alarm can be loud while your music is quiet, and why Do Not Disturb has a switch for letting alarms through. Alarm apps can also throw a full screen over the lock screen with the time and a snooze button on it, and since Android 14 that belongs to apps whose job is alarms or phone calls. Scheduled playback goes out on the ordinary media channel instead, at whatever volume you left it at with headphones on the night before. Podcast Addict's own release notes are straight about the rest: without an extra permission the audio starts, but there is no screen showing the time and no way to snooze, so you are hunting through the notification shade to stop it.</p>
+
+  <div class="tablewrap">
+  <table class="cmp">
+    <colgroup><col class="c-opt" /><col class="c-rel" /><col class="c-what" /><col class="c-catch" /></colgroup>
+    <thead>
+      <tr><th>App</th><th>Wakes you to a podcast</th><th>If the network is bad at 6 am</th><th>What the developer documents</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Google Clock</th>
+        <td class="no">No</td>
+        <td class="no">Not stated</td>
+        <td>A sound picker, and a good one: a large built-in library, your own audio files, and a song from YouTube Music, Pandora, Spotify or Calm, though picking a specific track rather than a playlist needs a paid account on the service. Podcasts are not among the options.</td>
+      </tr>
+      <tr>
+        <th>Samsung Clock</th>
+        <td class="no">No</td>
+        <td class="no">Not stated</td>
+        <td>Ringtones, your own files, a Spotify playlist, or the Bixby alarm, which reads out the time, weather and news. That is a briefing rather than a show you chose.</td>
+      </tr>
+      <tr>
+        <th>Alarmy</th>
+        <td class="no">No</td>
+        <td>n/a</td>
+        <td>A large built-in sound library and your own files. No streaming service integration of any kind is documented.</td>
+      </tr>
+      <tr>
+        <th>Sleep as Android</th>
+        <td class="no">No</td>
+        <td class="no">30 seconds of nothing, then a ringtone</td>
+        <td>Nature sounds, your files, internet radio and Spotify albums or playlists. The manual is unusually honest: at alarm time the app spends up to 30 seconds trying to connect, and rings a local ringtone if it cannot. That is the streaming failure mode, described by the people who built it.</td>
+      </tr>
+      <tr>
+        <th>MixerBox Music Alarm Clock</th>
+        <td>In passing</td>
+        <td class="no">Not stated</td>
+        <td>A music alarm with over half a million installs, and the first result Play gives you for "podcast alarm clock". Its listing offers a song, music or podcast as your alarm sound without saying where the podcasts come from or whether they are fetched in advance.</td>
+      </tr>
+      <tr>
+        <th>Podcast Addict</th>
+        <td class="yes">Yes</td>
+        <td class="no">Not documented</td>
+        <td>A long-established podcast manager with a genuine alarm, tucked into the navigation drawer of an app that does thirty other things. Two changelog entries from 2021 and 2023 document it and nothing else does. No fallback is described anywhere: if the episode does not arrive, nothing says what happens instead.</td>
+      </tr>
+      <tr>
+        <th>Podcast Republic</th>
+        <td>Starts playback</td>
+        <td class="no">Not documented</td>
+        <td>Schedules a podcast, radio station or playlist to begin at a set time. One sentence in the FAQ, and nothing anywhere about what happens if it does not.</td>
+      </tr>
+      <tr>
+        <th>Pocket Casts</th>
+        <td class="no">No alarm</td>
+        <td>n/a</td>
+        <td>Has a support page whose entire purpose is to say it does not support an alarm feature, and might in future.</td>
+      </tr>
+      <tr>
+        <th>AntennaPod</th>
+        <td class="no">No alarm</td>
+        <td>n/a</td>
+        <td>Declined deliberately, and the <a href="https://github.com/AntennaPod/AntennaPod/issues/2003" rel="nofollow">thread is worth reading</a>. A contributor had a working alarm built on Android's own clock app within days. The maintainer turned it down as a second app's worth of maintenance, then built a clock of his own, found it sometimes did not ring even on near-stock Android with battery protection on, and closed the request saying an alarm clock app does not mean anything if it is not totally reliable.</td>
+      </tr>
+      <tr>
+        <th>Castbox, Player FM, Podbean</th>
+        <td class="no">No alarm</td>
+        <td>n/a</td>
+        <td>All three publish full feature lists with a sleep timer on them and no alarm anywhere. Worth checking which of the two you are looking at, since the names are similar and they do opposite jobs.</td>
+      </tr>
+      <tr>
+        <th>Radio alarm apps</th>
+        <td class="no">Radio, not podcasts</td>
+        <td class="no">A built-in beep</td>
+        <td>Several exist, some not updated in years. Live radio cannot be downloaded in advance, so every one of them ships a fallback file for when the stream fails. Their own answer to the problem is a beep.</td>
+      </tr>
+      <tr>
+        <th>Alarmcast</th>
+        <td class="yes">Yes</td>
+        <td class="yes">Your episode still plays</td>
+        <td>You wake to the show you chose, mid-conversation, the way a clock radio worked. It starts the second the alarm fires, because the episode is already on the phone. If it never arrived, the alarm falls back through a live stream, your own chime, and finally a tone built into the app. Android only.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Two of the best-regarded podcast apps on Android have looked at this and said no. Pocket Casts publishes a page whose only purpose is to say it has no alarm, and AntennaPod's maintainer closed a four-year-old request after trying it himself. Waking someone up is a different problem from playing audio, which is why this is a separate app rather than a setting.</p>
+
+  <h3>Where Alarmcast is the wrong answer</h3>
+    <ul>
+    <li><strong>You have an iPhone.</strong> Alarmcast is Android only.</li>
+    <li><strong>You want a sleep tracker.</strong> No sleep staging, no smart wake window, no snore detection. It is an alarm and a podcast player.</li>
+    <li><strong>You want music.</strong> It plays podcasts, not your local library and not a streaming subscription.</li>
+    <li><strong>Your phone had no network at all before the alarm.</strong> Then you get sound, but not your episode. It tries the downloaded file, then a live stream, then your own chime, then a tone built into the app that cannot fail to exist. Something wakes you every time. It might not be the show you picked, and we will not pretend otherwise.</li>
+    <li><strong>You want to be startled awake.</strong> Some people do, and this app is built on the opposite idea. It rings on Android's alarm channel at the volume you set and vibrates unless you turn that off, so it is not a quiet app. A calm voice is still not a klaxon.</li>
+  </ul>
+
+  <h2>What to change tomorrow morning, whatever you use</h2>
+  <ol>
+    <li><strong>Change the sound.</strong> Anything with melody and structure beats the default beep, and it costs nothing.</li>
+    <li><strong>Use the fade-in</strong> if your alarm app has one, so the sound arrives over seconds rather than instantly.</li>
+    <li><strong>Exempt your alarm app from battery optimisation.</strong> Settings, Apps, your alarm app, Battery, then allow unrestricted background use. On Xiaomi, Oppo and Vivo phones also find autostart and enable it. This is the fix for most missed alarms.</li>
+    <li><strong>Never force-stop it.</strong> That cancels every alarm it had set, and it cannot restore them until you open it again. Swiping it out of recents is fine.</li>
+    <li><strong>Test it once.</strong> Set an alarm for five minutes' time, put the phone down, and let it fire. Then set one for tomorrow and leave the phone alone until morning. An alarm you have never tested is an assumption.</li>
+  </ol>
+
+  <h2>Questions people actually ask</h2>
+
+  <div class="faq">
+    <details>
+      <summary>Can you wake up to a podcast on Android?</summary>
+      <p>Yes, but the built-in clock apps cannot do it. Neither Google Clock nor Samsung Clock offers podcasts as an alarm sound, and nor does Alarmy or Sleep as Android; their music integrations cover songs, albums and playlists. On Android the options are a podcast player that has added an alarm, currently Podcast Addict or Podcast Republic, or a dedicated podcast alarm clock. The difference that matters is whether the episode is already on the phone when the alarm fires, or is fetched at that moment.</p>
+    </details>
+    <details>
+      <summary>Why does my Android alarm not go off?</summary>
+      <p>Usually one of six things: Doze mode deferring an alarm that was not scheduled the way an alarm clock should be, an App Standby bucket cutting off the network the app needed to prepare, a missing or revoked exact-alarm permission on Android 12 and later, the app having been force-stopped, which cancels its alarms outright, manufacturer battery management killing it while the screen is off (Huawei, Xiaomi, OnePlus and Samsung are the usual names), or a reboot clearing the schedule. Exempting the app from battery optimisation, and not force-stopping it, fixes the majority of cases.</p>
+    </details>
+    <details>
+      <summary>Can I use Spotify as my alarm?</summary>
+      <p>Only through a third-party alarm app that launches Spotify at the alarm time, and it streams when it starts. If the network is down, slow, or the handoff between the two apps fails, you get silence or a default tone. None of the apps that do this documents what happens when it fails.</p>
+    </details>
+    <details>
+      <summary>Will I sleep through a podcast alarm?</summary>
+      <p>That depends on volume, not on content, and any decent implementation lets you set the alarm volume separately from your media volume. A spoken-word alarm at full volume is not quieter than a ringtone at full volume. What it removes is the startle, not the loudness.</p>
+    </details>
+    <details>
+      <summary>Does a podcast alarm need an internet connection?</summary>
+      <p>It needs one at some point before the alarm, to fetch the episode. It should not need one at the moment the alarm fires. Alarmcast downloads in roughly the 30 minutes beforehand, preferring Wi-Fi, and plays from storage. If the download did not finish there is a fallback chain ending in a tone built into the app, so the alarm still rings.</p>
+    </details>
+    <details>
+      <summary>Is there an iPhone version of Alarmcast?</summary>
+      <p>No. Alarmcast is Android only.</p>
+    </details>
+  </div>
+
+  <div class="endcard">
+    <h2>Alarmcast wakes you to your podcasts, not a siren</h2>
+    <p>A real Android alarm clock, built around the reliability problems above, with a proper podcast player for the rest of the day. The episode is on your phone before the alarm fires, and a chime backs it up if anything upstream breaks.</p>
+    <a class="btn" href="/#how">See how it works</a>
+  </div>
+
+  <div class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li>Tassi, P. and Muzet, A. "Sleep inertia." <i>Sleep Medicine Reviews</i>, 2000, 4(4), 341 to 353.</li>
+      <li>McFarlane, S. J., Garcia, J. E., Verhagen, D. S. and Dyer, A. G. "Alarm tones, music and their elements: Analysis of reported waking sounds to counteract sleep inertia." <i>PLOS ONE</i>, 2020, 15(1), e0215788. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0215788" rel="nofollow">Open access</a>.</li>
+      <li>Android developer documentation: <a href="https://developer.android.com/training/monitoring-device-state/doze-standby" rel="nofollow">Doze and App Standby</a>, <a href="https://developer.android.com/topic/performance/power/power-details" rel="nofollow">the per-bucket resource limits</a>, <a href="https://developer.android.com/about/versions/14/changes/schedule-exact-alarms" rel="nofollow">the Android 14 exact-alarm change</a>, and <a href="https://developer.android.com/develop/background-work/services/alarms/schedule" rel="nofollow">scheduling alarms</a>. The alarm-clock exemption from App Standby quotas is in Android's own <code>AlarmManagerService</code>, not in the documentation.</li>
+      <li>Google Play policy on the <code>USE_EXACT_ALARM</code> permission, <a href="https://support.google.com/googleplay/android-developer/answer/9888170#exact_alarm" rel="nofollow">Permissions and APIs that Access Sensitive Information</a>.</li>
+      <li><a href="https://dontkillmyapp.com" rel="nofollow">dontkillmyapp.com</a>, community-maintained, consulted 18 August 2026.</li>
+      <li>Episode link discrepancy measured by Alarmcast across 129,997 episodes, comparing directory download links against publisher feeds.</li>
+      <li>Competitor rows: each app's Google Play listing and its developer's own documentation, all accessed 18 August 2026. <a href="https://support.google.com/clock/answer/2840926" rel="nofollow">Google Clock alarm sounds</a>, <a href="https://www.samsung.com/us/support/answer/ANS10003417/" rel="nofollow">Samsung Clock with Spotify</a>, <a href="https://sleep.urbandroid.org/docs/alarms/ringtone.html" rel="nofollow">Sleep as Android ringtone documentation</a>, <a href="https://podcastaddict.com/changelog/2023_1" rel="nofollow">Podcast Addict changelog</a>, <a href="https://www.podcastrepublic.net/faqs" rel="nofollow">Podcast Republic FAQ</a>, <a href="https://support.pocketcasts.com/knowledge-base/alarm/" rel="nofollow">Pocket Casts on alarms</a>.</li>
+    </ol>
+  </div>
+
+</article>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px;">
+      <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
+    </div>
+    <div class="foot-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
+    </div>
+    <div>&copy; 2026 Alarmcast &middot; alarmcast.app</div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why your alarm clock ruins your morning, and what to do about it",
+      "description": "What the research says about harsh wake-up sounds, why Android alarms miss, and an honest comparison of every way to wake up to a podcast.",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "author": { "@type": "Organization", "name": "Alarmcast", "url": "https://alarmcast.app" },
+      "publisher": { "@type": "Organization", "name": "Alarmcast", "url": "https://alarmcast.app" },
+      "mainEntityOfPage": "https://alarmcast.app/blog/why-your-alarm-clock-ruins-your-morning/",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://alarmcast.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://alarmcast.app/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Why your alarm clock ruins your morning" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Can you wake up to a podcast on Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but the built-in clock apps cannot do it. Neither Google Clock nor Samsung Clock offers podcasts as an alarm sound, and nor does Alarmy or Sleep as Android; their music integrations cover songs, albums and playlists. On Android the options are a podcast player that has added an alarm, currently Podcast Addict or Podcast Republic, or a dedicated podcast alarm clock. The difference that matters is whether the episode is already on the phone when the alarm fires, or is fetched at that moment." } },
+        { "@type": "Question", "name": "Why does my Android alarm not go off?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually one of six things: Doze mode deferring an alarm that was not scheduled the way an alarm clock should be, an App Standby bucket cutting off the network the app needed to prepare, a missing or revoked exact-alarm permission on Android 12 and later, the app having been force-stopped, which cancels its alarms outright, manufacturer battery management killing it while the screen is off, or a reboot clearing the schedule. Exempting the app from battery optimisation, and not force-stopping it, fixes the majority of cases." } },
+        { "@type": "Question", "name": "Can I use Spotify as my alarm?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only through a third-party alarm app that launches Spotify at the alarm time, and it streams when it starts. If the network is down, slow, or the handoff between the two apps fails, you get silence or a default tone. None of the apps that do this documents what happens when it fails." } },
+        { "@type": "Question", "name": "Will I sleep through a podcast alarm?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That depends on volume, not on content. Any decent implementation lets you set the alarm volume separately from your media volume. A spoken-word alarm at full volume is not quieter than a ringtone at full volume. What it removes is the startle, not the loudness." } },
+        { "@type": "Question", "name": "Does a podcast alarm need an internet connection?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It needs one at some point before the alarm, to fetch the episode, but it should not need one at the moment the alarm fires. Alarmcast downloads in roughly the 30 minutes beforehand, preferring Wi-Fi, and plays from storage. If the download did not finish there is a fallback chain ending in a tone built into the app, so the alarm still rings." } },
+        { "@type": "Question", "name": "Is there an iPhone version of Alarmcast?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Alarmcast is Android only." } }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
