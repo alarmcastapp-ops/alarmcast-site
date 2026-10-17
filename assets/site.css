@@ -81,12 +81,9 @@
   .btn.ghost:hover{border-color:var(--purple-400);background:rgba(124,92,255,.08);}
   @media(max-width:900px){ .navlinks{display:none;} }
   .nav-cta{display:flex;align-items:center;gap:10px;}
-  .nav-cta .short{display:none;}
   @media(max-width:520px){
     .nav-cta{gap:8px;}
     .nav-cta .btn{padding-left:14px;padding-right:14px;}
-    .nav-cta .long{display:none;}
-    .nav-cta .short{display:inline;}
   }
   @media(max-width:400px){
     .nav-cta{gap:6px;}
