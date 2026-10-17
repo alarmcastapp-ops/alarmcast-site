@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For podcasters: Featured in Alarmcast</title>
+<meta name="description" content="Put your show in the Featured row of Alarmcast, the podcast alarm clock for Android, for one ad read. Your listeners get a free year of Premium with your code." />
+<meta name="theme-color" content="#1A1A1A" />
+<link rel="canonical" href="https://alarmcast.app/podcasters/" />
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your show in Alarmcast's Featured row" />
+<meta property="og:description" content="Put your show in Featured in Alarmcast, the podcast alarm clock for Android, for one ad read. Your listeners get a free year of Premium." />
+<meta property="og:url" content="https://alarmcast.app/podcasters/" />
+<meta property="og:image" content="https://alarmcast.app/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="/assets/site.css" />
+<style>
+  .pod-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:72px 0 64px;}
+  .pod-hero h1{
+    font-size:clamp(36px,5vw,58px);line-height:1.05;margin:0 0 20px;
+    letter-spacing:-.025em;font-weight:800;max-width:14ch;
+  }
+  .lede{font-size:clamp(16px,1.7vw,19px);color:var(--on-med);max-width:44ch;margin:0 0 30px;}
+
+  .terms{margin:0 0 32px;padding:0;max-width:46ch;}
+  .terms div{display:grid;grid-template-columns:9.5em 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--divider);}
+  .terms div:last-child{border-bottom:1px solid var(--divider);}
+  .terms dt{color:var(--on-low);font-size:14.5px;}
+  .terms dd{margin:0;color:var(--on-high);font-size:15.5px;}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .note{font-size:13.5px;color:var(--on-low);margin:16px 0 0;max-width:46ch;}
+  .note a,.prose a{color:var(--purple-200);text-decoration:underline;text-decoration-color:rgba(124,92,255,.35);text-underline-offset:2px;}
+
+  .phone-stage{display:flex;flex-direction:column;align-items:center;}
+  .phone{
+    position:relative;width:300px;border-radius:42px;
+    background:linear-gradient(160deg,#2A2A2A,#141414);
+    border:1px solid #343434;padding:12px;
+    box-shadow:0 30px 60px -28px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.4);
+  }
+  .tap{position:absolute;left:2%;top:79.4%;width:96%;height:9.8%;border:2px solid var(--purple-400);border-radius:10px;pointer-events:none;}
+  .phone .screen{position:relative;position:relative;border-radius:31px;overflow:hidden;background:var(--device-bg);}
+  .phone img{display:block;width:100%;height:auto;aspect-ratio:1080/2400;}
+
+  .your-slot{
+    position:absolute;left:2.4%;top:16.5%;width:27.6%;height:18.2%;
+    border:2px dashed var(--amber);border-radius:10px;
+    box-shadow:0 0 0 9999px rgba(10,10,12,.42);
+    pointer-events:none;
+  }
+  .your-slot span{
+    position:absolute;left:-2px;bottom:-15px;
+    background:var(--amber);color:#1A1A1A;font-size:11px;font-weight:700;
+    padding:3px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .caption{font-size:13px;color:var(--on-low);text-align:center;max-width:34ch;margin:18px 0 0;}
+
+  .listeners{padding:48px 0 40px;border-top:1px solid var(--divider);}
+  .listeners-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
+  .listeners h2,.either h2{font-size:clamp(26px,3.2vw,36px);letter-spacing:-.025em;margin:0 0 16px;font-weight:800;line-height:1.1;}
+  .prose{color:var(--on-med);font-size:16px;max-width:42ch;margin:0 0 14px;}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:0;padding:0;list-style:none;}
+  .steps li{display:flex;flex-direction:column;align-items:center;}
+  .steps .phone{width:230px;border-radius:34px;padding:9px;}
+  .steps .phone .screen{border-radius:26px;}
+  .steps p{margin:16px 0 0;font-size:14.5px;color:var(--on-med);text-align:center;max-width:24ch;}
+  .steps b{color:var(--on-high);font-weight:600;}
+  .step-n{color:var(--purple-200);font-weight:700;margin-right:6px;}
+
+  .small{padding:8px 0 24px;max-width:68ch;}
+  .small h2{font-size:22px;letter-spacing:-.01em;margin:0 0 12px;font-weight:800;}
+  .small p{margin:0;color:var(--on-med);font-size:15.5px;line-height:1.65;}
+
+  .either{padding:32px 0 88px;}
+  .either-band{
+    display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+    background:var(--amber-fill);border:1px solid rgba(235,193,77,.22);border-radius:var(--radius);
+    padding:28px 32px;
+  }
+  .either h2{font-size:22px;margin:0 0 6px;letter-spacing:-.01em;}
+  .either p{margin:0;color:var(--on-med);font-size:15px;max-width:60ch;}
+
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--purple-200);outline-offset:3px;border-radius:999px;}
+
+  @media(max-width:900px){
+    .pod-hero,.listeners-grid{grid-template-columns:1fr;gap:40px;}
+    .pod-hero{padding-top:48px;}
+    .either-band{grid-template-columns:1fr;}
+  }
+  @media(max-width:520px){
+    .wrap{padding:0 16px;}
+    .phone{width:272px;border-radius:38px;padding:11px;}
+    .steps{gap:14px;}
+    .steps .phone{width:100%;max-width:170px;border-radius:26px;padding:7px;}
+    .steps .phone .screen{border-radius:20px;}
+    .terms div{grid-template-columns:1fr;gap:2px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
+      </a>
+      <div class="navlinks">
+        <a href="/#how">How it works</a>
+        <a href="/#reliable">Reliability</a>
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dpodcasters">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <section class="pod-hero">
+    <div>
+      <h1>Your show, as someone's alarm.</h1>
+      <p class="lede">Alarmcast is an Android alarm clock that wakes people with a podcast. We'd like your show in Featured, at the top of its Discover screen.</p>
+
+      <dl class="terms">
+        <div><dt>You do</dt><dd>One ad read, in your own words, on whichever episode suits you.</dd></div>
+        <div><dt>Your show gets</dt><dd>A place in Featured from an upcoming update. The order reshuffles every day.</dd></div>
+        <div><dt>Your listeners get</dt><dd>A free year of Premium with your show's own code.</dd></div>
+      </dl>
+
+      <div class="cta-row">
+        <a class="btn" href="mailto:hello@alarmcast.app?subject=Featured">Email us</a>
+        <a class="btn ghost" href="/">See the app</a>
+      </div>
+      <p class="note">Reply to our email, or write to <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>.</p>
+    </div>
+
+    <div class="phone-stage">
+      <div class="phone">
+        <div class="screen">
+          <img src="/assets/screens/featured.webp" width="720" height="1600"
+               alt="The Discover screen in Alarmcast: three rows of large podcast covers under the heading Featured, then Browse by topic" />
+          <div class="your-slot" aria-hidden="true"><span>Your show here</span></div>
+        </div>
+      </div>
+      <p class="caption">The shows in this picture are made up.</p>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="listeners" aria-labelledby="listeners-title">
+    <div class="listeners-grid">
+      <div>
+        <h2 id="listeners-title">How listeners use your code</h2>
+        <p class="prose">They type it into the app and get a year of Premium, which drops the ads and lets the alarm pick up where they left off. Nobody is asked for a card.</p>
+        <p class="prose"><a href="/gift/">Gift code terms</a></p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="phone"><div class="screen">
+            <img src="/assets/screens/gift-settings.webp" width="720" height="1600" loading="lazy"
+                 alt="Alarmcast Settings, scrolled to the bottom: a Gift codes section with the row Enter a code" />
+            <div class="tap" aria-hidden="true"></div>
+          </div></div>
+          <p><span class="step-n">1</span>In <b>Settings</b>, at the bottom, tap <b>Enter a code</b>.</p>
+        </li>
+        <li>
+          <div class="phone"><div class="screen">
+            <img src="/assets/screens/gift-enter.webp" width="720" height="1600" loading="lazy"
+                 alt="The Enter a code box, with the gift code CASSETTE typed in and a Redeem button" />
+          </div></div>
+          <p><span class="step-n">2</span>Type the code and tap <b>Redeem</b>.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="small" aria-labelledby="small-title">
+    <h2 id="small-title">Before you say yes</h2>
+    <p>The read has to say it's an ad, at the start. We never ask anyone for a review or a rating. Saying yes lets us show your show's name and cover art in Featured, for as long as we agree by email, and we'll take it out whenever you ask. Children's shows can't take part.</p>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="either" aria-labelledby="either-title">
+    <div class="either-band">
+      <div>
+        <h2 id="either-title">A free year for you and your co-hosts</h2>
+        <p>You get it whether or not you do the read. Tell us how many of you make the show.</p>
+      </div>
+      <a class="btn ghost" href="mailto:hello@alarmcast.app?subject=A%20free%20year">Ask for codes</a>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px;">
+      <img class="mark" src="/assets/alarmcast-icon.png" alt="" />
+      Alarmcast
+    </div>
+    <div class="foot-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/paia/">PAIA</a>
+      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
+    </div>
+    <div>© 2026 Alarmcast · alarmcast.app</div>
+  </div>
+</footer>
+
+</body>
+</html>

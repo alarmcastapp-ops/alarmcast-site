@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://alarmcast.app/privacy/</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
@@ -34,5 +34,25 @@
     <loc>https://alarmcast.app/blog/how-podcast-feeds-work/</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alarmcast.app/terms/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://alarmcast.app/paia/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://alarmcast.app/gift/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://alarmcast.app/podcasters/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <priority>0.4</priority>
   </url>
 </urlset>
