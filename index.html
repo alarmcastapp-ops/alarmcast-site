@@ -54,10 +54,10 @@
   .hero .lede{font-size:clamp(19px,1.8vw,21px);max-width:34ch;margin:26px 0 34px;}
 
   /* ---------- device ---------- */
-  /* two phones side by side, mirror-even: the alarm list, then the alarm ringing.
+  /* two phones side by side, equal size: the alarm list, then the alarm ringing a step higher.
      Sized in container units so the pair scales as one picture. */
   .pair{container-type:inline-size;position:relative;width:min(480px,100%);margin:0 auto;}
-  .pair::before{content:"";display:block;padding-top:104%;}
+  .pair::before{content:"";display:block;padding-top:116%;}
   .pair .phone{
     position:absolute;top:0;width:46cqw;padding:2cqw;border-radius:7.2cqw;
     box-shadow:0 0 0 2px var(--device-metal),var(--device-shadow);
@@ -67,7 +67,7 @@
   .pair .sysbar .sysicons{width:7cqw;height:1.9cqw;}
   .pair .homebar{height:2.8cqw;}
   .pair .homebar::after{height:.75cqw;}
-  .pair .back{left:2.5cqw;}
+  .pair .back{left:2.5cqw;top:12cqw;}
   .pair .front{right:2.5cqw;}
   .phone{
     width:min(300px,100%);aspect-ratio:300/659;border-radius:44px;padding:12px;
