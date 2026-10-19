@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Alarmcast: the podcast alarm clock for Android</title>
 <meta name="description" content="Alarmcast is an Android alarm clock that wakes you with your podcast instead of a ringtone, plus a full podcast player for the rest of the day. The episode downloads before your alarm and plays from storage the instant it fires, with a built-in chime backup if anything fails." />
-<meta name="theme-color" content="#1A1A1A" />
+<meta name="theme-color" content="#FFFFFF" />
 <link rel="canonical" href="https://alarmcast.app/" />
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
 <link rel="icon" sizes="any" href="favicon.ico" />
+<link rel="stylesheet" href="assets/site.css" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-<!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Alarmcast: wake up to your podcast" />
 <meta property="og:description" content="An Android alarm clock that wakes you with your podcast instead of a ringtone, plus a full podcast player once you're up. The episode downloads before the alarm and plays the instant it fires." />
@@ -22,301 +22,243 @@
 <meta property="og:image:alt" content="Alarmcast. Wake up to conversation: an alarm clock that wakes you with your podcast instead of a beep." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="stylesheet" href="assets/site.css" />
 <style>
+  /* ---------- home page tokens and rhythm (shared ones live in assets/site.css) ---------- */
+  :root{
+    --section:clamp(60px,8vw,100px);
+    --t-h3:20px;
+    --t-h2:clamp(30px,4vw,44px);
+    --t-h1:clamp(46px,7vw,80px);
+  }
+  p{margin:0;}
+  h1,h2,h3,h4{margin:0;}
+  section{padding:var(--section) 0;scroll-margin-top:64px;}
+
+  /* ---------- type ---------- */
+  h2{font-size:var(--t-h2);line-height:1.1;letter-spacing:-.025em;font-weight:800;max-width:22ch;}
+  .lede{margin-top:18px;}
+  .head{margin-bottom:clamp(36px,4.5vw,56px);}
+  @media(min-width:1000px){
+    .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;align-items:start;}
+    .head > .label,.head > h2,.head > h3{grid-column:1;}
+    /* the intro starts level with the heading, whatever its length */
+    .head > .lede{grid-column:2;grid-row:2;margin:0;align-self:start;padding-top:.35em;}
+  }
+  .head + .ticks{margin-top:0;}
+
   /* ---------- hero ---------- */
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:84px 0 70px;}
-  .pill{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:13px;font-weight:600;color:var(--purple-500);
-    background:rgba(124,92,255,.08);border:1px solid rgba(124,92,255,.28);
-    padding:6px 14px;border-radius:999px;margin-bottom:24px;
-  }
-  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple-500);}
-  h1{
-    font-size:clamp(38px,5.4vw,62px);line-height:1.04;margin:0 0 20px;
-    letter-spacing:-.025em;font-weight:800;
-  }
-  h1 .grad{color:var(--purple-400);}
-  .lede{font-size:clamp(16px,1.7vw,19px);color:var(--on-med);max-width:36ch;margin:0 0 32px;}
-  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-  .sub-note{font-size:13px;color:var(--on-low);margin-top:18px;}
-  .sub-note b{color:var(--on-med);font-weight:600;}
+  .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding:clamp(48px,6vw,80px) 0 clamp(56px,7vw,96px);}
+  .hero .label{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;}
+  h1{font-size:var(--t-h1);line-height:1.0;letter-spacing:-.035em;font-weight:800;}
+  h1 .accent{color:var(--accent);}
+  .hero .lede{font-size:clamp(19px,1.8vw,21px);max-width:34ch;margin:26px 0 34px;}
 
-  /* ---------- phone mock ---------- */
-  .phone-stage{position:relative;display:flex;justify-content:center;}
+  /* ---------- device ---------- */
+  /* two phones side by side, mirror-even: the alarm list, then the alarm ringing.
+     Sized in container units so the pair scales as one picture. */
+  .pair{container-type:inline-size;position:relative;width:min(480px,100%);margin:0 auto;}
+  .pair::before{content:"";display:block;padding-top:104%;}
+  .pair .phone{
+    position:absolute;top:0;width:46cqw;padding:2cqw;border-radius:7.2cqw;
+    box-shadow:0 0 0 2px var(--device-metal),var(--device-shadow);
+  }
+  .pair .screen{border-radius:5.4cqw;}
+  .pair .sysbar{height:4cqw;padding:0 2.8cqw;font-size:1.9cqw;}
+  .pair .sysbar .sysicons{width:7cqw;height:1.9cqw;}
+  .pair .homebar{height:2.8cqw;}
+  .pair .homebar::after{height:.75cqw;}
+  .pair .back{left:2.5cqw;}
+  .pair .front{right:2.5cqw;}
   .phone{
-    position:relative;width:300px;height:659px;border-radius:42px;
-    background:linear-gradient(160deg,#2A2A2A,#141414);
-    border:1px solid #343434;
-    padding:13px;
-    box-shadow:0 30px 60px -28px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.4);
+    width:min(300px,100%);aspect-ratio:300/659;border-radius:44px;padding:12px;
+    background:var(--device-rim);box-shadow:var(--device-shadow);
   }
-  .screen{
-    position:relative;width:100%;height:100%;border-radius:31px;overflow:hidden;
-    background:var(--device-bg);
-    display:flex;flex-direction:column;
+  .screen,.cscreen{
+    width:100%;height:100%;border-radius:33px;overflow:hidden;
+    background:var(--device-bg);display:flex;flex-direction:column;
   }
-
-  /* ---------- device chrome (Android system UI, drawn around the app pixels) ----------
-     The captures render the app edge-to-edge with no system insets, so the status bar and
-     gesture pill are strips around the screenshot rather than overlays on top of it. The
-     screenshot is object-fit:contain against the same dark ground, so nothing is ever
-     cropped and the letterboxing is invisible. */
+  .screen .shot,.cscreen .cshot{width:100%;flex:1;min-height:0;object-fit:contain;display:block;}
+  /* Android system UI, drawn as strips around the app pixels */
   .sysbar{
     flex-shrink:0;display:flex;align-items:center;justify-content:space-between;
-    padding:0 15px;height:24px;
-    font-size:11px;font-weight:600;color:#EDEDED;letter-spacing:.01em;
-    background:var(--device-bg);
+    padding:0 15px;height:24px;font-size:11px;font-weight:600;color:#EDEDED;background:var(--device-bg);
   }
   .sysbar .sysicons{width:40px;height:11px;fill:#EDEDED;opacity:.92;display:block;}
-  .homebar{
-    flex-shrink:0;height:15px;display:flex;align-items:center;justify-content:center;
-    background:var(--device-bg);
-  }
-  .homebar::after{
-    content:"";width:33%;height:4px;border-radius:99px;background:rgba(237,237,237,.5);
-  }
+  .homebar{flex-shrink:0;height:15px;display:flex;align-items:center;justify-content:center;background:var(--device-bg);}
+  .homebar::after{content:"";width:33%;height:4px;border-radius:99px;background:rgba(237,237,237,.5);}
+  .cscreen{border-radius:28px;}
   .cscreen .sysbar{height:20px;padding:0 12px;font-size:9.5px;}
   .cscreen .sysbar .sysicons{width:34px;height:9.5px;}
   .cscreen .homebar{height:13px;}
   .cscreen .homebar::after{height:3.5px;}
-  /* podcast mic peeking over the phone */
-  .mic-peek{
-    position:absolute;top:-44px;right:2px;width:128px;height:128px;z-index:4;
-    filter:drop-shadow(0 12px 18px rgba(0,0,0,.5));
-    pointer-events:none;
-  }
-  /* real screenshot inside the hero phone */
-  .screen .shot{width:100%;flex:1;min-height:0;object-fit:contain;object-position:center;display:block;}
 
-  /* ---------- fanned screen deck ---------- */
-  .deck-stage{position:relative;height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:6px;}
-  .deck{position:relative;width:250px;height:554px;}
-  .card{
-    position:absolute;top:0;left:0;width:250px;height:554px;cursor:pointer;
-    transition:transform .8s cubic-bezier(.22,.61,.36,1), opacity .8s ease, filter .8s ease;
-    will-change:transform,opacity,filter;
-  }
-  .cphone{
-    width:100%;height:100%;padding:9px;border-radius:36px;
-    background:linear-gradient(160deg,#2A2A2A,#141414);border:1px solid #343434;
-    box-shadow:0 24px 46px -24px rgba(0,0,0,.85), 0 2px 5px rgba(0,0,0,.4);
-  }
-  .cscreen{
-    position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:var(--device-bg);
-    display:flex;flex-direction:column;
-  }
-  .cscreen .cshot{width:100%;flex:1;min-height:0;object-fit:contain;object-position:center;display:block;}
+  /* ---------- tick lists (proof, reliability) ---------- */
+  .ticks{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 32px;}
+  .ticks li{display:flex;gap:14px;align-items:flex-start;font-size:var(--t-body);font-weight:600;line-height:1.45;color:var(--ink);}
+  .ticks svg{flex-shrink:0;width:26px;height:26px;margin-top:-1px;}
+  .proof .text-link{display:inline-block;margin-top:36px;}
 
-  .deck-caption{text-align:center;color:var(--on-med);font-size:15.5px;max-width:52ch;margin:14px auto 0;min-height:2.8em;}
-  .deck-dots{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
-  .deck-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16);border:none;cursor:pointer;padding:0;transition:background .2s ease,transform .2s ease;}
-  .deck-dot.on{background:var(--purple-400);transform:scale(1.3);}
-  @media(max-width:640px){
-    .deck-stage{height:412px;}
-    .deck{transform:scale(.74);}
+  /* ---------- how it works ---------- */
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:step;}
+  .steps li{position:relative;padding-top:68px;}
+  .steps li::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);color:var(--accent-ink);font-weight:750;font-size:18px;
   }
+  /* the line that joins step to step */
+  .steps li:not(:last-child)::after{
+    content:"";position:absolute;top:21px;left:60px;right:-24px;height:2px;background:var(--rule);
+  }
+  .steps h3{font-size:var(--t-h3);font-weight:750;letter-spacing:-.01em;margin-bottom:10px;}
+  .steps p{color:var(--ink-2);font-size:16px;}
 
-  /* ---------- gentle-wake bonus band ---------- */
-  .bonus{
-    box-shadow:var(--elev-1);
-    display:flex;gap:26px;align-items:center;margin:14px 0 0;
-    background:#221E15;
-    border:1px solid var(--divider);border-left:3px solid var(--amber);
-    border-radius:var(--radius);padding:28px 32px;
-  }
-  /* drop-shadow, not box-shadow: these are transparent SVGs, so the shadow has to
-     follow the artwork rather than its bounding box. */
-  .bonus-bird{flex-shrink:0;width:100px;height:100px;
-    filter:drop-shadow(0 5px 8px rgba(0,0,0,.45));}
-  .bonus h3{font-size:21px;margin:6px 0 9px;font-weight:800;letter-spacing:-.01em;}
-  .bonus p{margin:0;color:var(--on-med);font-size:15px;}
-  @media(max-width:760px){ .bonus{flex-direction:column;text-align:center;gap:14px;padding:26px 22px;} }
+  /* ---------- listen on ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:start;}
+  .split .body p:not(.label){color:var(--ink-2);margin-top:18px;max-width:52ch;}
+  .split .body h2 + p{margin-top:22px;}
+  .handoff{list-style:none;margin:8px 0 0;padding:0;}
+  .handoff li{padding:20px 0;border-top:1px solid var(--rule);}
+  .handoff li:last-child{border-bottom:1px solid var(--rule);}
+  .handoff b{display:block;font-size:var(--t-body);font-weight:700;margin-bottom:4px;}
+  .handoff span{display:block;color:var(--ink-2);font-size:16px;}
 
-  /* ---------- section scaffolding ---------- */
-  section{padding:78px 0;}
-  .eyebrow{color:var(--purple-500);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px;}
-  h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.025em;margin:0 0 16px;font-weight:800;line-height:1.1;}
-  .section-lede{color:var(--on-med);font-size:17px;max-width:60ch;margin:0 0 14px;}
-  .section-head{text-align:center;margin:0 auto 52px;max-width:680px;}
-
-  /* ---------- features ---------- */
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .feature{
-    box-shadow:var(--elev-1);
-    background:var(--card);border:1px solid var(--divider);border-radius:var(--radius);
-    padding:26px 24px;transition:transform .18s ease,border-color .18s ease,background .18s ease;
-  }
-  .feature:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.20);background:var(--surface-hi);box-shadow:var(--elev-2);}
-  .ficon{
-    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
-    margin-bottom:16px;background:rgba(124,92,255,.10);border:1px solid rgba(124,92,255,.25);
-  }
-  .feature.teal .ficon{background:rgba(235,193,77,.10);border-color:rgba(235,193,77,.25);}
-  .feature h3{font-size:18px;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;}
-  .feature p{margin:0;color:var(--on-med);font-size:14.5px;}
-  @media(max-width:880px){ .features{grid-template-columns:1fr;} }
-
-  /* ---------- split band (Listen on) ---------- */
-  .split{
-    box-shadow:var(--elev-1);
-    display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
-    background:var(--card);
-    border:1px solid var(--divider);border-radius:28px;padding:46px 48px;
-  }
-  .split h2{font-size:clamp(26px,3.1vw,34px);}
-  .split p{color:var(--on-med);font-size:16px;margin:0 0 16px;}
-  .handoff{list-style:none;padding:0;margin:22px 0 0;}
-  .handoff li{
-    position:relative;padding:10px 0 10px 30px;font-size:15px;color:var(--on-high);
-    border-top:1px solid var(--divider);
-  }
-  .handoff li:first-child{border-top:none;}
-  .handoff li::before{
-    content:"";position:absolute;left:2px;top:17px;width:9px;height:9px;border-radius:50%;
-    background:var(--purple-500);
-  }
-  .handoff li b{font-weight:700;}
-  .handoff li span{display:block;color:var(--on-med);font-size:13.5px;}
-  @media(max-width:880px){ .split{grid-template-columns:1fr;gap:28px;padding:32px 26px;} }
-
-  /* ---------- discovery ---------- */
-  .folders{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
-  .folder{
-    font-size:13.5px;font-weight:600;color:var(--on-high);
-    padding:9px 16px;border-radius:12px;background:var(--card);
-    border:1px solid var(--divider);
-  }
-  .folder.hero-folder{background:rgba(124,92,255,.08);border-color:rgba(124,92,255,.28);color:var(--purple-500);}
-  .folder.more{color:var(--on-low);background:transparent;}
-
-  /* ---------- reliability band ---------- */
-  .band{
-    box-shadow:var(--elev-1);
-    background:var(--card);
-    border:1px solid var(--divider);border-radius:28px;padding:48px;text-align:center;
-  }
-  .band h2{max-width:18ch;margin-left:auto;margin-right:auto;}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px;}
-  .chip{
-    font-size:13.5px;font-weight:600;color:var(--on-high);
-    padding:9px 16px;border-radius:999px;background:var(--card);
-    border:1px solid var(--divider);
-  }
-  .chip span{color:var(--purple-500);margin-right:7px;font-weight:800;}
-
-  /* ---------- the hard part ---------- */
-  .hardpart{margin-top:26px;}
-  .hardpart-head{max-width:62ch;margin:0 auto 34px;text-align:center;}
-  .hardpart-head h3{font-size:clamp(21px,2.4vw,27px);font-weight:800;letter-spacing:-.02em;margin:0 0 12px;}
-  .hardpart-head p{color:var(--on-med);font-size:16px;margin:0;}
-  .hardpart-head p b{color:var(--on-high);font-weight:600;}
-  .tells{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .tell{
-    box-shadow:var(--elev-1);
-    background:var(--card);border:1px solid var(--divider);border-radius:16px;padding:22px 20px;
-  }
-  .tell .num{
-    font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--purple-500);
-    line-height:1.1;margin-bottom:10px;display:block;
-  }
-  .tell h4{font-size:15px;margin:0 0 7px;font-weight:700;letter-spacing:-.01em;}
-  .tell p{margin:0;color:var(--on-med);font-size:13.5px;line-height:1.5;}
-  @media(max-width:940px){ .tells{grid-template-columns:1fr 1fr;} }
-  @media(max-width:560px){ .tells{grid-template-columns:1fr;} }
+  /* ---------- reliability ---------- */
+  .reliable .ticks{grid-template-columns:repeat(4,1fr);}
+  .hardpart{margin-top:clamp(56px,6vw,80px);padding-top:clamp(48px,5vw,64px);border-top:1px solid var(--rule);}
+  .hardpart h3{font-size:clamp(24px,2.8vw,32px);line-height:1.2;letter-spacing:-.02em;font-weight:800;max-width:30ch;}
+  .tells{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .tell{padding-top:22px;border-top:2px solid var(--rule);}
+  .tell .num{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--amber);margin-bottom:14px;}
+  .tell h4{font-size:17px;font-weight:700;line-height:1.35;margin-bottom:8px;}
+  .tell p{color:var(--ink-2);font-size:15.5px;line-height:1.6;}
 
   .ladder{
-    margin-top:22px;padding:20px 24px;border-radius:16px;
-    box-shadow:var(--elev-1);
-    background:var(--card);border:1px solid var(--divider);
-    text-align:center;
+    margin-top:clamp(48px,5vw,64px);padding:32px;border-radius:20px;
+    background:var(--surface);border:1px solid var(--rule);
   }
-  .ladder .ladder-label{
-    font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-    color:var(--on-low);margin:0 0 12px;
+  .ladder h4{font-size:var(--t-h3);font-weight:750;margin-bottom:22px;}
+  .rungs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:rung;}
+  .rungs li{
+    position:relative;padding:16px 18px;border-radius:14px;
+    background:var(--accent-soft);font-weight:650;font-size:16px;line-height:1.3;
   }
-  .ladder-steps{
-    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;
-    font-size:13.5px;color:var(--on-high);font-weight:600;
+  .rungs li::before{counter-increment:rung;content:counter(rung);display:block;font-size:14px;font-weight:700;color:var(--accent-ink);margin-bottom:6px;}
+  .rungs li:not(:last-child)::after{
+    content:"\2192";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);
+    color:var(--ink-2);font-weight:700;font-size:17px;z-index:1;
   }
-  .ladder-steps .s{padding:7px 14px;border-radius:999px;background:rgba(124,92,255,.08);border:1px solid rgba(124,92,255,.25);}
-  .ladder-steps .arrow{color:var(--on-low);font-weight:700;}
-  .ladder-note{margin:14px 0 0;font-size:13.5px;color:var(--on-med);}
+  .ladder p{margin-top:20px;color:var(--ink-2);font-size:16px;}
+
+  /* ---------- screens deck ---------- */
+  .deck-stage{position:relative;height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .deck{position:relative;width:250px;height:554px;}
+  .card{
+    position:absolute;inset:0;cursor:pointer;
+    transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .8s ease,filter .8s ease;
+    will-change:transform,opacity,filter;
+  }
+  .cphone{width:100%;height:100%;padding:9px;border-radius:36px;background:var(--device-rim);box-shadow:0 26px 46px -26px rgba(0,0,0,.55),0 2px 5px rgba(0,0,0,.2);}
+  .deck-caption{text-align:center;color:var(--ink-2);font-size:16px;max-width:52ch;margin:18px auto 0;min-height:3.2em;}
+  .deck-dots{display:flex;gap:2px;justify-content:center;margin-top:8px;flex-wrap:wrap;}
+  .deck-dot{width:28px;height:28px;border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+  .deck-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink-3);opacity:.35;transition:transform .2s ease,opacity .2s ease,background .2s ease;}
+  .deck-dot.on::before{background:var(--accent);opacity:1;transform:scale(1.3);}
+  @media(max-width:640px){ .deck-stage{height:420px;} .deck{transform:scale(.72);} }
+  @media (prefers-reduced-motion:reduce){ .card{transition:none;} }
+
+  /* ---------- features ---------- */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;margin-top:clamp(56px,6vw,80px);scroll-margin-top:96px;}
+  .feature{padding-top:26px;border-top:1px solid var(--rule);}
+  .feature svg{width:28px;height:28px;color:var(--accent-ink);display:block;margin-bottom:16px;}
+  .feature h3{font-size:var(--t-h3);font-weight:750;letter-spacing:-.01em;margin-bottom:10px;}
+  .feature p{color:var(--ink-2);font-size:16px;}
+  /* Gentle Wake: the one amber tile, the bird in the icon slot */
+  .feature.gentle{border-top:2px solid var(--amber);}
+  .feature.gentle img{display:block;width:64px;height:64px;margin:-30px 0 10px -4px;}
+
+  /* ---------- discover ---------- */
+  .moods h3{font-size:var(--t-h3);font-weight:750;margin-bottom:8px;}
+  .moods > p{color:var(--ink-2);max-width:60ch;}
+  .moods > p b{color:var(--accent-ink);}
+  .folders{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .folder{font-size:15px;font-weight:600;padding:9px 16px;border-radius:10px;background:var(--band);border:1px solid var(--rule);}
+  .folder.pick{background:var(--accent-soft);border-color:transparent;color:var(--accent-ink);}
+  .folder.more{background:none;border-color:transparent;color:var(--ink-3);font-weight:500;}
 
   /* ---------- pricing ---------- */
-  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
   .tier{
-    box-shadow:var(--elev-1);
-    display:flex;flex-direction:column;
-    background:var(--card);border:1px solid var(--divider);border-radius:var(--radius);
-    padding:30px 26px;
+    display:flex;flex-direction:column;background:var(--surface);
+    border:1px solid var(--rule);border-radius:20px;padding:30px 28px;box-shadow:var(--card-shadow);
   }
-  .tier.feature-pop{
-    background:#201C2C;box-shadow:var(--elev-2);
-    border-color:rgba(124,92,255,.45);position:relative;
-  }
-  .tier.value-pop{
-    background:#221E15;box-shadow:var(--elev-2);
-    border-color:rgba(235,193,77,.38);position:relative;
-  }
-  .tier.value-pop .badge{background:var(--amber);color:#241D05;}
-  .tier .tag{font-size:12px;font-weight:700;color:var(--purple-500);letter-spacing:.05em;text-transform:uppercase;}
-  .tier .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--purple-500);padding:5px 14px;border-radius:999px;white-space:nowrap;}
-  .tier-headline{
-    font-size:14.5px;font-weight:700;color:var(--on-high);
-    margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid var(--divider);
-  }
-  .tier.value-pop .tier-headline{color:var(--amber);}
-  .tier.feature-pop .tier-headline{color:var(--purple-200);}
-  .tier h3{font-size:22px;margin:8px 0 4px;font-weight:800;}
-  .tier .price{font-size:15px;color:var(--on-med);margin-bottom:18px;}
-  .tier ul{list-style:none;padding:0;margin:0;flex:1;}
-  .tier li{position:relative;padding:8px 0 8px 26px;font-size:14.5px;color:var(--on-high);border-top:1px solid var(--divider);}
-  .tier li:first-child{border-top:none;}
-  .tier li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:8px;border-left:2px solid var(--purple-500);border-bottom:2px solid var(--purple-500);transform:rotate(-45deg);}
-  @media(max-width:880px){ .tiers{grid-template-columns:1fr;} }
+  .tier.ad-free{border:2px solid var(--amber-line);}
+  .tier.premium{border:2px solid var(--accent);}
+  .tier-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:28px;}
+  .tag{font-size:var(--t-sm);font-weight:600;color:var(--ink-3);}
+  .badge{font-size:13.5px;font-weight:700;padding:4px 11px;border-radius:999px;white-space:nowrap;}
+  .ad-free .badge{background:var(--amber-soft);color:var(--amber-ink);border:1px solid var(--amber-line);}
+  .premium .badge{background:var(--accent);color:#fff;}
+  .tier h3{font-size:24px;font-weight:800;letter-spacing:-.01em;margin:10px 0 14px;}
+  .price{display:flex;flex-direction:column;gap:2px;min-height:86px;}
+  .amt{font-size:36px;font-weight:800;letter-spacing:-.025em;line-height:1.1;}
+  .amt small{font-size:17px;font-weight:650;letter-spacing:0;color:var(--ink-2);margin-left:2px;}
+  .terms{font-size:15px;color:var(--ink-2);line-height:1.45;}
+  .tier-headline{font-size:16px;font-weight:650;color:var(--ink);margin:18px 0 0;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .ad-free .tier-headline{color:var(--amber-ink);}
+  .premium .tier-headline{color:var(--accent-ink);}
+  .tier ul{list-style:none;padding:0;margin:8px 0 0;flex:1;}
+  .tier li{position:relative;padding:9px 0 9px 28px;font-size:16px;line-height:1.45;}
+  .tier li::before{content:"";position:absolute;left:2px;top:15px;width:12px;height:7px;border-left:2px solid var(--accent-ink);border-bottom:2px solid var(--accent-ink);transform:rotate(-45deg);}
+  .after-tiers{margin-top:28px;color:var(--ink-2);max-width:66ch;}
 
-  /* ---------- makers' story ---------- */
-  .story{
-    box-shadow:var(--elev-1);
-    display:flex;gap:28px;align-items:flex-start;
-    max-width:860px;margin:56px auto 0;
-    background:var(--card);
-    border:1px solid var(--divider);border-left:3px solid var(--purple-500);
-    border-radius:var(--radius);padding:34px 36px;
-  }
-  .story-icon{flex-shrink:0;width:108px;height:108px;margin-top:-4px;
-    filter:drop-shadow(0 6px 10px rgba(0,0,0,.45));}
-  .story blockquote{margin:0;}
-  .story-eyebrow{color:var(--purple-500);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
-  .story p{color:var(--on-med);font-size:15.5px;margin:0 0 14px;}
-  .story p em{color:var(--on-high);font-style:italic;}
-  .story-sign{color:var(--on-high) !important;font-weight:600;font-size:14px !important;margin:6px 0 0 !important;}
-  @media(max-width:880px){ .story{flex-direction:column;gap:18px;padding:28px 24px;} .story-icon{width:84px;height:84px;} }
+  .story{margin:clamp(48px,5vw,64px) 0 0;padding:4px 0 4px 28px;border-left:3px solid var(--accent);max-width:72ch;}
+  .story .label{margin-bottom:12px;}
+  .story p:not(.label){color:var(--ink-2);margin-top:14px;}
+  .story p em{color:var(--ink);}
+  .story .sign{color:var(--ink);font-weight:650;font-size:var(--t-sm);margin-top:16px;}
 
-  /* ---------- final CTA ---------- */
+  /* ---------- final ---------- */
   .final{text-align:center;}
-  .final .bird-big{width:128px;height:128px;margin:0 auto 6px;display:block;
-    filter:drop-shadow(0 8px 14px rgba(0,0,0,.5));}
-  .final h2{margin-bottom:14px;}
-  .final p{color:var(--on-med);max-width:46ch;margin:0 auto 28px;font-size:17px;}
+  .final img{width:120px;height:120px;display:block;margin:0 auto 10px;}
+  .final h2{margin:0 auto;}
+  .final .lede{margin:18px auto 32px;max-width:46ch;}
+  .final .cta-row{justify-content:center;}
+  .final .hello{margin-top:22px;color:var(--ink-3);font-size:var(--t-sm);}
+  .final .hello a{color:var(--accent-ink);}
 
-
-
-  @media(max-width:880px){
-    .hero{grid-template-columns:1fr;text-align:center;padding:54px 0 40px;}
-    .lede{margin-left:auto;margin-right:auto;}
-    .cta-row{justify-content:center;}
-    .pill{margin-left:auto;margin-right:auto;}
-    .phone-stage{margin-top:30px;}
-    .band{padding:34px 24px;}
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;gap:48px;}
+    .pair{width:min(440px,100%);}
+    .split{grid-template-columns:1fr;}
+    .features{grid-template-columns:1fr 1fr;}
+    .tells{grid-template-columns:1fr 1fr;gap:36px 28px;}
+    .tiers{grid-template-columns:1fr;max-width:520px;}
+    .reliable .ticks{grid-template-columns:1fr 1fr;}
+    .rungs{grid-template-columns:1fr 1fr;gap:12px 24px;}
+    .rungs li:nth-child(2)::after{content:none;}
+  }
+  @media(max-width:760px){
+    .ticks,.reliable .ticks{grid-template-columns:1fr;gap:16px;}
+    .steps{grid-template-columns:1fr;gap:32px;}
+    .steps li{padding:0 0 0 64px;min-height:44px;}
+    .steps li:not(:last-child)::after{top:52px;bottom:-26px;left:21px;right:auto;width:2px;height:auto;}
+  }
+  @media(max-width:560px){
+    .features,.tells{grid-template-columns:1fr;}
+    .rungs{grid-template-columns:1fr;gap:8px;}
+    .rungs li{display:flex;gap:14px;align-items:baseline;padding:13px 16px;}
+    .rungs li::before{margin:0;}
+    .rungs li::after{content:none !important;}
+    .ladder{padding:24px 20px;}
+    .tier{padding:26px 22px;}
   }
 </style>
 </head>
 <body>
 
-<!-- device-chrome icon sprite: signal / wi-fi / battery, drawn once and referenced by every phone -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="sysicons" viewBox="0 0 40 11">
     <rect x="0"  y="7"   width="2" height="4"   rx=".6"/>
@@ -327,14 +269,17 @@
     <rect x="28" y="2.2" width="10" height="6.6" rx="1.8"/>
     <rect x="38.6" y="4.2" width="1.4" height="2.6" rx=".6"/>
   </symbol>
+  <symbol id="tick" viewBox="0 0 26 26">
+    <circle cx="13" cy="13" r="13" style="fill:var(--accent-soft)"/>
+    <path d="M8 13.4l3.3 3.3L18.2 9.6" fill="none" style="stroke:var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>
 
-<!-- ============ NAV ============ -->
 <header>
   <div class="wrap">
     <nav>
       <a class="brand" href="#top">
-        <img class="mark" src="assets/alarmcast-icon.png" alt="" />
+        <img class="mark" src="assets/apple-touch-icon.png" alt="" />
         <span class="wordmark">Alarmcast<span class="tm">™</span></span>
       </a>
       <div class="navlinks">
@@ -355,12 +300,14 @@
 
 <a id="top"></a>
 
-<!-- ============ HERO ============ -->
+<main>
+
+<!-- hero -->
 <div class="wrap">
   <section class="hero">
-    <div class="hero-copy">
-      <span class="pill"><span class="dot"></span> Free on Google Play</span>
-      <h1>Wake up to <span class="grad">conversation</span>.</h1>
+    <div>
+      <p class="label">Free on Google Play</p>
+      <h1>Wake up to <span class="accent">conversation</span>.</h1>
       <p class="lede">An alarm clock that wakes you with your podcast instead of a beep. Press Listen on and it keeps playing, so the room doesn't go quiet. Once you're up, it's a proper podcast player.</p>
       <div class="cta-row">
         <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">
@@ -369,17 +316,20 @@
         </a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="sub-note"><b>Fires every time:</b> even after a restart or in battery saver. The episode is on your phone before the alarm rings, so it plays from storage rather than streaming.</p>
     </div>
 
-    <div class="phone-stage">
-      <!-- podcast mic perched on the phone -->
-      <img class="mic-peek" src="assets/mic.svg" alt="Podcast microphone" />
-
-      <div class="phone">
+    <div class="pair">
+      <div class="phone back">
         <div class="screen">
           <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
           <img class="shot" src="assets/screens/alarms.webp" alt="Alarmcast alarms screen showing three alarms, each with its own podcast or playlist" />
+          <div class="homebar"></div>
+        </div>
+      </div>
+      <div class="phone front">
+        <div class="screen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="shot" src="assets/screens/ring.webp" alt="The alarm ringing, with snooze, dismiss and Listen on" />
           <div class="homebar"></div>
         </div>
       </div>
@@ -387,97 +337,85 @@
   </section>
 </div>
 
-<!-- ============ PROOF ============ -->
-<div class="wrap">
-  <section id="proof">
-    <div class="band">
-      <p class="eyebrow">Before anything else</p>
+<!-- proof -->
+<section id="proof" class="band proof">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Before anything else</p>
       <h2>An alarm that plays a podcast sounds like it will let you down</h2>
-      <p class="section-lede" style="margin-inline:auto;">That is the right instinct. A podcast lives on somebody else's server, and phones spend the night switching things off to save battery. Three things make it safe to point tomorrow morning at one.</p>
-      <div class="chips">
-        <div class="chip"><span>✓</span>The episode is on your phone before the alarm</div>
-        <div class="chip"><span>✓</span>It sets itself again after a restart</div>
-        <div class="chip"><span>✓</span>Four ways to ring, ending in a file that cannot go missing</div>
-      </div>
-      <p style="margin:26px 0 0;font-size:15px;"><a href="#reliable" style="color:var(--purple-500);font-weight:600;">What it survives, in detail</a></p>
+      <p class="lede">That is the right instinct. A podcast lives on somebody else's server, and phones spend the night switching things off to save battery. Three things make it safe to point tomorrow morning at one.</p>
     </div>
-  </section>
-</div>
+    <ul class="ticks">
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>The episode is on your phone before the alarm</li>
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>It sets itself again after a restart</li>
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>Four ways to ring, ending in a file that cannot go missing</li>
+    </ul>
+    <a class="text-link" href="#reliable">What it survives, in detail</a>
+  </div>
+</section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<div class="wrap">
-  <section id="how">
-    <div class="section-head">
-      <p class="eyebrow">How it works</p>
+<!-- how it works -->
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">How it works</p>
       <h2>From podcast to alarm in three steps</h2>
     </div>
-    <div class="steps features">
-      <div class="feature">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg>
-        </div>
-        <h3>1 &nbsp;Find your show</h3>
+    <ol class="steps">
+      <li>
+        <h3>Find your show</h3>
         <p>Browse 28 topic folders of hand-picked shows built into the app, or search the full podcast directory. Play an episode to try it, then subscribe. Everything you follow lands in your Library.</p>
-      </div>
-      <div class="feature teal">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EBC14D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l2.5 1.6"/><path d="M5 4 2.5 6.5M19 4l2.5 2.5"/></svg>
-        </div>
-        <h3>2 &nbsp;Set your alarm</h3>
+      </li>
+      <li>
+        <h3>Set your alarm</h3>
         <p>Pick the time and days, then point the alarm at a show or at a playlist you built. Set the show to play its newest episode or to carry on where you left off. Volume, snooze and Gentle Wake belong to the alarm itself.</p>
-      </div>
-      <div class="feature">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M8 6.5a7 7 0 1 0 8 0"/></svg>
-        </div>
-        <h3>3 &nbsp;Wake up to it</h3>
-        <p>The episode downloads in the half hour before the alarm and plays from your phone's storage the instant it fires. No streaming, no buffering. If the download couldn't finish, the alarm streams the episode instead, and a chime rings if that fails too.</p>
-      </div>
-    </div>
-  </section>
-</div>
+      </li>
+      <li>
+        <h3>Wake up to it</h3>
+        <p>The episode downloads in the half hour before the alarm and plays from your phone's storage the instant it fires. No streaming, no buffering.</p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-<!-- ============ LISTEN ON ============ -->
-<div class="wrap">
-  <section id="listen-on">
-    <div class="split">
-      <div>
-        <p class="eyebrow">Listen on</p>
-        <h2>The room doesn't go quiet</h2>
-        <p>A clock radio worked because somebody was already talking when you opened your eyes. An alarm's whole job is to stop, and the moment it stops the house is quieter than it was before it started.</p>
-        <p>Press <b style="color:var(--on-high)">Listen on</b> and the alarm ends properly, then the player picks the same episode up at the same second, at the volume the alarm was already at, with the rest of the show queued behind it. Carry on over breakfast, and tomorrow's alarm knows how far you got.</p>
-      </div>
-      <ul class="handoff">
-        <li><b>Same episode, same second</b><span>The playhead crosses over exactly. No restarting, no hunting for your place.</span></li>
-        <li><b>Volume doesn't jump</b><span>The player matches the loudness the alarm was already at.</span></li>
-        <li><b>The queue comes too</b><span>The player rebuilds the full list of episodes, not just the one you woke to.</span></li>
-        <li><b>Tomorrow follows on</b><span>On a show set to carry on, where you stopped is where the next alarm starts. Requires Premium.</span></li>
-      </ul>
+<!-- listen on -->
+<section id="listen-on" style="padding-top:0;">
+  <div class="wrap split">
+    <div class="body">
+      <p class="label">Listen on</p>
+      <h2>The room doesn't go quiet</h2>
+      <p>A clock radio worked because somebody was already talking when you opened your eyes. An alarm's whole job is to stop, and the moment it stops the house is quieter than it was before it started.</p>
+      <p>Press <b>Listen on</b> and the alarm ends properly, then the player picks the same episode up at the same second, at the volume the alarm was already at, with the rest of the show queued behind it. Carry on over breakfast, and tomorrow's alarm knows how far you got.</p>
     </div>
-  </section>
-</div>
+    <ul class="handoff">
+      <li><b>Same episode, same second</b><span>The playhead crosses over exactly. No restarting, no hunting for your place.</span></li>
+      <li><b>Volume doesn't jump</b><span>The player matches the loudness the alarm was already at.</span></li>
+      <li><b>The queue comes too</b><span>The player rebuilds the full list of episodes, not just the one you woke to.</span></li>
+      <li><b>Tomorrow follows on</b><span>On a show set to carry on, where you stopped is where the next alarm starts. Requires Premium.</span></li>
+    </ul>
+  </div>
+</section>
 
-<div class="wrap">
-  <section id="reliable">
-    <div class="band">
-      <p class="eyebrow">Reliability first</p>
-      <h2>The alarm fires every time</h2>
-      <p class="section-lede" style="margin-inline:auto;">An alarm that streams at fire time is a bet on your morning network. Alarmcast doesn't gamble. The episode is already on your phone when the alarm fires, and everything else in the app serves one rule, which is that <b style="color:var(--on-high)">it wakes you up whatever Android switched off while you slept.</b></p>
-      <div class="chips">
-        <div class="chip"><span>✓</span>Survives reboots</div>
-        <div class="chip"><span>✓</span>Fires in deep Doze</div>
-        <div class="chip"><span>✓</span>Beats battery optimization</div>
-        <div class="chip"><span>✓</span>Rings on the lock screen</div>
-        <div class="chip"><span>✓</span>Never streams first</div>
-        <div class="chip"><span>✓</span>Chime backup, always</div>
-      </div>
+<!-- reliability -->
+<section id="reliable" class="night reliable">
+  <div class="wrap">
+    <div class="head">
+    <p class="label">Reliability first</p>
+    <h2>The alarm fires every time</h2>
+    <p class="lede">An alarm that streams at fire time is a bet on your morning network. Alarmcast doesn't gamble. The episode is already on your phone when the alarm fires, and everything else in the app serves one rule, which is that <b>it wakes you up whatever Android switched off while you slept.</b></p>
     </div>
+    <ul class="ticks">
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>Survives reboots</li>
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>Fires in deep Doze</li>
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>Beats battery optimization</li>
+      <li><svg aria-hidden="true"><use href="#tick"/></svg>Rings on the lock screen</li>
+    </ul>
 
     <div class="hardpart">
-      <div class="hardpart-head">
-        <p class="eyebrow">The hard part</p>
-        <h3>A ringtone is a file that ships inside the app.<br />An episode is a URL that might not be there.</h3>
-        <p>That difference is most of the work. A ringtone can't go offline, get pulled, arrive half-downloaded or turn out to be 200&nbsp;MB. A podcast alarm has to survive a list of things a normal alarm has never heard of. <b>A few of the ones we found:</b></p>
+      <div class="head">
+      <p class="label">The hard part</p>
+      <h3>A ringtone is a file that ships inside the app. An episode is a URL that might not be there.</h3>
+      <p class="lede">That difference is most of the work. A ringtone can't go offline, get pulled, arrive half-downloaded or turn out to be 200&nbsp;MB. A podcast alarm has to survive a list of things a normal alarm has never heard of. <b>A few of the ones we found:</b></p>
       </div>
 
       <div class="tells">
@@ -504,106 +442,70 @@
       </div>
 
       <div class="ladder">
-        <p class="ladder-label">And when it all goes wrong anyway</p>
-        <div class="ladder-steps">
-          <span class="s">Downloaded episode</span>
-          <span class="arrow">→</span>
-          <span class="s">Live stream</span>
-          <span class="arrow">→</span>
-          <span class="s">Your chime</span>
-          <span class="arrow">→</span>
-          <span class="s">Built-in tone</span>
-        </div>
-        <p class="ladder-note">Four rungs, each one taking over automatically. The last is a file inside the app that cannot fail to exist. <b style="color:var(--on-high)">Something wakes you.</b></p>
+        <h4>And when it all goes wrong anyway</h4>
+        <ol class="rungs">
+          <li>Downloaded episode</li>
+          <li>Live stream</li>
+          <li>Your chime</li>
+          <li>Built-in tone</li>
+        </ol>
+        <p>Four rungs, each one taking over automatically. The last is a file inside the app that cannot fail to exist. <b>Something wakes you.</b></p>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<!-- ============ SCREENS SLIDER ============ -->
-<div class="wrap">
-  <section id="screens">
-    <div class="section-head">
-      <p class="eyebrow">See it in action</p>
-      <h2>An alarm clock and a player</h2>
-      <p class="section-lede" style="margin-inline:auto;">Three tabs: Alarms, Library, Discover. Every screen does one job, and setting tomorrow's wake-up takes seconds.</p>
+<!-- screens -->
+<section id="screens">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">See it in action</p>
+      <h2>An alarm clock first, a podcast player second</h2>
+      <p class="lede">Every setting here exists to make one minute of the day work. What is left over happens to be a good podcast app for the other twenty-three hours.</p>
     </div>
 
     <div class="deck-stage">
       <div class="deck">
-
-        <!-- 1. Alarms -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/alarms.webp" alt="Alarms screen with three alarms, each showing its podcast or playlist" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 2. Discover -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/discover.webp" alt="Discover screen showing the browse-by-topic grid of podcast folders" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 3. Gems folder -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/folder-gems.webp" alt="The Gems folder, showing hand-picked podcasts with their cover art" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 4. Library -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/library.webp" alt="Library screen showing playlists and subscribed podcasts" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 5. Playlist detail -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/playlist.webp" alt="A playlist mixing episodes from several different podcasts, in order" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 6. Library player -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/player.webp" alt="The library player with scrubber, speed and sleep timer" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 7. Alarm ringing -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/ring.webp" alt="The alarm ringing, with snooze, dismiss and Listen on" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
-        <!-- 8. Gentle Wake -->
-        <div class="card">
-          <div class="cphone"><div class="cscreen">
-            <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
-            <img class="cshot" src="assets/screens/gentle-wake.webp" alt="Gentle Wake screen, with the bird" />
-            <div class="homebar"></div>
-          </div></div>
-        </div>
-
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/alarms.webp" alt="Alarms screen with three alarms, each showing its podcast or playlist" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/discover.webp" alt="Discover screen showing the browse-by-topic grid of podcast folders" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/folder-gems.webp" alt="The Gems folder, showing hand-picked podcasts with their cover art" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/library.webp" alt="Library screen showing playlists and subscribed podcasts" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/playlist.webp" alt="A playlist mixing episodes from several different podcasts, in order" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/player.webp" alt="The library player with scrubber, speed and sleep timer" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/ring.webp" alt="The alarm ringing, with snooze, dismiss and Listen on" />
+          <div class="homebar"></div>
+        </div></div></div>
+        <div class="card"><div class="cphone"><div class="cscreen">
+          <div class="sysbar"><span>6:05</span><svg class="sysicons" aria-hidden="true"><use href="#sysicons"/></svg></div>
+          <img class="cshot" src="assets/screens/gentle-wake.webp" alt="Gentle Wake screen, with the bird" />
+          <div class="homebar"></div>
+        </div></div></div>
       </div>
     </div>
 
@@ -618,93 +520,56 @@
       <button class="deck-dot" type="button" aria-label="Alarm ringing screen"></button>
       <button class="deck-dot" type="button" aria-label="Gentle Wake screen"></button>
     </div>
-  </section>
-</div>
 
-<!-- ============ FEATURES ============ -->
-<div class="wrap">
-  <section id="features">
-    <div class="section-head">
-      <p class="eyebrow">Built as an alarm clock</p>
-      <h2>An alarm clock first, a podcast player second</h2>
-      <p class="section-lede" style="margin-inline:auto;">Every setting here exists to make one minute of the day work. What is left over happens to be a good podcast app for the other twenty-three hours.</p>
-    </div>
-
-    <div class="features">
-      <div class="feature teal">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EBC14D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="m8 10.5 4 4 4-4"/><path d="M4 17.5v1.5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5"/></svg>
-        </div>
-        <h3>Ready before you wake</h3>
-        <p>Point an alarm at a show and Alarmcast downloads the episode in the half hour before it fires, Wi-Fi first, mobile data as backup. When the alarm goes off, audio starts instantly from storage. No streaming, no buffering.</p>
-      </div>
-
+    <div class="features" id="features">
       <div class="feature">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M4 12h11"/><path d="M4 17h7"/><circle cx="18" cy="16" r="3"/><path d="M21 16V8l-3 1"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11"/><path d="M4 12h11"/><path d="M4 17h7"/><circle cx="18" cy="16" r="3"/><path d="M21 16V8l-3 1"/></svg>
         <h3>A running order for the morning</h3>
         <p>Build a playlist from any show you follow: a five-minute news brief, then the long one you actually lie in bed for. Point an alarm at it and it works through the list across mornings, picking up where it got to rather than starting again. Up to 20 episodes, drag to reorder. Building playlists is a Premium feature, and one you have already built keeps waking you either way.</p>
       </div>
-
-      <div class="feature teal">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EBC14D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 3.5 10 3.5 12 5.5v13C10 16.5 6.5 16.5 4 18.5z"/><path d="M20 5.5C17.5 3.5 14 3.5 12 5.5v13c2-2 5.5-2 8 0z"/></svg>
-        </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5C6.5 3.5 10 3.5 12 5.5v13C10 16.5 6.5 16.5 4 18.5z"/><path d="M20 5.5C17.5 3.5 14 3.5 12 5.5v13c2-2 5.5-2 8 0z"/></svg>
         <h3>A Library built for alarms</h3>
         <p>Subscribe to the shows you love and point any alarm at one. Open a show and it marks what you've played, what's playing now, and the exact episode your alarm will start from. No surprises at 6&nbsp;am.</p>
       </div>
-
       <div class="feature">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>
         <h3>Newest, or carry on</h3>
         <p>Each show is set one of two ways: always wake to the newest episode, or continue a series where you left off. On newest it skips episodes you have already heard, so a lie-in on Monday does not cost you Tuesday. Set once per show, on every tier.</p>
       </div>
-
-      <div class="feature teal">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EBC14D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="14" width="4.5" height="6" rx="2"/><rect x="17" y="14" width="4.5" height="6" rx="2"/></svg>
-        </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="14" width="4.5" height="6" rx="2"/><rect x="17" y="14" width="4.5" height="6" rx="2"/></svg>
         <h3>Then it gets out of alarm mode</h3>
         <p>Once you're up, the library player takes over: scrubber, playback speed, sleep timer, episode notes, and one-tap play on every episode in your Library. It rolls into the next episode on its own when one ends.</p>
       </div>
-
       <div class="feature">
-        <div class="ficon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBBEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9h17"/><path d="M8 13h8"/><path d="M8 16h5"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9h17"/><path d="M8 13h8"/><path d="M8 16h5"/></svg>
         <h3>Start from a template</h3>
         <p>Six ready-made ways in: Start with the News, Gems, Gentle Start, Learn Something, Continue Where You Left Off, and Laugh Yourself Awake. Open one and it offers hand-picked shows. Choose a show and the alarm editor opens with it already set, so all you add is the time.</p>
       </div>
-    </div>
-
-    <div class="bonus">
-      <img class="bonus-bird" src="assets/bird-branch.svg" alt="A small bird perched calmly on a branch" />
-      <div>
-        <p class="eyebrow" style="color:var(--amber);">One more thing</p>
+      <div class="feature gentle">
+        <img src="assets/bird-branch.svg" alt="A small bird perched calmly on a branch" />
         <h3>Gentle Wake eases you in</h3>
         <p>Not a morning person? With Gentle Wake, birdsong fades up from silence in the minutes before your alarm, so the podcast lands on ears that are already half awake. Five ambient beds to pick from, layered on an alarm that still fires exactly on time.</p>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<!-- ============ DISCOVER ============ -->
-<div class="wrap">
-  <section id="discover" style="padding-top:0;">
-    <div class="section-head">
-      <p class="eyebrow">Discover</p>
+<!-- discover -->
+<section id="discover" style="padding-top:0;">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Discover</p>
       <h2>3,961 shows, already sorted</h2>
-      <p class="section-lede" style="margin-inline:auto;">A search box only helps once you already know the name. Alarmcast ships with a catalogue of hand-picked shows across 28 topic folders, built into the app, so browsing works before you've typed anything. Search reaches everything else.</p>
+      <p class="lede">A search box only helps once you already know the name. Alarmcast ships with a catalogue of hand-picked shows across 28 topic folders, built into the app, so browsing works before you've typed anything. Search reaches everything else.</p>
     </div>
 
-    <div class="band" style="text-align:left;">
-      <h3 style="font-size:20px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em;">Some folders are about a subject. Some are about a mood.</h3>
-      <p class="section-lede" style="margin-bottom:0;">Which matters more than usual at 6&nbsp;am. <b style="color:var(--purple-500)">Gentle Starts</b> exists because not everyone wants breaking news before their feet touch the floor.</p>
+    <div class="moods">
+      <h3>Some folders are about a subject. Some are about a mood.</h3>
+      <p>Which matters more than usual at 6&nbsp;am. <b>Gentle Starts</b> exists because not everyone wants breaking news before their feet touch the floor.</p>
       <div class="folders">
-        <span class="folder hero-folder">Gentle Starts</span>
+        <span class="folder pick">Gentle Starts</span>
         <span class="folder">Gems</span>
         <span class="folder">News &amp; Current Affairs</span>
         <span class="folder">Comedy</span>
@@ -719,22 +584,23 @@
         <span class="folder more">+ 16 more, and you pick which ones you see</span>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<!-- ============ PRICING ============ -->
-<div class="wrap">
-  <section id="pricing">
-    <div class="section-head">
-      <p class="eyebrow">Pricing</p>
+<!-- pricing -->
+<section id="pricing" class="band">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Pricing</p>
       <h2>Free to start, with more when you want it</h2>
-      <p class="section-lede" style="margin-inline:auto;">Every plan wakes you exactly the same way. Reliability is never behind a paywall. Paying removes ads and adds control over what plays and where it starts.</p>
+      <p class="lede">Every plan wakes you exactly the same way. Reliability is never behind a paywall. Paying removes ads and adds control over what plays and where it starts.</p>
     </div>
+
     <div class="tiers">
       <div class="tier">
-        <span class="tag">Free</span>
+        <div class="tier-top"><span class="tag">Free</span></div>
         <h3>Starter</h3>
-        <div class="price">Free, with ads</div>
+        <p class="price"><span class="amt">Free</span><span class="terms">with ads</span></p>
         <p class="tier-headline">The whole alarm, free. Ads sit in the app, never on the alarm.</p>
         <ul>
           <li>Up to 2 alarms</li>
@@ -747,11 +613,10 @@
         </ul>
       </div>
 
-      <div class="tier value-pop">
-        <span class="badge">No subscription</span>
-        <span class="tag">One-off</span>
+      <div class="tier ad-free">
+        <div class="tier-top"><span class="tag">One-off</span><span class="badge">No subscription</span></div>
         <h3>Ad-free</h3>
-        <div class="price">$4.99 once · no subscription</div>
+        <p class="price"><span class="amt">$4.99</span><span class="terms">once, no subscription</span></p>
         <p class="tier-headline">Removes every ad in the app, for good.</p>
         <ul>
           <li>No banner on Alarms, Library, Discover or the player</li>
@@ -762,11 +627,10 @@
         </ul>
       </div>
 
-      <div class="tier feature-pop">
-        <span class="badge">Most popular</span>
-        <span class="tag">Subscription</span>
+      <div class="tier premium">
+        <div class="tier-top"><span class="tag">Subscription</span><span class="badge">Most popular</span></div>
         <h3>Premium</h3>
-        <div class="price">$11.99/yr (about $1/mo) or $1.99/mo · 21-day free trial</div>
+        <p class="price"><span class="amt">$11.99<small>/yr</small></span><span class="terms">(about $1/mo) or $1.99/mo<br />21-day free trial</span></p>
         <p class="tier-headline">Ad-free too, plus control over what plays.</p>
         <ul>
           <li>Everything in Ad-free, including unlimited alarms</li>
@@ -777,41 +641,37 @@
       </div>
     </div>
 
-    <p class="section-lede" style="text-align:center;max-width:60ch;margin:26px auto 0;">Not a subscription person? A one-time <b style="color:var(--on-high)">$29.99 Lifetime</b> purchase unlocks everything in Premium, forever. And a playlist you've already built <b style="color:var(--on-high)">keeps waking you</b> whether or not the subscription is still running: Premium gates making them, never playing them.</p>
+    <p class="after-tiers">Not a subscription person? A one-time <b>$29.99 Lifetime</b> purchase unlocks everything in Premium, forever. And a playlist you've already built <b>keeps waking you</b> whether or not the subscription is still running: Premium gates making them, never playing them.</p>
 
-    <div class="story">
-      <img class="story-icon" src="assets/headphones-icon.svg" alt="" aria-hidden="true" />
-      <blockquote>
-        <p class="story-eyebrow">Why there's a Premium plan</p>
-        <p>The alarm came first: the scheduling, the download ahead of time, the fallback chain. That part is done, it's free, and it works identically on every plan. We'd rather someone use Alarmcast for years without paying us than ship an alarm that quietly doesn't ring.</p>
-        <p>Premium is the listening layer built on top: picking a long episode back up days later, skipping around or jumping to another episode <em>while the alarm is still ringing</em>, and building playlists that mix shows. Live playback controls on an alarm that must never fail was the hardest thing in the app to build, and it's what the subscription pays for.</p>
-        <p class="story-sign">The Alarmcast team</p>
-      </blockquote>
+    <blockquote class="story">
+      <p class="label">Why there's a Premium plan</p>
+      <p>The alarm came first: the scheduling, the download ahead of time, the fallback chain. That part is done, it's free, and it works identically on every plan. We'd rather someone use Alarmcast for years without paying us than ship an alarm that quietly doesn't ring.</p>
+      <p>Premium is the listening layer built on top: picking a long episode back up days later, skipping around or jumping to another episode <em>while the alarm is still ringing</em>, and building playlists that mix shows. Live playback controls on an alarm that must never fail was the hardest thing in the app to build, and it's what the subscription pays for.</p>
+      <p class="sign">The Alarmcast team</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- final -->
+<section id="get" class="final">
+  <div class="wrap">
+    <img src="assets/bird.svg" alt="The Alarmcast bird, singing" />
+    <h2>Wake up to something worth hearing.</h2>
+    <p class="lede">Alarmcast is free on Google Play. Set an alarm tonight, point it at a show you like, and wake up to someone talking tomorrow.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get it on Google Play</a>
+      <a class="btn ghost" href="#features">Explore features</a>
     </div>
-  </section>
-</div>
+    <p class="hello">Or say hello at <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a></p>
+  </div>
+</section>
 
-<!-- ============ FINAL CTA ============ -->
-<div class="wrap">
-  <section id="get">
-    <div class="band final">
-      <img class="bird-big" src="assets/bird.svg" alt="The Alarmcast bird, singing" />
-      <h2>Wake up to something worth hearing.</h2>
-      <p>Alarmcast is free on Google Play. Set an alarm tonight, point it at a show you like, and wake up to someone talking tomorrow.</p>
-      <div class="cta-row" style="justify-content:center;">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get it on Google Play</a>
-        <a class="btn ghost" href="#features">Explore features</a>
-      </div>
-      <p class="sub-note" style="margin-top:16px;">Or say hello at <a href="mailto:hello@alarmcast.app" style="color:var(--purple-200);">hello@alarmcast.app</a></p>
-    </div>
-  </section>
-</div>
+</main>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap foot">
-    <div class="brand" style="font-size:16px;">
-      <img class="mark" src="assets/alarmcast-icon.png" alt="" />
+    <div class="brand">
+      <img class="mark" src="assets/apple-touch-icon.png" alt="" />
       <span class="wordmark">Alarmcast<span class="tm">™</span></span>
     </div>
     <div class="foot-links">
@@ -827,6 +687,7 @@
     <div>© 2026 Alarmcast · alarmcast.app</div>
   </div>
 </footer>
+
 
 <script>
 (function () {
@@ -860,7 +721,7 @@
       var card = cards[k];
       card.style.transform = 'translateX(' + tx + 'px) translateY(' + ty + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
       card.style.zIndex = String(100 - ad);
-      card.style.opacity = ad > 2 ? '0' : String(1 - ad * 0.16);
+      card.style.opacity = ad > 2 ? '0' : '1';
       card.style.filter = 'brightness(' + (1 - ad * 0.12) + ')';
       card.style.pointerEvents = ad > 2 ? 'none' : 'auto';
     }
@@ -898,7 +759,6 @@
   play();
 })();
 </script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
