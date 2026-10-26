@@ -23,15 +23,15 @@
   .pod-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:clamp(48px,6vw,80px) 0 clamp(56px,7vw,88px);}
   .pod-hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.04;margin:0 0 20px;letter-spacing:-.03em;font-weight:800;max-width:14ch;}
   .pod-hero h1 .h1-alt{color:var(--accent);}
-  .pod-hero .lede{margin:0 0 30px;max-width:44ch;}
+  .pod-hero .lede{margin:0 0 30px;max-width:50ch;}
   .pod-hero .lede.why{margin-bottom:14px;}
 
-  .terms{margin:0 0 32px;padding:0;max-width:48ch;}
+  .terms{margin:0 0 32px;padding:0;max-width:56ch;}
   .terms div{display:grid;grid-template-columns:9.5em 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--rule);}
   .terms div:last-child{border-bottom:1px solid var(--rule);}
   .terms dt{color:var(--ink-3);font-size:var(--t-sm);font-weight:600;padding-top:2px;}
   .terms dd{margin:0;color:var(--ink);font-size:16.5px;line-height:1.55;}
-  .note{font-size:var(--t-sm);color:var(--ink-3);margin:18px 0 0;max-width:46ch;}
+  .note{font-size:var(--t-sm);color:var(--ink-3);margin:18px 0 0;max-width:56ch;}
   .terms-note{margin:-18px 0 32px;}
   .note a,.prose a{color:var(--accent-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
 
@@ -69,24 +69,28 @@
     background:var(--accent-soft);color:var(--accent-ink);font-weight:750;font-size:14px;margin-right:8px;
   }
 
-  .small{padding:0 0 clamp(32px,4vw,48px);max-width:68ch;}
-  .small h2{font-size:24px;letter-spacing:-.015em;margin:0 0 12px;font-weight:800;}
+  /* a heading on the left, its text on the right, as on the home page */
+  .side-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:64px;align-items:start;}
+  .side-head h2{font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-.025em;margin:0;font-weight:800;}
+
+  .gives{padding:clamp(56px,7vw,88px) 0;border-top:1px solid var(--rule);}
+  .gives .side-head .lede{margin:0;padding-top:.3em;font-size:clamp(19px,1.8vw,22px);color:var(--ink);max-width:40ch;}
+  .give-list{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:clamp(40px,5vw,56px) 0 0;padding:0;list-style:none;}
+  .give-list li{padding-top:22px;border-top:1px solid var(--rule);}
+  .give-list h3{font-size:19px;font-weight:750;letter-spacing:-.01em;margin:0 0 8px;}
+  .give-list p{margin:0;color:var(--ink-2);font-size:16px;}
+  .give-list .text-link{display:inline-block;margin-top:12px;font-size:var(--t-sm);}
+
+  .small{padding:clamp(56px,7vw,88px) 0 clamp(72px,8vw,104px);border-top:1px solid var(--rule);}
+  .small h2{font-size:clamp(24px,2.8vw,30px);letter-spacing:-.015em;font-weight:800;}
+  .small .body{max-width:70ch;}
   .small p{margin:0;color:var(--ink-2);font-size:17px;line-height:1.65;}
   .small p + p{margin-top:14px;}
 
-  .either{padding:8px 0 clamp(72px,8vw,104px);}
-  .either-band{
-    display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
-    background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:var(--radius);
-    padding:28px 32px;
-  }
-  .either h2{font-size:22px;margin:0 0 6px;letter-spacing:-.01em;font-weight:800;}
-  .either p{margin:0;color:var(--ink-2);font-size:16.5px;max-width:60ch;}
-  .either .btn.ghost{background:var(--surface);}
-
   @media(max-width:900px){
     .pod-hero,.listeners-grid{grid-template-columns:1fr;gap:40px;}
-    .either-band{grid-template-columns:1fr;}
+    .side-head{grid-template-columns:1fr;row-gap:16px;}
+    .give-list{grid-template-columns:1fr;gap:28px;}
   }
   @media(max-width:520px){
     .pod-hero .phone{width:272px;border-radius:38px;padding:11px;}
@@ -156,6 +160,30 @@
 </div>
 
 <div class="wrap">
+  <section class="gives" aria-labelledby="gives-title">
+    <div class="side-head">
+      <h2 id="gives-title">Whatever you decide</h2>
+      <p class="lede">We want more people listening to podcasts, and we want your show to be better off for it.</p>
+    </div>
+    <ul class="give-list">
+      <li>
+        <h3>Downloads from your own feed</h3>
+        <p>Every alarm set to your show downloads the episode from your feed before it rings.</p>
+      </li>
+      <li>
+        <h3>Your links on your page</h3>
+        <p>Your show's page in the app links to your website and to the support links in your feed.</p>
+      </li>
+      <li>
+        <h3>A free year for your crew</h3>
+        <p>You and your co-hosts get a year of Premium whether or not you do the mention. Tell us how many of you make the show.</p>
+        <a class="text-link" href="mailto:hello@alarmcast.app?subject=A%20free%20year">Ask for codes</a>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div class="wrap">
   <section class="listeners" aria-labelledby="listeners-title">
     <div class="listeners-grid">
       <div>
@@ -185,21 +213,11 @@
 </div>
 
 <div class="wrap">
-  <section class="small" aria-labelledby="small-title">
+  <section class="small side-head" aria-labelledby="small-title">
     <h2 id="small-title">Before you say yes</h2>
+    <div class="body">
     <p>The mention needs to be marked as an ad, the way your show usually does it. Your listener code is an extra: share it on the show, in your show notes or on your site, or not at all. If you say it on air, say it's for Android and gives a free year, and point people to alarmcast.app/gift. Everything else is up to you, and if your episodes are short or your slots are tight, tell us and we'll work something out. Send us the episode link when it's out and your show goes into the next app update, where the order in Featured reshuffles every day.</p>
     <p>We never ask anyone for a review or a rating. Saying yes lets us show your show's name and cover art in Featured while it's there, and we'll take it out whenever you ask. Children's shows can't take part.</p>
-  </section>
-</div>
-
-<div class="wrap">
-  <section class="either" aria-labelledby="either-title">
-    <div class="either-band">
-      <div>
-        <h2 id="either-title">A free year for you and your co-hosts</h2>
-        <p>You get it whether or not you do the mention. Tell us how many of you make the show.</p>
-      </div>
-      <a class="btn ghost" href="mailto:hello@alarmcast.app?subject=A%20free%20year">Ask for codes</a>
     </div>
   </section>
 </div>

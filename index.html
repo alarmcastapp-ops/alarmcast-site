@@ -225,7 +225,30 @@
   .final h2{margin:0 auto;}
   .final .lede{margin:18px auto 32px;max-width:46ch;}
   .final .cta-row{justify-content:center;}
+  .final .belief{margin:44px auto 0;padding-top:28px;border-top:1px solid var(--rule);max-width:50ch;color:var(--ink-2);}
+  .final .belief a{display:inline-block;margin-top:6px;}
   .final .hello{margin-top:22px;color:var(--ink-3);font-size:var(--t-sm);}
+
+  /* the podcaster button takes the width of the two buttons above it */
+  .hero .cta-block{display:inline-flex;flex-direction:column;gap:12px;max-width:100%;}
+  /* the mic sits in a circle nested in the pill's rounded end */
+  .btn.pod-btn{justify-content:flex-start;gap:16px;padding:9px 26px 9px 9px;background:var(--accent-soft);border-color:var(--accent-soft);color:var(--accent-ink);}
+  .btn.pod-btn:hover{background:#E4DCFF;border-color:#E4DCFF;}
+  .pod-btn .ico{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--accent-ink);}
+  .pod-btn .ico svg{width:20px;height:20px;}
+  .pod-btn .two{display:flex;flex-direction:column;gap:5px;line-height:1.2;font-size:17px;}
+  .pod-btn small{font-size:15.5px;font-weight:500;color:var(--ink-2);}
+  .pod-btn:hover .ico{background:var(--accent);color:#fff;}
+  .navlinks a{white-space:nowrap;}
+  /* narrower screens keep only the podcasters link, until the header runs out of room */
+  @media(max-width:1180px){ .navlinks{gap:18px;} }
+  @media(max-width:1020px){ .navlinks{margin-left:auto;margin-right:10px;} .navlinks a:not(.pod-link){display:none;} }
+  @media(max-width:940px){ .navlinks{display:flex;} }
+  @media(max-width:700px){ .navlinks{display:none;} }
+  @media(max-width:560px){
+    .hero .cta-block{display:flex;}
+    .hero .cta-row .btn{flex:1 1 100%;justify-content:center;}
+  }
   .final .hello a{color:var(--accent-ink);}
 
   /* ---------- responsive ---------- */
@@ -283,9 +306,9 @@
         <span class="wordmark">Alarmcast<span class="tm">™</span></span>
       </a>
       <div class="navlinks">
+        <a class="pod-link" href="/podcasters/">For podcasters</a>
         <a href="#how">How it works</a>
         <a href="#reliable">Reliability</a>
-        <a href="#screens">Screens</a>
         <a href="#features">Features</a>
         <a href="#discover">Discover</a>
         <a href="#pricing">Pricing</a>
@@ -309,12 +332,18 @@
       <p class="label">Free on Google Play</p>
       <h1>Wake up to <span class="accent">conversation</span>.</h1>
       <p class="lede">An alarm clock that wakes you with your podcast instead of a beep. Press Listen on and it keeps playing, so the room doesn't go quiet. Once you're up, it's a proper podcast player.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3.5v17c0 .6.7 1 1.2.6L19 12 4.2 2.9C3.7 2.5 3 2.9 3 3.5z"/></svg>
-          Get it on Google Play
+      <div class="cta-block">
+        <div class="cta-row">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3.5v17c0 .6.7 1 1.2.6L19 12 4.2 2.9C3.7 2.5 3 2.9 3 3.5z"/></svg>
+            Get it on Google Play
+          </a>
+          <a class="btn ghost" href="#how">See how it works</a>
+        </div>
+        <a class="btn pod-btn" href="/podcasters/">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></span>
+          <span class="two"><span>For podcasters</span><small>Your show could be someone's alarm</small></span>
         </a>
-        <a class="btn ghost" href="#how">See how it works</a>
       </div>
     </div>
 
@@ -662,6 +691,7 @@
       <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get it on Google Play</a>
       <a class="btn ghost" href="#features">Explore features</a>
     </div>
+    <p class="belief">We love podcasts. Waking up to conversation makes a better start to the day, and gives shows a new way to find listeners.<br /><a class="text-link" href="/podcasters/">Make a podcast? Put your show in Featured</a></p>
     <p class="hello">Or say hello at <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a></p>
   </div>
 </section>
