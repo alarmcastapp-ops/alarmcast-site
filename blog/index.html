@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,7 +10,6 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
 <link rel="icon" sizes="any" href="/favicon.ico" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
 <meta property="og:type" content="website" />
 <meta property="og:title" content="The Alarmcast blog" />
 <meta property="og:description" content="Why alarms wake you badly, why Android alarms fail, and how podcast feeds actually work." />
@@ -20,98 +19,114 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Alarmcast. Wake up to conversation: an alarm clock that wakes you with your podcast instead of a beep." />
 <meta name="twitter:card" content="summary_large_image" />
-
-<link rel="stylesheet" href="/assets/site.css" />
-<link rel="stylesheet" href="/assets/blog.css" />
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+.post{display:block;padding:32px 0;border-top:1px solid #E6E1EA;color:#1A1A1A;text-decoration:none}
+.post:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+  </style>
 </head>
 <body>
+<div style="background: #FFFFFF; color: #1A1A1A; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6">
 
-<!-- ============ NAV ============ -->
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="/">
-        <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-      </a>
-      <div class="navlinks">
-        <a href="/#how">How it works</a>
-        <a href="/#reliable">Reliability</a>
-        <a href="/#screens">Screens</a>
-        <a href="/#features">Features</a>
-        <a href="/#discover">Discover</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/blog/">Blog</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get the app</a>
-        <a class="btn ghost" href="/gift/">Gift code?</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<div class="wrap">
-<section class="blog">
-
-  <p class="crumbs"><a href="/">Home</a><span>/</span>Blog</p>
-
-  <h1>Notes on waking up</h1>
-  <p class="standfirst">Why alarms wake you badly, why Android alarms fail, and what we learn building one that does not. Written for people who searched for a real answer.</p>
-
-  <div class="postlist">
-
-    <a class="postcard" href="/blog/why-your-alarm-clock-ruins-your-morning/">
-      <p class="kicker">Start here</p>
-      <h2>Why your alarm clock ruins your morning, and what to do about it</h2>
-      <p>Harsh alarms trigger a startle response and deepen sleep inertia. On Android they also miss, for six specific and fixable reasons. An honest comparison of every way to wake up to something other than a beep, including where our own app is the wrong answer.</p>
-      <p class="meta">21 August 2026 &middot; 15 min read</p>
-    </a>
-
-    <a class="postcard" href="/blog/wake-up-to-spotify-android/">
-      <h2>Waking up to Spotify, YouTube Music or Apple Podcasts</h2>
-      <p>All of it is possible on Android, most of it needs a paid account, and every option hands your morning to the network. What each setup does when the connection is bad at 6 am, taken from the developers' own documentation.</p>
-      <p class="meta">21 August 2026 &middot; 9 min read</p>
-    </a>
-
-    <a class="postcard" href="/blog/best-podcasts-to-wake-up-to/">
-      <h2>Podcasts that work as an alarm</h2>
-      <p>Whether a show suits an alarm depends mostly on what time its episode lands. Publication times and episode lengths measured from 30 publishers' own feeds, and how to check any show yourself in ten seconds.</p>
-      <p class="meta">Updated 14 October 2026 &middot; 6 min read</p>
-    </a>
-
-    <a class="postcard" href="/blog/how-podcast-feeds-work/">
-      <h2>Podcast apps disagree about which episode is the latest</h2>
-      <p>Two apps, one show, two different newest episodes. We compared 129,997 episodes against their publishers' own feeds to find out how far apart a directory and a feed drift, and which shows it happens to.</p>
-      <p class="meta">21 August 2026 &middot; 7 min read</p>
-    </a>
-
-  </div>
-
-</section>
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between">
+<a href="/" style="display: flex; align-items: center; gap: 10px; color: #1A1A1A; text-decoration: none; min-height: 44px">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px; display: block">
+<span style="font-size: 18px; font-weight: 600">Alarmcast™</span>
+</a>
+<div class="nav-links" style="flex-wrap: wrap; gap: 0 24px; font-size: 15px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 10px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="/#reliable" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Reliability</a>
+<a href="/#features" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Features</a>
+<a href="/#discover" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Discover</a>
+<a href="/#pricing" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Pricing</a>
+</div>
+<div style="display: flex; gap: 12px 20px; align-items: center">
+<a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite" style="background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 6px">Get the app</a>
+<a href="/gift/" class="nav-gift" style="font-size: 15px; text-underline-offset: 3px; padding: 10px 0">Gift code?</a>
+<button type="button" class="nav-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #E2E0EA; background: #FFFFFF; border-radius: 6px; cursor: pointer; color: #1A1A1A; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+</div>
+</div>
+<div id="mobile-nav" class="nav-panel" hidden style="display: flex; flex-direction: column; padding: 4px 24px 16px; border-bottom: 1px solid #ECEBF0; font-size: 17px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 12px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">How it works</a>
+<a href="/#reliable" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Reliability</a>
+<a href="/#features" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Features</a>
+<a href="/#discover" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Discover</a>
+<a href="/#pricing" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Pricing</a>
+<a href="/gift/" style="text-underline-offset: 3px; padding: 12px 0">Gift code?</a>
 </div>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-    </div>
-    <div class="foot-links">
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/podcasters/">For podcasters</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/paia/">PAIA</a>
-      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
-    </div>
-    <div>&copy; 2026 Alarmcast &middot; alarmcast.app</div>
-  </div>
-</footer>
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 112px">
+<p style="margin: 0; font-size: 14.5px; color: #5E5E5E"><a href="/" style="color: #5E5E5E">Home</a> / Blog</p>
+<h1 style="margin: 24px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.01em">Notes on waking up</h1>
+<p style="margin: 24px 0 0; font-size: 20px; line-height: 1.5; color: #4A4A4A; max-width: 56ch">Why alarms wake you badly, why Android alarms fail, and what we learn building one that does not. Written for people who searched for a real answer.</p>
 
+<div style="margin-top: 64px; max-width: 720px; border-bottom: 1px solid #E6E1EA">
+<a class="post" href="/blog/why-your-alarm-clock-ruins-your-morning/">
+<p style="margin: 0 0 10px; font-size: 14.5px; font-weight: 600; color: #4A2873">Start here</p>
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(28px, 3vw, 36px); line-height: 1.15">Why your alarm clock ruins your morning, and what to do about it</h2>
+<p style="margin: 12px 0 0; color: #4A4A4A">Harsh alarms trigger a startle response and deepen sleep inertia. On Android they also miss, for six specific and fixable reasons. An honest comparison of every way to wake up to something other than a beep, including where our own app is the wrong answer.</p>
+<p style="margin: 12px 0 0; font-size: 14.5px; color: #5E5E5E">21 August 2026, 15 min read</p>
+</a>
+<a class="post" href="/blog/wake-up-to-spotify-android/">
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.2">Waking up to Spotify, YouTube Music or Apple Podcasts</h2>
+<p style="margin: 10px 0 0; color: #4A4A4A">All of it is possible on Android, most of it needs a paid account, and every option hands your morning to the network. What each setup does when the connection is bad at 6 am, taken from the developers' own documentation.</p>
+<p style="margin: 10px 0 0; font-size: 14.5px; color: #5E5E5E">21 August 2026, 9 min read</p>
+</a>
+<a class="post" href="/blog/best-podcasts-to-wake-up-to/">
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.2">Podcasts that work as an alarm</h2>
+<p style="margin: 10px 0 0; color: #4A4A4A">Whether a show suits an alarm depends mostly on what time its episode lands. Publication times and episode lengths measured from 30 publishers' own feeds, and how to check any show yourself in ten seconds.</p>
+<p style="margin: 10px 0 0; font-size: 14.5px; color: #5E5E5E">Updated 14 October 2026, 6 min read</p>
+</a>
+<a class="post" href="/blog/how-podcast-feeds-work/">
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.2">Podcast apps disagree about which episode is the latest</h2>
+<p style="margin: 10px 0 0; color: #4A4A4A">Two apps, one show, two different newest episodes. We compared 129,997 episodes against their publishers' own feeds to find out how far apart a directory and a feed drift, and which shows it happens to.</p>
+<p style="margin: 10px 0 0; font-size: 14.5px; color: #5E5E5E">21 August 2026, 7 min read</p>
+</a>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ECEBF0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14.5px; color: #5E5E5E">
+<div style="display: flex; align-items: center; gap: 10px; color: #1A1A1A">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 24px; height: 24px; border-radius: 6px; display: block">
+<span style="font-weight: 600">Alarmcast™</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 22px">
+<a href="/#features" style="color: #4A4A4A; padding: 10px 0">Features</a>
+<a href="/#pricing" style="color: #4A4A4A; padding: 10px 0">Pricing</a>
+<a href="/blog/" style="color: #4A4A4A; padding: 10px 0">Blog</a>
+<a href="/podcasters/" style="color: #4A4A4A; padding: 10px 0">For podcasters</a>
+<a href="/privacy/" style="color: #4A4A4A; padding: 10px 0">Privacy</a>
+<a href="/terms/" style="color: #4A4A4A; padding: 10px 0">Terms</a>
+<a href="/paia/" style="color: #4A4A4A; padding: 10px 0">PAIA</a>
+<a href="mailto:hello@alarmcast.app" style="color: #4A4A4A; padding: 10px 0">hello@alarmcast.app</a>
+</div>
+<span>© 2026 Alarmcast, alarmcast.app</span>
+</div>
+</div>
+
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function () {
+    var opening = panel.hasAttribute('hidden');
+    if (opening) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -123,6 +138,5 @@
   "inLanguage": "en"
 }
 </script>
-
 </body>
 </html>

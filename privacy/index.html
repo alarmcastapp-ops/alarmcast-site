@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,8 +10,6 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
 <link rel="icon" sizes="any" href="/favicon.ico" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
-<!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Alarmcast Privacy Policy" />
 <meta property="og:description" content="What data the Alarmcast Android app collects, why, and what it does not do." />
@@ -21,163 +19,190 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Alarmcast. Wake up to conversation: an alarm clock that wakes you with your podcast instead of a beep." />
 <meta name="twitter:card" content="summary_large_image" />
-
-<link rel="stylesheet" href="/assets/site.css" />
-<style>
-  /* the first section heading needs no rule above it */
-  .policy h2:first-of-type{border-top:none;padding-top:0;margin-top:32px;}
-</style>
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+.art h2{margin:56px 0 0;font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:clamp(26px,2.8vw,32px);line-height:1.2;letter-spacing:-0.01em;color:#1A1A1A}
+.art h3{margin:28px 0 0;font-size:18px;font-weight:600;line-height:1.4;color:#1A1A1A}
+.art p{margin:16px 0 0}
+.art ul{margin:16px 0 0;padding:0 0 0 22px}
+.art li{margin:10px 0 0}
+.art b{font-weight:600;color:#1A1A1A}
+  </style>
 </head>
 <body>
+<div style="background: #FFFFFF; color: #1A1A1A; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6">
 
-<!-- ============ NAV ============ -->
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="/">
-        <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-      </a>
-      <div class="navlinks">
-        <a href="/#how">How it works</a>
-        <a href="/#reliable">Reliability</a>
-        <a href="/#screens">Screens</a>
-        <a href="/#features">Features</a>
-        <a href="/#discover">Discover</a>
-        <a href="/#pricing">Pricing</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get the app</a>
-        <a class="btn ghost" href="/gift/">Gift code?</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- ============ POLICY ============ -->
-<div class="wrap">
-  <article class="policy">
-    <h1>Alarmcast Privacy Policy</h1>
-    <p class="eff-date"><strong>Effective date:</strong> October 19, 2026</p>
-
-    <p>Alarmcast ("the app") is a podcast alarm clock for Android, made by Bessie Operations ("we," "our"), the developer named on its Google Play listing. We are responsible for the personal data described here. This policy describes what data the app collects, why, and what it does not do.</p>
-
-    <h2>Summary</h2>
-    <p>Alarmcast does not require an account and does not know who you are. Almost everything the app knows about you, including your alarms, your podcast subscriptions and your listening history, stays on your device. The free version shows ads through Google AdMob (which uses your device's advertising ID), and optional premium purchases remove ads and unlock extra features. We have no user accounts and do not sell your personal data. The only record we keep about app users is of gift codes you choose to redeem, described below. If we have emailed you about your podcast, see <a href="#podcasters">If we email you about your podcast</a>.</p>
-
-    <h2>Data we collect and why</h2>
-
-    <h3>Podcast search (sent to Apple and to Podcast Index)</h3>
-    <p>When you search for a podcast, your search term is sent to <strong>two</strong> podcast directories at the same time, so that between them we can find whatever you're looking for:</p>
-    <ul>
-      <li>The <strong>Apple iTunes Search API</strong> (<code>itunes.apple.com</code>), which receives your search term and the country setting you chose when you set the app up. Searches for individual <em>episodes</em> go only to Apple, because Podcast Index has no episode-text search. Apple's handling of this request is governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</li>
-      <li>The <a href="https://podcastindex.org" target="_blank" rel="noopener">Podcast Index</a> API, which receives your search term. This request is authenticated with an app-level key. See their <a href="https://podcastindex.org/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
-    </ul>
-    <p>Neither request includes your name, email, or any personal identifier, and neither is tied to an account, because the app has none. Both services will see your device's IP address, as any service you connect to does.</p>
-
-    <h3>Subscription data (sent to Podcast Index)</h3>
-    <p>When you subscribe to a podcast, the podcast's feed URL/ID is sent to the Podcast Index API so we can fetch its episode list and metadata. As above, this carries no personal identifier.</p>
-
-    <h3>Episode downloads (sent to the podcast's own host)</h3>
-    <p>When you open or subscribe to a podcast, the app connects directly to that podcast's RSS feed and audio host to download episodes for playback, the same as any podcast app or web browser would. That host will see your device's IP address, as it would for any direct connection.</p>
-
-    <h3>Crash, error, and reliability reports (sent to Firebase Crashlytics)</h3>
-    <p>If the app crashes or hits a serious error, a crash report is sent to Firebase Crashlytics (a Google service) so we can fix the bug. Crashlytics collects the usual technical context with it: device model, OS version, hardware characteristics, and your IP address at the time. Because an alarm that doesn't ring is the worst thing this app can do, reports also carry a few settings that explain why: whether alarm and battery permissions were granted, whether background data was restricted, whether the phone was asleep in Doze, which activity bucket Android had put the app in, and whether you're on the free or paid tier. No name or email is attached; Crashlytics adds only a random installation ID, so it can count how many phones a crash affects. Google processes this on our behalf under Firebase's standard terms; see Google's <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy and security page</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a> for details.</p>
-
-    <h3>Gift codes (sent to our server)</h3>
-    <p>If you enter a gift code from a podcast, the app sends the code and a scrambled form of your phone's Android ID to our server, which runs on Google Cloud. The scrambled ID cannot be turned back into your Android ID. The server keeps it with the code, the time you redeemed it and the date your free year ends, so that each code can be used once per phone. It is not linked to your name or any account, is not used for ads, and is not shared with anyone. Like any server, it sees your device's IP address when the request arrives, and Google Cloud's request logs keep it for a limited time (30 days by default). Nothing is sent unless you enter a code.</p>
-
-    <h3>Advertising (Google AdMob)</h3>
-    <p>The free version of Alarmcast shows ads supplied by <a href="https://admob.google.com" target="_blank" rel="noopener">Google AdMob</a>. To serve and measure these ads, AdMob and Google may use your device's <strong>advertising ID</strong> along with limited technical and ad-interaction data (for example, that an ad was shown or tapped, plus general device and app information). Ads never appear on the alarm ringing screen, and removing ads entirely is one of the benefits of the optional premium purchases described below. Where the law requires it, for example in the European Economic Area, the UK and Switzerland, the app asks for your choice through Google's consent form before any ads are shown. In those places you can change your choice later in <em>Settings, About Alarmcast, Ads you see</em> (the row appears only where the form applies). You can also reset or delete your advertising ID in Android's <em>Settings → Privacy → Ads</em>. Google's use of data from apps that use its services is described in <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">"How Google uses information from sites or apps that use our services"</a> and Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
-
-    <h3>Purchases (Google Play Billing)</h3>
-    <p>Alarmcast offers optional premium features, including removing ads and unlocking extra functionality, as a subscription or a one-time purchase. Payments are processed entirely by <strong>Google Play</strong>; Alarmcast never receives or stores your payment card details. Google shares with the app only what's needed to unlock what you bought (your purchase and subscription status). Google's handling of your purchase is governed by the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a> and Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
-
-    <h2>Why we are allowed to use it</h2>
-    <p>If you are in the European Economic Area, the UK or another place with similar laws, these are the legal bases we rely on:</p>
-    <ul>
-      <li><strong>Search, subscriptions, episode downloads and purchases:</strong> to provide the app and the features you ask for.</li>
-      <li><strong>Gift codes:</strong> to give you the free year you asked for, and our legitimate interest in making sure each code is used once per phone.</li>
-      <li><strong>Crash and reliability reports:</strong> our legitimate interest in finding and fixing problems that could stop an alarm ringing.</li>
-      <li><strong>Ads:</strong> your consent, where the law requires it. Otherwise, our legitimate interest in paying for the free version.</li>
-    </ul>
-
-    <h2>Where data is processed</h2>
-    <p>Our gift code server and Firebase Crashlytics run on Google's infrastructure, mainly in the United States. Google processes this data for us under its data processing terms, which include the standard contractual clauses approved for transfers out of the European Economic Area and the UK.</p>
-
-    <h2 id="podcasters">If we email you about your podcast</h2>
-    <p>We write to podcast hosts to offer a collaboration and free Premium. If we have emailed you, this part is about you.</p>
-    <ul>
-      <li><strong>What we keep:</strong> your name and email address as published, your show's name and public details (such as its feed and website), our emails and your replies, any gift codes we sent you, and, if you do an ad mention for us, the episode link and your dates in Featured.</li>
-      <li><strong>Where it came from:</strong> the contact address your show publishes for enquiries, such as on its website or podcast listing. The web address where we found it is noted, and we will tell you if you ask.</li>
-      <li><strong>Why:</strong> to offer you a collaboration and to answer you. Our legal basis is our legitimate interest in telling podcasters about Alarmcast. In South Africa we write to you once only, to ask whether you are interested.</li>
-      <li><strong>Who else handles it:</strong> our email provider and the software services we use to run and write our email, under their confidentiality terms, mainly in the United States. We never sell it or share it for anyone else's marketing.</li>
-      <li><strong>How long:</strong> while we are in touch, until you ask us to delete it. If you ask us to stop, we keep only your email address on a do-not-contact list, so that we never email you again.</li>
-      <li><strong>Your choices:</strong> reply to any of our emails, or write to the address below, to stop our emails or to see, correct or delete what we hold.</li>
-    </ul>
-
-    <h2>Data that stays on your device</h2>
-    <p>The following is stored on your device and is never uploaded to us. (Fetching a show's episodes does mean contacting Podcast Index, as described above, but the list of what you follow is not sent to us or held anywhere off your phone.)</p>
-    <ul>
-      <li>Your alarms (times, repeat days, chosen podcast, volume, and related settings)</li>
-      <li>Which shows you follow, and how far through each episode you are</li>
-      <li>Your app preferences (theme, time format, download settings, etc.)</li>
-    </ul>
-    <p>If you uninstall the app, this data is deleted along with it.</p>
-
-    <h2>Data we do not collect</h2>
-    <p>Through the app, we do not collect or have access to: your name, email address, phone number, contacts, precise location, microphone or camera data, or your photos. The app has no user accounts or sign-in. The only advertising data involved is the advertising ID used for the ads described above. It is not linked to your identity, and premium users see no ads at all. If you redeem a gift code, we keep the scrambled phone ID described under Gift codes.</p>
-
-    <h3>Voice search (handled by your phone, not by us)</h3>
-    <p>The search field has a microphone button. Tapping it hands over to your phone's own speech recogniser, usually Google's, which listens and hands the app back text. Alarmcast never records audio, holds no microphone permission, and receives only the words that came back.</p>
-
-    <h2>Security</h2>
-    <p>Requests to Apple, Podcast Index, Google AdMob, Google Play, Firebase Crashlytics and our gift code server are made over encrypted (HTTPS) connections. Podcast feeds and audio are served by the podcasts themselves, so their security is theirs. Alarmcast has no accounts, and the only thing our server keeps is the scrambled phone ID from a redeemed gift code, with no name, email or account attached.</p>
-
-    <h2>Permissions</h2>
-    <p>Alarmcast asks for the permissions an alarm clock needs to ring reliably: exact alarms, notifications, full-screen alarm notifications, foreground service, wake lock, vibration, network access, start-on-boot, and permission to sit outside battery optimisation. The free version also uses the advertising ID permission for ads. None of the others collect anything about you.</p>
-
-    <h2>Children's privacy</h2>
-    <p>Alarmcast is not directed at children under 13, and we do not knowingly collect personal information from children. We do not offer gift codes through children's podcasts.</p>
-
-    <h2>Data retention and deletion</h2>
-    <ul>
-      <li><strong>Local data</strong> (alarms, subscriptions, preferences): deleted when you uninstall the app, or by clearing app data in Android settings.</li>
-      <li><strong>Crash reports:</strong> retained by Firebase per Google's standard retention policy. Since only a random installation ID is attached, we cannot tell which reports are yours, so we cannot look up or delete an individual's crash history. Deleting the app going forward stops any new reports.</li>
-      <li><strong>Gift code redemptions:</strong> kept while we offer gift codes. They hold no name or email, so we cannot tell which record is yours.</li>
-    </ul>
-
-    <h2>Your rights</h2>
-    <p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold about you. Because Alarmcast doesn't collect personal identifiers, there is generally nothing tied to you individually to access or delete beyond what's already local to your device. Gift code records hold no name or email, so we cannot tell which one is yours. If we have emailed you about your podcast, we find what we hold by your email address. If you have questions or a request, contact us at the email below and we will answer within 30 days. You also have the right to complain to the data protection authority where you live; in South Africa that is the Information Regulator.</p>
-
-    <h2>Changes to this policy</h2>
-    <p>If this policy changes, we'll update this page and the effective date above.</p>
-
-    <h2>Contact</h2>
-    <p>Bessie Operations, the developer of Alarmcast<br />Questions about this policy or your data: <a href="mailto:help@alarmcast.app">help@alarmcast.app</a><br />Postal address: Postnet Suite 017, Private Bag X5071, Stellenbosch, 7600, South Africa<br />Website: <a href="https://alarmcast.app">https://alarmcast.app</a></p>
-  </article>
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between">
+<a href="/" style="display: flex; align-items: center; gap: 10px; color: #1A1A1A; text-decoration: none; min-height: 44px">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px; display: block">
+<span style="font-size: 18px; font-weight: 600">Alarmcast™</span>
+</a>
+<div class="nav-links" style="flex-wrap: wrap; gap: 0 24px; font-size: 15px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 10px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="/#reliable" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Reliability</a>
+<a href="/#features" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Features</a>
+<a href="/#discover" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Discover</a>
+<a href="/#pricing" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Pricing</a>
+</div>
+<div style="display: flex; gap: 12px 20px; align-items: center">
+<a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite" style="background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 6px">Get the app</a>
+<a href="/gift/" class="nav-gift" style="font-size: 15px; text-underline-offset: 3px; padding: 10px 0">Gift code?</a>
+<button type="button" class="nav-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #E2E0EA; background: #FFFFFF; border-radius: 6px; cursor: pointer; color: #1A1A1A; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+</div>
+</div>
+<div id="mobile-nav" class="nav-panel" hidden style="display: flex; flex-direction: column; padding: 4px 24px 16px; border-bottom: 1px solid #ECEBF0; font-size: 17px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 12px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">How it works</a>
+<a href="/#reliable" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Reliability</a>
+<a href="/#features" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Features</a>
+<a href="/#discover" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Discover</a>
+<a href="/#pricing" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Pricing</a>
+<a href="/gift/" style="text-underline-offset: 3px; padding: 12px 0">Gift code?</a>
 </div>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-    </div>
-    <div class="foot-links">
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/podcasters/">For podcasters</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/paia/">PAIA</a>
-      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
-    </div>
-    <div>© 2026 Alarmcast · alarmcast.app</div>
-  </div>
-</footer>
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 96px">
+<div class="art" style="max-width: 720px; font-size: 17px; line-height: 1.65; color: #3A3A3A">
+<h1 style="margin: 24px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4vw, 50px); line-height: 1.08; letter-spacing: -0.01em; color: #1A1A1A">Alarmcast Privacy Policy</h1>
+<p style="margin: 14px 0 0; font-size: 14.5px; color: #5E5E5E"><b>Effective date:</b> October 19, 2026</p>
 
+<p>Alarmcast ("the app") is a podcast alarm clock for Android, made by Bessie Operations ("we," "our"), the developer named on its Google Play listing. We are responsible for the personal data described here. This policy describes what data the app collects, why, and what it does not do.</p>
+
+<h2>Summary</h2>
+<p>Alarmcast does not require an account and does not know who you are. Almost everything the app knows about you, including your alarms, your podcast subscriptions and your listening history, stays on your device. The free version shows ads through Google AdMob (which uses your device's advertising ID), and optional premium purchases remove ads and unlock extra features. We have no user accounts and do not sell your personal data. The only record we keep about app users is of gift codes you choose to redeem, described below. If we have emailed you about your podcast, see <a href="#podcasters">If we email you about your podcast</a>.</p>
+
+<h2>Data we collect and why</h2>
+
+<h3>Podcast search (sent to Apple and to Podcast Index)</h3>
+<p>When you search for a podcast, your search term is sent to <b>two</b> podcast directories at the same time, so that between them we can find whatever you're looking for:</p>
+<ul>
+<li>The <b>Apple iTunes Search API</b> (<code>itunes.apple.com</code>), which receives your search term and the country setting you chose when you set the app up. Searches for individual <i>episodes</i> go only to Apple, because Podcast Index has no episode-text search. Apple's handling of this request is governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</li>
+<li>The <a href="https://podcastindex.org" target="_blank" rel="noopener">Podcast Index</a> API, which receives your search term. This request is authenticated with an app-level key. See their <a href="https://podcastindex.org/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
+</ul>
+<p>Neither request includes your name, email, or any personal identifier, and neither is tied to an account, because the app has none. Both services will see your device's IP address, as any service you connect to does.</p>
+
+<h3>Subscription data (sent to Podcast Index)</h3>
+<p>When you subscribe to a podcast, the podcast's feed URL/ID is sent to the Podcast Index API so we can fetch its episode list and metadata. As above, this carries no personal identifier.</p>
+
+<h3>Episode downloads (sent to the podcast's own host)</h3>
+<p>When you open or subscribe to a podcast, the app connects directly to that podcast's RSS feed and audio host to download episodes for playback, the same as any podcast app or web browser would. That host will see your device's IP address, as it would for any direct connection.</p>
+
+<h3>Crash, error, and reliability reports (sent to Firebase Crashlytics)</h3>
+<p>If the app crashes or hits a serious error, a crash report is sent to Firebase Crashlytics (a Google service) so we can fix the bug. Crashlytics collects the usual technical context with it: device model, OS version, hardware characteristics, and your IP address at the time. Because an alarm that doesn't ring is the worst thing this app can do, reports also carry a few settings that explain why: whether alarm and battery permissions were granted, whether background data was restricted, whether the phone was asleep in Doze, which activity bucket Android had put the app in, and whether you're on the free or paid tier. No name or email is attached; Crashlytics adds only a random installation ID, so it can count how many phones a crash affects. Google processes this on our behalf under Firebase's standard terms; see Google's <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy and security page</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a> for details.</p>
+
+<h3>Gift codes (sent to our server)</h3>
+<p>If you enter a gift code from a podcast, the app sends the code and a scrambled form of your phone's Android ID to our server, which runs on Google Cloud. The scrambled ID cannot be turned back into your Android ID. The server keeps it with the code, the time you redeemed it and the date your free year ends, so that each code can be used once per phone. It is not linked to your name or any account, is not used for ads, and is not shared with anyone. Like any server, it sees your device's IP address when the request arrives, and Google Cloud's request logs keep it for a limited time (30 days by default). Nothing is sent unless you enter a code.</p>
+
+<h3>Advertising (Google AdMob)</h3>
+<p>The free version of Alarmcast shows ads supplied by <a href="https://admob.google.com" target="_blank" rel="noopener">Google AdMob</a>. To serve and measure these ads, AdMob and Google may use your device's <b>advertising ID</b> along with limited technical and ad-interaction data (for example, that an ad was shown or tapped, plus general device and app information). Ads never appear on the alarm ringing screen, and removing ads entirely is one of the benefits of the optional premium purchases described below. Where the law requires it, for example in the European Economic Area, the UK and Switzerland, the app asks for your choice through Google's consent form before any ads are shown. In those places you can change your choice later in <i>Settings, About Alarmcast, Ads you see</i> (the row appears only where the form applies). You can also reset or delete your advertising ID in Android's <i>Settings → Privacy → Ads</i>. Google's use of data from apps that use its services is described in <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">"How Google uses information from sites or apps that use our services"</a> and Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+
+<h3>Purchases (Google Play Billing)</h3>
+<p>Alarmcast offers optional premium features, including removing ads and unlocking extra functionality, as a subscription or a one-time purchase. Payments are processed entirely by <b>Google Play</b>; Alarmcast never receives or stores your payment card details. Google shares with the app only what's needed to unlock what you bought (your purchase and subscription status). Google's handling of your purchase is governed by the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a> and Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+
+<h2>Why we are allowed to use it</h2>
+<p>If you are in the European Economic Area, the UK or another place with similar laws, these are the legal bases we rely on:</p>
+<ul>
+<li><b>Search, subscriptions, episode downloads and purchases:</b> to provide the app and the features you ask for.</li>
+<li><b>Gift codes:</b> to give you the free year you asked for, and our legitimate interest in making sure each code is used once per phone.</li>
+<li><b>Crash and reliability reports:</b> our legitimate interest in finding and fixing problems that could stop an alarm ringing.</li>
+<li><b>Ads:</b> your consent, where the law requires it. Otherwise, our legitimate interest in paying for the free version.</li>
+</ul>
+
+<h2>Where data is processed</h2>
+<p>Our gift code server and Firebase Crashlytics run on Google's infrastructure, mainly in the United States. Google processes this data for us under its data processing terms, which include the standard contractual clauses approved for transfers out of the European Economic Area and the UK.</p>
+
+<h2 id="podcasters">If we email you about your podcast</h2>
+<p>We write to podcast hosts to offer a collaboration and free Premium. If we have emailed you, this part is about you.</p>
+<ul>
+<li><b>What we keep:</b> your name and email address as published, your show's name and public details (such as its feed and website), our emails and your replies, any gift codes we sent you, and, if you do an ad mention for us, the episode link and your dates in Featured.</li>
+<li><b>Where it came from:</b> the contact address your show publishes for enquiries, such as on its website or podcast listing. The web address where we found it is noted, and we will tell you if you ask.</li>
+<li><b>Why:</b> to offer you a collaboration and to answer you. Our legal basis is our legitimate interest in telling podcasters about Alarmcast. In South Africa we write to you once only, to ask whether you are interested.</li>
+<li><b>Who else handles it:</b> our email provider and the software services we use to run and write our email, under their confidentiality terms, mainly in the United States. We never sell it or share it for anyone else's marketing.</li>
+<li><b>How long:</b> while we are in touch, until you ask us to delete it. If you ask us to stop, we keep only your email address on a do-not-contact list, so that we never email you again.</li>
+<li><b>Your choices:</b> reply to any of our emails, or write to the address below, to stop our emails or to see, correct or delete what we hold.</li>
+</ul>
+
+<h2>Data that stays on your device</h2>
+<p>The following is stored on your device and is never uploaded to us. (Fetching a show's episodes does mean contacting Podcast Index, as described above, but the list of what you follow is not sent to us or held anywhere off your phone.)</p>
+<ul>
+<li>Your alarms (times, repeat days, chosen podcast, volume, and related settings)</li>
+<li>Which shows you follow, and how far through each episode you are</li>
+<li>Your app preferences (theme, time format, download settings, etc.)</li>
+</ul>
+<p>If you uninstall the app, this data is deleted along with it.</p>
+
+<h2>Data we do not collect</h2>
+<p>Through the app, we do not collect or have access to: your name, email address, phone number, contacts, precise location, microphone or camera data, or your photos. The app has no user accounts or sign-in. The only advertising data involved is the advertising ID used for the ads described above. It is not linked to your identity, and premium users see no ads at all. If you redeem a gift code, we keep the scrambled phone ID described under Gift codes.</p>
+
+<h3>Voice search (handled by your phone, not by us)</h3>
+<p>The search field has a microphone button. Tapping it hands over to your phone's own speech recogniser, usually Google's, which listens and hands the app back text. Alarmcast never records audio, holds no microphone permission, and receives only the words that came back.</p>
+
+<h2>Security</h2>
+<p>Requests to Apple, Podcast Index, Google AdMob, Google Play, Firebase Crashlytics and our gift code server are made over encrypted (HTTPS) connections. Podcast feeds and audio are served by the podcasts themselves, so their security is theirs. Alarmcast has no accounts, and the only thing our server keeps is the scrambled phone ID from a redeemed gift code, with no name, email or account attached.</p>
+
+<h2>Permissions</h2>
+<p>Alarmcast asks for the permissions an alarm clock needs to ring reliably: exact alarms, notifications, full-screen alarm notifications, foreground service, wake lock, vibration, network access, start-on-boot, and permission to sit outside battery optimisation. The free version also uses the advertising ID permission for ads. None of the others collect anything about you.</p>
+
+<h2>Children's privacy</h2>
+<p>Alarmcast is not directed at children under 13, and we do not knowingly collect personal information from children. We do not offer gift codes through children's podcasts.</p>
+
+<h2>Data retention and deletion</h2>
+<ul>
+<li><b>Local data</b> (alarms, subscriptions, preferences): deleted when you uninstall the app, or by clearing app data in Android settings.</li>
+<li><b>Crash reports:</b> retained by Firebase per Google's standard retention policy. Since only a random installation ID is attached, we cannot tell which reports are yours, so we cannot look up or delete an individual's crash history. Deleting the app going forward stops any new reports.</li>
+<li><b>Gift code redemptions:</b> kept while we offer gift codes. They hold no name or email, so we cannot tell which record is yours.</li>
+</ul>
+
+<h2>Your rights</h2>
+<p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold about you. Because Alarmcast doesn't collect personal identifiers, there is generally nothing tied to you individually to access or delete beyond what's already local to your device. Gift code records hold no name or email, so we cannot tell which one is yours. If we have emailed you about your podcast, we find what we hold by your email address. If you have questions or a request, contact us at the email below and we will answer within 30 days. You also have the right to complain to the data protection authority where you live; in South Africa that is the Information Regulator.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, we'll update this page and the effective date above.</p>
+
+<h2>Contact</h2>
+<p>Bessie Operations, the developer of Alarmcast<br>Questions about this policy or your data: <a href="mailto:help@alarmcast.app">help@alarmcast.app</a><br>Postal address: Postnet Suite 017, Private Bag X5071, Stellenbosch, 7600, South Africa<br>Website: <a href="https://alarmcast.app">https://alarmcast.app</a></p>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ECEBF0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14.5px; color: #5E5E5E">
+<div style="display: flex; align-items: center; gap: 10px; color: #1A1A1A">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 24px; height: 24px; border-radius: 6px; display: block">
+<span style="font-weight: 600">Alarmcast™</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 22px">
+<a href="/#features" style="color: #4A4A4A; padding: 10px 0">Features</a>
+<a href="/#pricing" style="color: #4A4A4A; padding: 10px 0">Pricing</a>
+<a href="/blog/" style="color: #4A4A4A; padding: 10px 0">Blog</a>
+<a href="/podcasters/" style="color: #4A4A4A; padding: 10px 0">For podcasters</a>
+<a href="/privacy/" style="color: #4A4A4A; padding: 10px 0">Privacy</a>
+<a href="/terms/" style="color: #4A4A4A; padding: 10px 0">Terms</a>
+<a href="/paia/" style="color: #4A4A4A; padding: 10px 0">PAIA</a>
+<a href="mailto:hello@alarmcast.app" style="color: #4A4A4A; padding: 10px 0">hello@alarmcast.app</a>
+</div>
+<span>© 2026 Alarmcast, alarmcast.app</span>
+</div>
+</div>
+
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function () {
+    var opening = panel.hasAttribute('hidden');
+    if (opening) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 </body>
 </html>

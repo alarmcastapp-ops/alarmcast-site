@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,7 +10,6 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
 <link rel="icon" sizes="any" href="/favicon.ico" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Podcast apps disagree about which episode is the latest" />
 <meta property="og:description" content="We measured 129,997 episodes across 450 feeds to see how often a directory and a publisher's feed disagree." />
@@ -22,171 +21,163 @@
 <meta property="article:published_time" content="2026-08-21" />
 <meta property="article:modified_time" content="2026-08-21" />
 <meta name="twitter:card" content="summary_large_image" />
-
-<link rel="stylesheet" href="/assets/site.css" />
-<link rel="stylesheet" href="/assets/blog.css" />
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+.art h2{margin:56px 0 0;font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:clamp(26px,2.8vw,32px);line-height:1.2;letter-spacing:-0.01em;color:#1A1A1A}
+.art h3{margin:28px 0 0;font-size:18px;font-weight:600;line-height:1.4;color:#1A1A1A}
+.art p{margin:16px 0 0}
+.art ul{margin:16px 0 0;padding:0 0 0 22px}
+.art li{margin:10px 0 0}
+.art b{font-weight:600;color:#1A1A1A}
+  </style>
 </head>
 <body>
+<div style="background: #FFFFFF; color: #1A1A1A; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6">
 
-<!-- ============ NAV ============ -->
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="/">
-        <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-      </a>
-      <div class="navlinks">
-        <a href="/#how">How it works</a>
-        <a href="/#reliable">Reliability</a>
-        <a href="/#screens">Screens</a>
-        <a href="/#features">Features</a>
-        <a href="/#discover">Discover</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/blog/">Blog</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get the app</a>
-        <a class="btn ghost" href="/gift/">Gift code?</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<div class="wrap">
-<article class="blog post">
-
-  <p class="crumbs"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span>Which episode is the latest</p>
-
-  <h1>Podcast apps disagree about which episode is the latest</h1>
-  <p class="standfirst">Two apps, one show, two different newest episodes. It happens because there are two answers to the question, and most apps only ask one of them. We measured how far apart they get.</p>
-
-  <p class="byline">
-    <b>By the Alarmcast team</b>
-    <span>Published 21 August 2026</span>
-    <span>About 7 minutes</span>
-  </p>
-
-  <p>Open the same podcast in two apps and they will usually agree. Occasionally they will not: one shows an episode the other has not heard of, or one plays an episode that fails to load in the other. Nothing is broken in either app.</p>
-
-  <p>They are reading different sources, and the sources are not always the same.</p>
-
-  <div class="tldr">
-    <p class="k">The short answer</p>
-    <p>A podcast is published as an RSS feed on the publisher's own server. Directories such as Apple's and Podcast Index do not receive that feed, they crawl it, so a directory is a snapshot of the feed as it looked at the last crawl. An app reading the directory can therefore be behind an app reading the feed, and the two can carry different download links for the same episode.</p>
-    <p>We measured this across 450 feeds in July 2026. In 129,997 episodes present in both sources, 9.4% had a different audio URL in the directory than in the publisher's feed. The problem is concentrated rather than spread: 92% of shows had no divergence at all, while a small group had it on almost every episode. "Different" is not the same as "dead", and most of those links still play. Enough do not that an app which trusts the directory alone will eventually try to play something that is no longer there.</p>
-  </div>
-
-  <h2>Two things called "the latest episode"</h2>
-
-  <p>The publisher's feed is the original. It is a file on the publisher's server, and when a new episode goes up, the file changes. That is the authoritative answer to what the newest episode is, and to where its audio lives.</p>
-
-  <p>A directory is a crawl of that file. Apple's directory, Podcast Index and every other catalogue work by fetching feeds on a schedule and storing what they found. That has real advantages: you can search across millions of shows, and you get artwork, categories and episode history the feed may no longer carry. What a directory cannot be is fresher than its last crawl.</p>
-
-  <p>So an app that lists episodes from a directory shows you what the directory saw. An app that reads the feed shows you what is there now. Most of the time these agree, which is why the disagreements are surprising when they happen.</p>
-
-  <h2>What we measured</h2>
-
-  <p>In July 2026 we swept 450 podcast feeds, chosen across popularity tiers and categories rather than only from the charts, and compared each one against the same show in the directory. 429 of them had episodes present in both places, which came to 129,997 episodes.</p>
-
-  <div class="stat">
-    <span class="n">9.4%</span>
-    <p>Of the 129,997 episodes present in both sources, 12,159 carried a different audio download link in the directory than in the publisher's own feed.</p>
-  </div>
-
-  <p>The distribution matters more than the headline. 394 of those 429 shows, just under 92%, had no divergence at all. The disagreement is concentrated in a minority of feeds, and in 18 of them more than nine episodes in ten carried a different link. If your podcast app has never once failed you, that is not luck, it is that most shows never move their audio.</p>
-
-  <p>On identity the two sources agree far better: episode GUIDs, the unique identifier a publisher assigns each episode, match about 95% of the time overall, and the median feed matches perfectly. Where apps disagree it is usually about where the audio lives, not about which episode is which.</p>
-
-  <h2>Why a download link changes</h2>
-
-  <p>Audio URLs are not stable identifiers, and publishers change them for ordinary reasons.</p>
-
-  <ul>
-    <li><strong>They move host.</strong> A show that switches from one podcast host to another gets new URLs for its whole back catalogue. In our sweep 13 shows, about 3%, served their audio from a different hostname in the feed than the directory had stored. From outside, a host move and a prefix change look the same.</li>
-    <li><strong>Tracking prefixes churn.</strong> Many publishers route audio through a measurement or advertising prefix, and those prefixes get added, removed and swapped. The episode is identical and the string in front of it is not.</li>
-    <li><strong>The directory's copy is a snapshot.</strong> Podcast Index records when it crawled an episode, and nothing in its API documentation promises that the URL it stored still works for playback.</li>
-  </ul>
-
-  <h2>Why an app sometimes shows an old episode</h2>
-
-  <p><strong>Crawl lag.</strong> If an app reads the directory, the newest episode it can possibly show is the newest one the directory has crawled. Apple tells podcasters that changes usually appear within a few hours, which is fine for a listener browsing and awkward for anything that has to be right at a specific minute.</p>
-
-  <p><strong>Feeds that carry only recent episodes.</strong> Some publishers window their feed so only the last few weeks are in it, with the archive available elsewhere or behind a subscription. In our sweep, genuine catalogue-capping affected about 2% of feeds, and where it happens it is drastic: the worst case in our sweep carried 475 episodes where the directory held 2,000. An app reading the feed then shows fewer episodes than one reading the directory, and neither is wrong.</p>
-
-  <p><strong>Re-stamped dates.</strong> A publisher can edit an episode and update its publication date, or a host can re-stamp on republish. Anything sorting strictly by date then reorders history, and "the latest episode" changes without a new episode existing.</p>
-
-  <p><strong>An identifier that changed.</strong> If a publisher regenerates GUIDs, an app that tracks your position by GUID loses its place, and previously-heard episodes can reappear as new.</p>
-
-  <h2>What this has to do with an alarm</h2>
-
-  <p>Browsing forgives all of this. If a list is an hour stale or an episode fails to load, you scroll, you tap something else, you move on.</p>
-
-  <p>An alarm gets one attempt, while you are asleep. It has to answer two questions in advance and be right about both: which episode is the newest one, and where can the audio actually be fetched from. That is why Alarmcast treats the publisher's feed as authoritative for the play URL and uses the directory for what it is good at, which is finding shows in the first place. It is also why the episode is downloaded roughly half an hour before the alarm rather than fetched at 6 am, so a link that has rotted is discovered while you are still asleep and there is still time to fall back.</p>
-
-  <p>None of that is exotic engineering. It is the difference between an app that assumes the directory is right and one that checks.</p>
-
-  <h2>Questions people actually ask</h2>
-
-  <div class="faq">
-    <details>
-      <summary>Why is my podcast app not showing the newest episode?</summary>
-      <p>Usually because it is reading a directory's crawl of the feed rather than the feed itself, and the crawl has not caught up. Apple tells podcasters that feed changes usually appear within a few hours. A second cause is a publisher windowing its feed so older episodes are no longer in it, which affects about 2% of feeds but is drastic where it happens.</p>
-    </details>
-    <details>
-      <summary>Why does an episode fail to play in one app and work in another?</summary>
-      <p>The two apps are probably using different download links for the same episode. In a sweep of 129,997 episodes present in both a directory and the publisher's feed, 9.4% carried different audio URLs. Most of those still play, but the ones that do not will fail in whichever app trusted the stale copy.</p>
-    </details>
-    <details>
-      <summary>What is the authoritative source for a podcast episode?</summary>
-      <p>The publisher's own RSS feed. Directories are built by crawling feeds, so they cannot be fresher than their last crawl, and nothing in Podcast Index's API documentation promises the URL it stored will still play. Directories remain the right tool for search and discovery.</p>
-    </details>
-    <details>
-      <summary>Do podcast download links change?</summary>
-      <p>Yes. Shows migrate between hosts, which changes URLs for the entire back catalogue, and tracking or measurement prefixes are added and removed over time. In our sweep about 3% of shows served their audio from a different hostname than the directory had stored.</p>
-    </details>
-    <details>
-      <summary>Why did my podcast app forget where I was in an episode?</summary>
-      <p>Most apps track your position against the episode's GUID, the identifier the publisher assigns it. If the publisher regenerates GUIDs, that link breaks and episodes can reappear as unplayed. GUIDs match between sources about 95% of the time, and the median feed matches perfectly, so this is uncommon rather than rare.</p>
-    </details>
-  </div>
-
-  <div class="endcard">
-    <h2>An alarm that checks before it rings</h2>
-    <p>Alarmcast asks the publisher's feed which episode is newest and where the audio is, downloads it about half an hour before your alarm, and keeps a chime in reserve for the mornings when the internet disagrees.</p>
-    <a class="btn" href="/#reliable">See what it survives</a>
-  </div>
-
-  <div class="sources">
-    <h2>How this was measured</h2>
-    <p>450 podcast feeds were swept on 16 July 2026, sampled across popularity tiers, from charting shows to a uniform-random draw of the long tail, and across categories. 429 had episodes present in both the publisher's feed and the directory, giving 129,997 comparable episodes. Figures quoted here are recomputed from that sweep's raw per-feed records.</p>
-    <p>"Different" was measured as a different audio URL for the same episode, and does not mean the link is dead. Most differing links still resolve. Crawl behaviour and directory guarantees are as documented by <a href="https://podcastindex-org.github.io/docs-api/" rel="nofollow">Podcast Index</a> and in Apple's own podcaster documentation, checked 21 August 2026.</p>
-  </div>
-
-</article>
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between">
+<a href="/" style="display: flex; align-items: center; gap: 10px; color: #1A1A1A; text-decoration: none; min-height: 44px">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px; display: block">
+<span style="font-size: 18px; font-weight: 600">Alarmcast™</span>
+</a>
+<div class="nav-links" style="flex-wrap: wrap; gap: 0 24px; font-size: 15px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 10px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="/#reliable" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Reliability</a>
+<a href="/#features" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Features</a>
+<a href="/#discover" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Discover</a>
+<a href="/#pricing" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Pricing</a>
+</div>
+<div style="display: flex; gap: 12px 20px; align-items: center">
+<a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite" style="background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 6px">Get the app</a>
+<a href="/gift/" class="nav-gift" style="font-size: 15px; text-underline-offset: 3px; padding: 10px 0">Gift code?</a>
+<button type="button" class="nav-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #E2E0EA; background: #FFFFFF; border-radius: 6px; cursor: pointer; color: #1A1A1A; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+</div>
+</div>
+<div id="mobile-nav" class="nav-panel" hidden style="display: flex; flex-direction: column; padding: 4px 24px 16px; border-bottom: 1px solid #ECEBF0; font-size: 17px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 12px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">How it works</a>
+<a href="/#reliable" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Reliability</a>
+<a href="/#features" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Features</a>
+<a href="/#discover" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Discover</a>
+<a href="/#pricing" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Pricing</a>
+<a href="/gift/" style="text-underline-offset: 3px; padding: 12px 0">Gift code?</a>
 </div>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-    </div>
-    <div class="foot-links">
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/podcasters/">For podcasters</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/paia/">PAIA</a>
-      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
-    </div>
-    <div>&copy; 2026 Alarmcast &middot; alarmcast.app</div>
-  </div>
-</footer>
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 96px">
+<div class="art" style="max-width: 680px; font-size: 18px; line-height: 1.7; color: #3A3A3A">
+<p style="margin: 0; font-size: 14.5px; color: #5E5E5E"><a href="/" style="color: #5E5E5E">Home</a> / <a href="/blog/" style="color: #5E5E5E">Blog</a> / Which episode is the latest</p>
+<h1 style="margin: 24px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.6vw, 54px); line-height: 1.08; letter-spacing: -0.01em; color: #1A1A1A">Podcast apps disagree about which episode is the latest</h1>
+<p style="margin: 20px 0 0; font-size: 21px; line-height: 1.5; color: #4A4A4A">Two apps, one show, two different newest episodes. It happens because there are two answers to the question, and most apps only ask one of them. We measured how far apart they get.</p>
+<p style="margin: 20px 0 0; font-size: 14.5px; color: #5E5E5E"><b style="color: #1A1A1A">By the Alarmcast team</b>, published 21 August 2026, about 7 minutes</p>
 
+<p style="margin-top: 40px">Open the same podcast in two apps and they will usually agree. Occasionally they will not: one shows an episode the other has not heard of, or one plays an episode that fails to load in the other. Nothing is broken in either app.</p>
+<p>They are reading different sources, and the sources are not always the same.</p>
+
+<div style="margin-top: 32px; background: #F7F3F9; border-radius: 8px; padding: 24px 28px 28px">
+<p style="margin: 0; font-size: 15px; font-weight: 600; color: #4A2873">The short answer</p>
+<p style="margin: 10px 0 0">A podcast is published as an RSS feed on the publisher's own server. Directories such as Apple's and Podcast Index do not receive that feed, they crawl it, so a directory is a snapshot of the feed as it looked at the last crawl. An app reading the directory can therefore be behind an app reading the feed, and the two can carry different download links for the same episode.</p>
+<p>We measured this across 450 feeds in July 2026. In 129,997 episodes present in both sources, 9.4% had a different audio URL in the directory than in the publisher's feed. The problem is concentrated rather than spread: 92% of shows had no divergence at all, while a small group had it on almost every episode. "Different" is not the same as "dead", and most of those links still play. Enough do not that an app which trusts the directory alone will eventually try to play something that is no longer there.</p>
+</div>
+
+<h2>Two things called "the latest episode"</h2>
+<p>The publisher's feed is the original. It is a file on the publisher's server, and when a new episode goes up, the file changes. That is the authoritative answer to what the newest episode is, and to where its audio lives.</p>
+<p>A directory is a crawl of that file. Apple's directory, Podcast Index and every other catalogue work by fetching feeds on a schedule and storing what they found. That has real advantages: you can search across millions of shows, and you get artwork, categories and episode history the feed may no longer carry. What a directory cannot be is fresher than its last crawl.</p>
+<p>So an app that lists episodes from a directory shows you what the directory saw. An app that reads the feed shows you what is there now. Most of the time these agree, which is why the disagreements are surprising when they happen.</p>
+
+<h2>What we measured</h2>
+<p>In July 2026 we swept 450 podcast feeds, chosen across popularity tiers and categories rather than only from the charts, and compared each one against the same show in the directory. 429 of them had episodes present in both places, which came to 129,997 episodes.</p>
+<div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline">
+<p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 56px; line-height: 1; color: #4A2873">9.4%</p>
+<p style="margin: 0; flex: 1 1 320px; min-width: 0">Of the 129,997 episodes present in both sources, 12,159 carried a different audio download link in the directory than in the publisher's own feed.</p>
+</div>
+<p style="margin-top: 28px">The distribution matters more than the headline. 394 of those 429 shows, just under 92%, had no divergence at all. The disagreement is concentrated in a minority of feeds, and in 18 of them more than nine episodes in ten carried a different link. If your podcast app has never once failed you, that is not luck, it is that most shows never move their audio.</p>
+<p>On identity the two sources agree far better: episode GUIDs, the unique identifier a publisher assigns each episode, match about 95% of the time overall, and the median feed matches perfectly. Where apps disagree it is usually about where the audio lives, not about which episode is which.</p>
+
+<h2>Why a download link changes</h2>
+<p>Audio URLs are not stable identifiers, and publishers change them for ordinary reasons.</p>
+<ul>
+<li><b>They move host.</b> A show that switches from one podcast host to another gets new URLs for its whole back catalogue. In our sweep 13 shows, about 3%, served their audio from a different hostname in the feed than the directory had stored. From outside, a host move and a prefix change look the same.</li>
+<li><b>Tracking prefixes churn.</b> Many publishers route audio through a measurement or advertising prefix, and those prefixes get added, removed and swapped. The episode is identical and the string in front of it is not.</li>
+<li><b>The directory's copy is a snapshot.</b> Podcast Index records when it crawled an episode, and nothing in its API documentation promises that the URL it stored still works for playback.</li>
+</ul>
+
+<h2>Why an app sometimes shows an old episode</h2>
+<p><b>Crawl lag.</b> If an app reads the directory, the newest episode it can possibly show is the newest one the directory has crawled. Apple tells podcasters that changes usually appear within a few hours, which is fine for a listener browsing and awkward for anything that has to be right at a specific minute.</p>
+<p><b>Feeds that carry only recent episodes.</b> Some publishers window their feed so only the last few weeks are in it, with the archive available elsewhere or behind a subscription. In our sweep, genuine catalogue-capping affected about 2% of feeds, and where it happens it is drastic: the worst case in our sweep carried 475 episodes where the directory held 2,000. An app reading the feed then shows fewer episodes than one reading the directory, and neither is wrong.</p>
+<p><b>Re-stamped dates.</b> A publisher can edit an episode and update its publication date, or a host can re-stamp on republish. Anything sorting strictly by date then reorders history, and "the latest episode" changes without a new episode existing.</p>
+<p><b>An identifier that changed.</b> If a publisher regenerates GUIDs, an app that tracks your position by GUID loses its place, and previously-heard episodes can reappear as new.</p>
+
+<h2>What this has to do with an alarm</h2>
+<p>Browsing forgives all of this. If a list is an hour stale or an episode fails to load, you scroll, you tap something else, you move on.</p>
+<p>An alarm gets one attempt, while you are asleep. It has to answer two questions in advance and be right about both: which episode is the newest one, and where can the audio actually be fetched from. That is why Alarmcast treats the publisher's feed as authoritative for the play URL and uses the directory for what it is good at, which is finding shows in the first place. It is also why the episode is downloaded roughly half an hour before the alarm rather than fetched at 6 am, so a link that has rotted is discovered while you are still asleep and there is still time to fall back.</p>
+<p>None of that is exotic engineering. It is the difference between an app that assumes the directory is right and one that checks.</p>
+
+<h2>Questions people actually ask</h2>
+<h3>Why is my podcast app not showing the newest episode?</h3>
+<p style="margin-top: 6px">Usually because it is reading a directory's crawl of the feed rather than the feed itself, and the crawl has not caught up. Apple tells podcasters that feed changes usually appear within a few hours. A second cause is a publisher windowing its feed so older episodes are no longer in it, which affects about 2% of feeds but is drastic where it happens.</p>
+<h3>Why does an episode fail to play in one app and work in another?</h3>
+<p style="margin-top: 6px">The two apps are probably using different download links for the same episode. In a sweep of 129,997 episodes present in both a directory and the publisher's feed, 9.4% carried different audio URLs. Most of those still play, but the ones that do not will fail in whichever app trusted the stale copy.</p>
+<h3>What is the authoritative source for a podcast episode?</h3>
+<p style="margin-top: 6px">The publisher's own RSS feed. Directories are built by crawling feeds, so they cannot be fresher than their last crawl, and nothing in Podcast Index's API documentation promises the URL it stored will still play. Directories remain the right tool for search and discovery.</p>
+<h3>Do podcast download links change?</h3>
+<p style="margin-top: 6px">Yes. Shows migrate between hosts, which changes URLs for the entire back catalogue, and tracking or measurement prefixes are added and removed over time. In our sweep about 3% of shows served their audio from a different hostname than the directory had stored.</p>
+<h3>Why did my podcast app forget where I was in an episode?</h3>
+<p style="margin-top: 6px">Most apps track your position against the episode's GUID, the identifier the publisher assigns it. If the publisher regenerates GUIDs, that link breaks and episodes can reappear as unplayed. GUIDs match between sources about 95% of the time, and the median feed matches perfectly, so this is uncommon rather than rare.</p>
+
+<div style="margin-top: 64px; background: #F6F5F9; border-radius: 8px; padding: 32px 32px 36px">
+<h2 style="margin: 0; font-size: 28px; line-height: 1.2">An alarm that checks before it rings</h2>
+<p style="margin: 12px 0 0">Alarmcast asks the publisher's feed which episode is newest and where the audio is, downloads it about half an hour before your alarm, and keeps a chime in reserve for the mornings when the internet disagrees.</p>
+<p style="margin: 20px 0 0"><a href="/#reliable" style="display: inline-block; background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 18px; border-radius: 6px">See what it survives</a></p>
+</div>
+
+<div style="margin-top: 56px; padding-top: 28px; border-top: 1px solid #E6E1EA; font-size: 15px; line-height: 1.6; color: #5E5E5E">
+<h2 style="margin: 0; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.4; letter-spacing: 0">How this was measured</h2>
+<p style="margin: 10px 0 0">450 podcast feeds were swept on 16 July 2026, sampled across popularity tiers, from charting shows to a uniform-random draw of the long tail, and across categories. 429 had episodes present in both the publisher's feed and the directory, giving 129,997 comparable episodes. Figures quoted here are recomputed from that sweep's raw per-feed records.</p>
+<p style="margin: 10px 0 0">"Different" was measured as a different audio URL for the same episode, and does not mean the link is dead. Most differing links still resolve. Crawl behaviour and directory guarantees are as documented by <a href="https://podcastindex-org.github.io/docs-api/" rel="nofollow" style="color: #4A2873">Podcast Index</a> and in Apple's own podcaster documentation, checked 21 August 2026.</p>
+</div>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ECEBF0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14.5px; color: #5E5E5E">
+<div style="display: flex; align-items: center; gap: 10px; color: #1A1A1A">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 24px; height: 24px; border-radius: 6px; display: block">
+<span style="font-weight: 600">Alarmcast™</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 22px">
+<a href="/#features" style="color: #4A4A4A; padding: 10px 0">Features</a>
+<a href="/#pricing" style="color: #4A4A4A; padding: 10px 0">Pricing</a>
+<a href="/blog/" style="color: #4A4A4A; padding: 10px 0">Blog</a>
+<a href="/podcasters/" style="color: #4A4A4A; padding: 10px 0">For podcasters</a>
+<a href="/privacy/" style="color: #4A4A4A; padding: 10px 0">Privacy</a>
+<a href="/terms/" style="color: #4A4A4A; padding: 10px 0">Terms</a>
+<a href="/paia/" style="color: #4A4A4A; padding: 10px 0">PAIA</a>
+<a href="mailto:hello@alarmcast.app" style="color: #4A4A4A; padding: 10px 0">hello@alarmcast.app</a>
+</div>
+<span>© 2026 Alarmcast, alarmcast.app</span>
+</div>
+</div>
+
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function () {
+    var opening = panel.hasAttribute('hidden');
+    if (opening) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -228,6 +219,5 @@
   ]
 }
 </script>
-
 </body>
 </html>

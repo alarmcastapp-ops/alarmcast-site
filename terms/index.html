@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -18,107 +18,134 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="/assets/site.css" />
-<style>
-  .important{
-    background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:16px;
-    padding:24px 28px;margin:0 0 8px;
-  }
-  .important h2{border:none;padding:0;margin:0 0 8px;font-size:20px;color:var(--amber-ink);}
-  .important p{color:var(--ink);margin:0 0 10px;}
-  .important p:last-child{margin:0;}
-</style>
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+.art h2{margin:56px 0 0;font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:clamp(26px,2.8vw,32px);line-height:1.2;letter-spacing:-0.01em;color:#1A1A1A}
+.art h3{margin:28px 0 0;font-size:18px;font-weight:600;line-height:1.4;color:#1A1A1A}
+.art p{margin:16px 0 0}
+.art ul{margin:16px 0 0;padding:0 0 0 22px}
+.art li{margin:10px 0 0}
+.art b{font-weight:600;color:#1A1A1A}
+  </style>
 </head>
 <body>
+<div style="background: #FFFFFF; color: #1A1A1A; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6">
 
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="/">
-        <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-      </a>
-      <div class="navlinks">
-        <a href="/#how">How it works</a>
-        <a href="/#reliable">Reliability</a>
-        <a href="/#features">Features</a>
-        <a href="/#pricing">Pricing</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite">Get the app</a>
-        <a class="btn ghost" href="/gift/">Gift code?</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<div class="wrap">
-  <article class="policy">
-    <h1>Terms of Use</h1>
-    <p class="eff-date"><strong>Effective date:</strong> October 23, 2026</p>
-    <p>Please read <a href="#important-title">Missed alarms</a> below.</p>
-
-    <h2>Who we are</h2>
-    <p>Alarmcast is made by Bessie Operations ("we", "us"), the developer named on its Google Play listing. By installing or using Alarmcast you agree to these terms. If you don't agree, please don't use the app.</p>
-
-    <h2>Podcasts in the app</h2>
-    <p>The shows and episodes in Alarmcast are made and owned by their creators and come from their own public feeds. We don't make, check or control that content, and a show can change, move or disappear at any time. Some shows are marked explicit by their creators. Listening is for your personal use.</p>
-
-    <h2>Premium, purchases and trials</h2>
-    <p>Premium is sold through Google Play, as a subscription or a one-time purchase. Prices, free trials, renewals, cancellation and refunds are handled by Google Play under its terms; you can cancel a subscription in the Play Store at any time. Gift codes from podcasts follow the <a href="/gift/">gift code terms</a>.</p>
-
-    <h2>Ads</h2>
-    <p>The free version shows ads, never on the alarm screen. How ad data is handled is in the <a href="/privacy/">privacy policy</a>.</p>
-
-    <h2>Using the app fairly</h2>
-    <ul>
-      <li>Don't use Alarmcast to break the law or anyone's rights.</li>
-      <li>Don't try to get Premium without paying for it or redeeming a real gift code, or overload or attack our servers.</li>
-      <li>Don't copy, resell or redistribute the app.</li>
-    </ul>
-
-    <h2>Changes to the app and these terms</h2>
-    <p>We keep improving Alarmcast, so features can change, move or be removed in an update. We may update these terms too; the effective date above shows when. If a change is important, we'll say so in the app or on this page before it applies.</p>
-
-    <h2>Our liability</h2>
-    <p>Alarmcast is provided as it is and as available. To the extent the law allows, we are not liable for indirect or consequential loss, such as missed appointments, travel, work or income, and our total liability to you is limited to what you paid us for Alarmcast in the 12 months before the claim.</p>
-    <p>Nothing in these terms limits liability that can't be limited by law, including for gross negligence or fraud, or takes away your rights under consumer law, including South Africa's Consumer Protection Act.</p>
-
-    <section class="important" aria-labelledby="important-title">
-      <h2 id="important-title">Missed alarms</h2>
-      <p>Alarmcast works hard to ring on time, but no phone alarm can be guaranteed. A flat or switched-off phone, a system update, battery-saving settings, a permission you turn off, or a fault in the app can stop it ringing, or make it ring late or quietly.</p>
-      <p><strong>Don't rely on Alarmcast alone when missing an alarm could hurt you or cost you</strong>, such as for medicine. Set a second alarm for that. Alarmcast is not a medical or safety device.</p>
-      <p>To the extent the law allows, we are not liable for loss or harm caused by an alarm that didn't ring, rang late, or played the wrong thing. See "Our liability" above.</p>
-    </section>
-
-    <h2>The law</h2>
-    <p>These terms are governed by the law of South Africa. If you live elsewhere, you keep any consumer rights your local law gives you.</p>
-
-    <h2>Contact</h2>
-    <p>Bessie Operations, the developer of Alarmcast<br />Email: <a href="mailto:help@alarmcast.app">help@alarmcast.app</a><br />Postal address: Postnet Suite 017, Private Bag X5071, Stellenbosch, 7600, South Africa</p>
-
-  </article>
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between">
+<a href="/" style="display: flex; align-items: center; gap: 10px; color: #1A1A1A; text-decoration: none; min-height: 44px">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px; display: block">
+<span style="font-size: 18px; font-weight: 600">Alarmcast™</span>
+</a>
+<div class="nav-links" style="flex-wrap: wrap; gap: 0 24px; font-size: 15px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 10px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="/#reliable" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Reliability</a>
+<a href="/#features" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Features</a>
+<a href="/#discover" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Discover</a>
+<a href="/#pricing" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Pricing</a>
+</div>
+<div style="display: flex; gap: 12px 20px; align-items: center">
+<a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite" style="background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 6px">Get the app</a>
+<a href="/gift/" class="nav-gift" style="font-size: 15px; text-underline-offset: 3px; padding: 10px 0">Gift code?</a>
+<button type="button" class="nav-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #E2E0EA; background: #FFFFFF; border-radius: 6px; cursor: pointer; color: #1A1A1A; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+</div>
+</div>
+<div id="mobile-nav" class="nav-panel" hidden style="display: flex; flex-direction: column; padding: 4px 24px 16px; border-bottom: 1px solid #ECEBF0; font-size: 17px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 12px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">How it works</a>
+<a href="/#reliable" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Reliability</a>
+<a href="/#features" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Features</a>
+<a href="/#discover" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Discover</a>
+<a href="/#pricing" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Pricing</a>
+<a href="/gift/" style="text-underline-offset: 3px; padding: 12px 0">Gift code?</a>
 </div>
 
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-    </div>
-    <div class="foot-links">
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/podcasters/">For podcasters</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/paia/">PAIA</a>
-      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
-    </div>
-    <div>© 2026 Alarmcast · alarmcast.app</div>
-  </div>
-</footer>
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 96px">
+<div class="art" style="max-width: 720px; font-size: 17px; line-height: 1.65; color: #3A3A3A">
+<h1 style="margin: 24px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4vw, 50px); line-height: 1.08; letter-spacing: -0.01em; color: #1A1A1A">Terms of Use</h1>
+<p style="margin: 14px 0 0; font-size: 14.5px; color: #5E5E5E"><b>Effective date:</b> October 23, 2026</p>
+<p>Please read <a href="#important-title">Missed alarms</a> below.</p>
 
+<h2>Who we are</h2>
+<p>Alarmcast is made by Bessie Operations ("we", "us"), the developer named on its Google Play listing. By installing or using Alarmcast you agree to these terms. If you don't agree, please don't use the app.</p>
+
+<h2>Podcasts in the app</h2>
+<p>The shows and episodes in Alarmcast are made and owned by their creators and come from their own public feeds. We don't make, check or control that content, and a show can change, move or disappear at any time. Some shows are marked explicit by their creators. Listening is for your personal use.</p>
+
+<h2>Premium, purchases and trials</h2>
+<p>Premium is sold through Google Play, as a subscription or a one-time purchase. Prices, free trials, renewals, cancellation and refunds are handled by Google Play under its terms; you can cancel a subscription in the Play Store at any time. Gift codes from podcasts follow the <a href="/gift/">gift code terms</a>.</p>
+
+<h2>Ads</h2>
+<p>The free version shows ads, never on the alarm screen. How ad data is handled is in the <a href="/privacy/">privacy policy</a>.</p>
+
+<h2>Using the app fairly</h2>
+<ul>
+<li>Don't use Alarmcast to break the law or anyone's rights.</li>
+<li>Don't try to get Premium without paying for it or redeeming a real gift code, or overload or attack our servers.</li>
+<li>Don't copy, resell or redistribute the app.</li>
+</ul>
+
+<h2>Changes to the app and these terms</h2>
+<p>We keep improving Alarmcast, so features can change, move or be removed in an update. We may update these terms too; the effective date above shows when. If a change is important, we'll say so in the app or on this page before it applies.</p>
+
+<h2>Our liability</h2>
+<p>Alarmcast is provided as it is and as available. To the extent the law allows, we are not liable for indirect or consequential loss, such as missed appointments, travel, work or income, and our total liability to you is limited to what you paid us for Alarmcast in the 12 months before the claim.</p>
+<p>Nothing in these terms limits liability that can't be limited by law, including for gross negligence or fraud, or takes away your rights under consumer law, including South Africa's Consumer Protection Act.</p>
+
+<section aria-labelledby="important-title" style="margin-top: 32px; background: #F7F3F9; border-radius: 8px; padding: 24px 28px 28px">
+<h2 id="important-title" style="margin: 0">Missed alarms</h2>
+<p style="margin: 12px 0 0">Alarmcast works hard to ring on time, but no phone alarm can be guaranteed. A flat or switched-off phone, a system update, battery-saving settings, a permission you turn off, or a fault in the app can stop it ringing, or make it ring late or quietly.</p>
+<p><b>Don't rely on Alarmcast alone when missing an alarm could hurt you or cost you</b>, such as for medicine. Set a second alarm for that. Alarmcast is not a medical or safety device.</p>
+<p>To the extent the law allows, we are not liable for loss or harm caused by an alarm that didn't ring, rang late, or played the wrong thing. See "Our liability" above.</p>
+</section>
+
+<h2>The law</h2>
+<p>These terms are governed by the law of South Africa. If you live elsewhere, you keep any consumer rights your local law gives you.</p>
+
+<h2>Contact</h2>
+<p>Bessie Operations, the developer of Alarmcast<br>Email: <a href="mailto:help@alarmcast.app">help@alarmcast.app</a><br>Postal address: Postnet Suite 017, Private Bag X5071, Stellenbosch, 7600, South Africa</p>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ECEBF0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14.5px; color: #5E5E5E">
+<div style="display: flex; align-items: center; gap: 10px; color: #1A1A1A">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 24px; height: 24px; border-radius: 6px; display: block">
+<span style="font-weight: 600">Alarmcast™</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 22px">
+<a href="/#features" style="color: #4A4A4A; padding: 10px 0">Features</a>
+<a href="/#pricing" style="color: #4A4A4A; padding: 10px 0">Pricing</a>
+<a href="/blog/" style="color: #4A4A4A; padding: 10px 0">Blog</a>
+<a href="/podcasters/" style="color: #4A4A4A; padding: 10px 0">For podcasters</a>
+<a href="/privacy/" style="color: #4A4A4A; padding: 10px 0">Privacy</a>
+<a href="/terms/" style="color: #4A4A4A; padding: 10px 0">Terms</a>
+<a href="/paia/" style="color: #4A4A4A; padding: 10px 0">PAIA</a>
+<a href="mailto:hello@alarmcast.app" style="color: #4A4A4A; padding: 10px 0">hello@alarmcast.app</a>
+</div>
+<span>© 2026 Alarmcast, alarmcast.app</span>
+</div>
+</div>
+
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function () {
+    var opening = panel.hasAttribute('hidden');
+    if (opening) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 </body>
 </html>

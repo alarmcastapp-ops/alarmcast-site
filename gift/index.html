@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -18,152 +18,125 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="/assets/site.css" />
-<style>
-  .gift{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:clamp(48px,6vw,80px) 0 clamp(40px,5vw,64px);}
-  .gift h1{font-size:clamp(38px,5.4vw,60px);line-height:1.04;margin:0 0 18px;letter-spacing:-.03em;font-weight:800;}
-  .gift .lede{margin:0 0 28px;max-width:40ch;}
-  .gift .check{grid-column:1/-1;margin:0;font-size:16px;color:var(--ink-2);max-width:60ch;}
-  .gift .check b{color:var(--ink);}
-
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:0;padding:0;list-style:none;}
-  .steps li{display:flex;flex-direction:column;align-items:center;}
-  .steps .phone{width:230px;border-radius:34px;padding:9px;}
-  .steps .phone .screen{border-radius:26px;}
-  .phone img{display:block;width:100%;height:auto;aspect-ratio:1080/2400;}
-  /* drawn on the app's dark screen, so it uses the light purple */
-  .tap{position:absolute;left:2%;top:79.4%;width:96%;height:9.8%;border:2px solid #9C82FF;border-radius:10px;pointer-events:none;}
-  .steps p{margin:18px 0 0;font-size:16px;color:var(--ink-2);text-align:center;max-width:24ch;}
-  .steps b{color:var(--ink);}
-  .step-n{
-    display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
-    background:var(--accent-soft);color:var(--accent-ink);font-weight:750;font-size:14px;margin-right:8px;
-  }
-
-  .fine{padding:clamp(24px,3vw,40px) 0 clamp(72px,8vw,104px);max-width:68ch;}
-  .fine h2{font-size:clamp(26px,3.2vw,34px);line-height:1.15;letter-spacing:-.025em;margin:0 0 10px;font-weight:800;}
-  .fine .intro{color:var(--ink-2);font-size:17px;margin:0;}
-  .fine .help{color:var(--ink-3);font-size:var(--t-sm);margin-top:22px;}
-  .fine dl{margin:24px 0 0;}
-  .fine dl div{padding:18px 0;border-top:1px solid var(--rule);}
-  .fine dl div:last-child{border-bottom:1px solid var(--rule);}
-  .fine dt{font-weight:700;color:var(--ink);font-size:17px;margin:0 0 4px;}
-  .fine dd{margin:0;color:var(--ink-2);font-size:16.5px;line-height:1.65;}
-  .fine a,.lede a{color:var(--accent-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
-
-  @media(max-width:900px){ .gift{grid-template-columns:1fr;gap:40px;} }
-  @media(max-width:520px){
-    .steps{gap:14px;}
-    .steps .phone{width:100%;max-width:170px;border-radius:26px;padding:7px;}
-    .steps .phone .screen{border-radius:20px;}
-  }
-</style>
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+.term{display:grid;grid-template-columns:220px minmax(0,1fr);gap:4px 40px;padding:16px 0;border-top:1px solid #E6E1EA}
+@media (max-width: 700px){.term{grid-template-columns:minmax(0,1fr)}}
+  </style>
 </head>
 <body>
+<div style="background: #FFFFFF; color: #1A1A1A; font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6">
 
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="/">
-        <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-        <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-      </a>
-      <div class="navlinks">
-        <a href="/#how">How it works</a>
-        <a href="/#reliable">Reliability</a>
-        <a href="/#features">Features</a>
-        <a href="/#pricing">Pricing</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dgift-codes">Get the app</a>
-        <a class="btn ghost" href="/gift/">Gift code?</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<main>
-<div class="wrap">
-  <section class="gift">
-    <div>
-      <h1>Got a code from a podcast?</h1>
-      <p class="lede">It's a free year of Alarmcast Premium. Here's where to type it.</p>
-    </div>
-    <ol class="steps">
-      <li>
-        <div class="phone"><div class="screen">
-          <img src="/assets/screens/gift-settings.webp" width="720" height="1600"
-               alt="Alarmcast Settings, scrolled to the bottom: a Gift codes section with the row Enter a code" />
-            <div class="tap" aria-hidden="true"></div>
-        </div></div>
-        <p><span class="step-n">1</span>In <b>Settings</b>, at the bottom, tap <b>Enter a code</b>.</p>
-      </li>
-      <li>
-        <div class="phone"><div class="screen">
-          <img src="/assets/screens/gift-enter.webp" width="720" height="1600"
-               alt="The Enter a code box, with the gift code CASSETTE typed in and a Redeem button" />
-        </div></div>
-        <p><span class="step-n">2</span>Type the code and tap <b>Redeem</b>.</p>
-      </li>
-    </ol>
-    <p class="check"><b>Did it work?</b> Go to <b>Settings</b> › <b>Purchases</b> and scroll to the bottom. You'll see <b>You're on Premium</b> and the date your free year runs until.</p>
-  </section>
+<div style="max-width: 1120px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between">
+<a href="/" style="display: flex; align-items: center; gap: 10px; color: #1A1A1A; text-decoration: none; min-height: 44px">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px; display: block">
+<span style="font-size: 18px; font-weight: 600">Alarmcast™</span>
+</a>
+<div class="nav-links" style="flex-wrap: wrap; gap: 0 24px; font-size: 15px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 10px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="/#reliable" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Reliability</a>
+<a href="/#features" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Features</a>
+<a href="/#discover" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Discover</a>
+<a href="/#pricing" style="color: #4A4A4A; text-decoration: none; padding: 10px 0">Pricing</a>
+</div>
+<div style="display: flex; gap: 12px 20px; align-items: center">
+<a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dgift-codes" style="background: #4A2873; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 6px">Get the app</a>
+<a href="/gift/" class="nav-gift" aria-current="page" style="font-size: 15px; text-underline-offset: 3px; padding: 10px 0">Gift code?</a>
+<button type="button" class="nav-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #E2E0EA; background: #FFFFFF; border-radius: 6px; cursor: pointer; color: #1A1A1A; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</button>
+</div>
+</div>
+<div id="mobile-nav" class="nav-panel" hidden style="display: flex; flex-direction: column; padding: 4px 24px 16px; border-bottom: 1px solid #ECEBF0; font-size: 17px">
+<a href="/podcasters/" style="color: #1A1A1A; text-decoration: none; padding: 12px 0; font-weight: 500">For podcasters</a>
+<a href="/#how" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">How it works</a>
+<a href="/#reliable" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Reliability</a>
+<a href="/#features" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Features</a>
+<a href="/#discover" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Discover</a>
+<a href="/#pricing" style="color: #1A1A1A; text-decoration: none; padding: 12px 0">Pricing</a>
+<a href="/gift/" style="text-underline-offset: 3px; padding: 12px 0">Gift code?</a>
 </div>
 
-<div class="wrap">
-  <section class="fine" aria-labelledby="fine-title">
-    <h2 id="fine-title">Gift code terms</h2>
-    <p class="intro">Gift codes are offered by Bessie Operations, the maker of Alarmcast. By entering a code, you agree to these terms.</p>
-    <dl>
-      <div><dt>What you get</dt>
-        <dd>One free year of Alarmcast Premium on the phone where you enter the code, starting the moment it's accepted. Once your year starts, it's yours for the whole year, even if the code is switched off later.</dd></div>
-      <div><dt>Nothing to pay or cancel</dt>
-        <dd>There's no card and no sign-up. When the year ends, the app goes back to the free version, and nothing is charged. The Purchases screen shows the end date, in case you want to keep Premium.</dd></div>
-      <div><dt>One per phone, while the code lasts</dt>
-        <dd>Each code works once on each phone. Every code has a limit on how many phones can use it and a last day to enter it. We can also switch a code off early, for example if it's being sold or shared beyond the show. After that, the app says the code has run out.</dd></div>
-      <div><dt>If you reinstall</dt>
-        <dd>Enter the same code again on the same phone and your year comes back, with the same end date. A new phone, or one that has been reset, counts as a different phone, and the code works there only if it hasn't run out.</dd></div>
-      <div><dt>Not for sale</dt>
-        <dd>Codes are free. They can't be sold, bought, or swapped for money or anything else, and a code that has been sold may be switched off. A gift has no cash value. If you already pay for Premium, a code doesn't change or refund your purchase.</dd></div>
-      <div><dt>Who can use one</dt>
-        <dd>Anyone aged 13 or over with Alarmcast 0.8.0 or later on an Android phone. If you don't see Gift codes at the bottom of Settings, update the app from Google Play.</dd></div>
-      <div><dt>Premium can change</dt>
-        <dd>Your year gives you Premium as it is during that year. We may improve or change Premium features over time, the same way for everyone.</dd></div>
-      <div><dt>Changes to these terms</dt>
-        <dd>We may change these terms, or stop offering gift codes, at any time. A free year that has already started is always honoured to its end date.</dd></div>
-      <div><dt>If something goes wrong</dt>
-        <dd>Write to us about a code that won't work and we'll try to help. We can't replace a lost code, and we are not liable for a code that has run out, was entered wrongly, or was shared by someone else. Nothing here limits rights you have by law.</dd></div>
-      <div><dt>Google</dt>
-        <dd>These are Alarmcast's own codes. Google has no part in them and isn't responsible for them. A Google Play promo code goes in the Play Store instead.</dd></div>
-      <div><dt>Your privacy</dt>
-        <dd>Entering a code sends the code and a scrambled form of your phone's ID to our server. Nothing is tied to your name or an account. The <a href="/privacy/">privacy policy</a> has the details.</dd></div>
-      <div><dt>The law</dt>
-        <dd>These terms are governed by the law of South Africa. If you live elsewhere, you keep any consumer rights your local law gives you.</dd></div>
-    </dl>
-    <p class="help">A code that won't work? Check <b>Settings</b> › <b>Purchases</b> first, then write to <a href="mailto:help@alarmcast.app">help@alarmcast.app</a>. Last updated 17 October 2026.</p>
-  </section>
+<div style="max-width: 1120px; margin: 0 auto; padding: 56px 24px 96px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
+<div style="flex: 1 1 400px; min-width: 0; max-width: 540px">
+<h1 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.01em">Got a code from a podcast?</h1>
+<p style="margin: 24px 0 0; font-size: 21px; line-height: 1.5; color: #4A4A4A">It's a free year of Alarmcast Premium. Here's where to type it.</p>
+<p style="margin: 40px 0 0; color: #4A4A4A">Did it work? Go to Settings › Purchases and scroll to the bottom. You'll see <b style="font-weight: 600; color: #1A1A1A">You're on Premium</b> and the date your free year runs until.</p>
 </div>
-</main>
+<ol style="flex: 1 1 440px; min-width: 0; margin: 0; padding: 0; list-style: none; display: flex; gap: 24px; justify-content: center; align-items: flex-start">
+<li style="flex: 0 1 220px; min-width: 0">
+<div style="background: #0E1014; border-radius: 30px; padding: 7px; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.4)"><img src="/assets/screens/gift-settings.webp" alt="Alarmcast Settings, scrolled to the bottom: a Gift codes section with the row Enter a code" style="width: 100%; display: block; border-radius: 24px"></div>
+<p style="margin: 14px 0 0; font-size: 15.5px"><span style="color: #4A2873; font-weight: 600; margin-right: 8px">1</span>In Settings, at the bottom, tap Enter a code.</p>
+</li>
+<li style="flex: 0 1 220px; min-width: 0">
+<div style="background: #0E1014; border-radius: 30px; padding: 7px; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.4)"><img src="/assets/screens/gift-enter.webp" alt="The Enter a code box, with the gift code CASSETTE typed in and a Redeem button" style="width: 100%; display: block; border-radius: 24px"></div>
+<p style="margin: 14px 0 0; font-size: 15.5px"><span style="color: #4A2873; font-weight: 600; margin-right: 8px">2</span>Type the code and tap Redeem.</p>
+</li>
+</ol>
+</div>
 
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <img class="mark" src="/assets/apple-touch-icon.png" alt="" />
-      <span class="wordmark">Alarmcast<span class="tm">&#8482;</span></span>
-    </div>
-    <div class="foot-links">
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/podcasters/">For podcasters</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/paia/">PAIA</a>
-      <a href="mailto:hello@alarmcast.app">hello@alarmcast.app</a>
-    </div>
-    <div>© 2026 Alarmcast · alarmcast.app</div>
-  </div>
-</footer>
+<div id="terms" style="background: #F6F5F9">
+<div style="max-width: 1120px; margin: 0 auto; padding: 96px 24px 104px">
+<div style="max-width: 860px">
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -0.01em">Gift code terms</h2>
+<p style="margin: 20px 0 0; color: #4A4A4A">Gift codes are offered by Bessie Operations, the maker of Alarmcast. By entering a code, you agree to these terms.</p>
+<dl style="margin: 32px 0 0; border-bottom: 1px solid #E6E1EA; font-size: 16px">
+<div class="term"><dt style="font-weight: 600">What you get</dt><dd style="margin: 0; color: #4A4A4A">One free year of Alarmcast Premium on the phone where you enter the code, starting the moment it's accepted. Once your year starts, it's yours for the whole year, even if the code is switched off later.</dd></div>
+<div class="term"><dt style="font-weight: 600">Nothing to pay or cancel</dt><dd style="margin: 0; color: #4A4A4A">There's no card and no sign-up. When the year ends, the app goes back to the free version, and nothing is charged. The Purchases screen shows the end date, in case you want to keep Premium.</dd></div>
+<div class="term"><dt style="font-weight: 600">One per phone, while the code lasts</dt><dd style="margin: 0; color: #4A4A4A">Each code works once on each phone. Every code has a limit on how many phones can use it and a last day to enter it. We can also switch a code off early, for example if it's being sold or shared beyond the show. After that, the app says the code has run out.</dd></div>
+<div class="term"><dt style="font-weight: 600">If you reinstall</dt><dd style="margin: 0; color: #4A4A4A">Enter the same code again on the same phone and your year comes back, with the same end date. A new phone, or one that has been reset, counts as a different phone, and the code works there only if it hasn't run out.</dd></div>
+<div class="term"><dt style="font-weight: 600">Not for sale</dt><dd style="margin: 0; color: #4A4A4A">Codes are free. They can't be sold, bought, or swapped for money or anything else, and a code that has been sold may be switched off. A gift has no cash value. If you already pay for Premium, a code doesn't change or refund your purchase.</dd></div>
+<div class="term"><dt style="font-weight: 600">Who can use one</dt><dd style="margin: 0; color: #4A4A4A">Anyone aged 13 or over with Alarmcast 0.8.0 or later on an Android phone. If you don't see Gift codes at the bottom of Settings, update the app from Google Play.</dd></div>
+<div class="term"><dt style="font-weight: 600">Premium can change</dt><dd style="margin: 0; color: #4A4A4A">Your year gives you Premium as it is during that year. We may improve or change Premium features over time, the same way for everyone.</dd></div>
+<div class="term"><dt style="font-weight: 600">Changes to these terms</dt><dd style="margin: 0; color: #4A4A4A">We may change these terms, or stop offering gift codes, at any time. A free year that has already started is always honoured to its end date.</dd></div>
+<div class="term"><dt style="font-weight: 600">If something goes wrong</dt><dd style="margin: 0; color: #4A4A4A">Write to us about a code that won't work and we'll try to help. We can't replace a lost code, and we are not liable for a code that has run out, was entered wrongly, or was shared by someone else. Nothing here limits rights you have by law.</dd></div>
+<div class="term"><dt style="font-weight: 600">Google</dt><dd style="margin: 0; color: #4A4A4A">These are Alarmcast's own codes. Google has no part in them and isn't responsible for them. A Google Play promo code goes in the Play Store instead.</dd></div>
+<div class="term"><dt style="font-weight: 600">Your privacy</dt><dd style="margin: 0; color: #4A4A4A">Entering a code sends the code and a scrambled form of your phone's ID to our server. Nothing is tied to your name or an account. The <a href="/privacy/" style="text-underline-offset: 3px">privacy policy</a> has the details.</dd></div>
+<div class="term"><dt style="font-weight: 600">The law</dt><dd style="margin: 0; color: #4A4A4A">These terms are governed by the law of South Africa. If you live elsewhere, you keep any consumer rights your local law gives you.</dd></div>
+</dl>
+<p style="margin: 28px 0 0; font-size: 15.5px; color: #4A4A4A">A code that won't work? Check Settings › Purchases first, then write to <a href="mailto:help@alarmcast.app" style="text-underline-offset: 3px">help@alarmcast.app</a>. Last updated 17 October 2026.</p>
+</div>
+</div>
+</div>
 
+<div style="border-top: 1px solid #ECEBF0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; font-size: 14.5px; color: #5E5E5E">
+<div style="display: flex; align-items: center; gap: 10px; color: #1A1A1A">
+<img src="/assets/apple-touch-icon.png" alt="" style="width: 24px; height: 24px; border-radius: 6px; display: block">
+<span style="font-weight: 600">Alarmcast™</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 22px">
+<a href="/#features" style="color: #4A4A4A; padding: 10px 0">Features</a>
+<a href="/#pricing" style="color: #4A4A4A; padding: 10px 0">Pricing</a>
+<a href="/blog/" style="color: #4A4A4A; padding: 10px 0">Blog</a>
+<a href="/podcasters/" style="color: #4A4A4A; padding: 10px 0">For podcasters</a>
+<a href="/privacy/" style="color: #4A4A4A; padding: 10px 0">Privacy</a>
+<a href="/terms/" style="color: #4A4A4A; padding: 10px 0">Terms</a>
+<a href="/paia/" style="color: #4A4A4A; padding: 10px 0">PAIA</a>
+<a href="mailto:hello@alarmcast.app" style="color: #4A4A4A; padding: 10px 0">hello@alarmcast.app</a>
+</div>
+<span>© 2026 Alarmcast, alarmcast.app</span>
+</div>
+</div>
+
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function () {
+    var opening = panel.hasAttribute('hidden');
+    if (opening) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 </body>
 </html>
