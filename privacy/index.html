@@ -68,12 +68,12 @@
 <div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px 96px">
 <div class="art" style="max-width: 720px; font-size: 17px; line-height: 1.65; color: #3A3A3A">
 <h1 style="margin: 24px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4vw, 50px); line-height: 1.08; letter-spacing: -0.01em; color: #1A1A1A">Alarmcast Privacy Policy</h1>
-<p style="margin: 14px 0 0; font-size: 14.5px; color: #5E5E5E"><b>Effective date:</b> October 19, 2026</p>
+<p style="margin: 14px 0 0; font-size: 14.5px; color: #5E5E5E"><b>Effective date:</b> October 31, 2026</p>
 
 <p>Alarmcast ("the app") is a podcast alarm clock for Android, made by Bessie Operations ("we," "our"), the developer named on its Google Play listing. We are responsible for the personal data described here. This policy describes what data the app collects, why, and what it does not do.</p>
 
 <h2>Summary</h2>
-<p>Alarmcast does not require an account and does not know who you are. Almost everything the app knows about you, including your alarms, your podcast subscriptions and your listening history, stays on your device. The free version shows ads through Google AdMob (which uses your device's advertising ID), and optional premium purchases remove ads and unlock extra features. We have no user accounts and do not sell your personal data. The only record we keep about app users is of gift codes you choose to redeem, described below. If we have emailed you about your podcast, see <a href="#podcasters">If we email you about your podcast</a>.</p>
+<p>Alarmcast does not require an account and does not know who you are. Almost everything the app knows about you, including your alarms, your podcast subscriptions and your listening history, stays on your device. The free version shows ads through Google AdMob (which uses your device's advertising ID), and optional premium purchases remove ads and unlock extra features. We have no user accounts and do not sell your personal data. The only records we keep about app users are of gift codes you choose to redeem. We also count taps on Featured shows, with nothing about who tapped. Both are described below. If we have emailed you about your podcast, see <a href="#podcasters">If we email you about your podcast</a>.</p>
 
 <h2>Data we collect and why</h2>
 
@@ -97,6 +97,12 @@
 <h3>Gift codes (sent to our server)</h3>
 <p>If you enter a gift code from a podcast, the app sends the code and a scrambled form of your phone's Android ID to our server, which runs on Google Cloud. The scrambled ID cannot be turned back into your Android ID. The server keeps it with the code, the time you redeemed it and the date your free year ends, so that each code can be used once per phone. It is not linked to your name or any account, is not used for ads, and is not shared with anyone. Like any server, it sees your device's IP address when the request arrives, and Google Cloud's request logs keep it for a limited time (30 days by default). Nothing is sent unless you enter a code.</p>
 
+<h3>Featured list (from our website)</h3>
+<p>When you open Discover, the app downloads the list of Featured shows from our website (<code>data.alarmcast.app</code>), which GitHub hosts for us. It downloads a new copy at most once a day, or once an hour if the last try failed. The request carries no name, account or ID, only the app's version. GitHub records your device's IP address for security, as it does for every visit to a site it hosts. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a>.</p>
+
+<h3>Featured taps (sent to our server)</h3>
+<p>When you tap a show under Featured in Discover, the app tells our server which show it was, so we can count how often each Featured show is tapped. It sends the show and nothing about you: no name, account or ID. The server keeps a count per show per day. Like any server, it sees your device's IP address when the request arrives, and Google Cloud's request logs keep it for a limited time (30 days by default).</p>
+
 <h3>Advertising (Google AdMob)</h3>
 <p>The free version of Alarmcast shows ads supplied by <a href="https://admob.google.com" target="_blank" rel="noopener">Google AdMob</a>. To serve and measure these ads, AdMob and Google may use your device's <b>advertising ID</b> along with limited technical and ad-interaction data (for example, that an ad was shown or tapped, plus general device and app information). Ads never appear on the alarm ringing screen, and removing ads entirely is one of the benefits of the optional premium purchases described below. Where the law requires it, for example in the European Economic Area, the UK and Switzerland, the app asks for your choice through Google's consent form before any ads are shown. In those places you can change your choice later in <i>Settings, About Alarmcast, Ads you see</i> (the row appears only where the form applies). You can also reset or delete your advertising ID in Android's <i>Settings → Privacy → Ads</i>. Google's use of data from apps that use its services is described in <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">"How Google uses information from sites or apps that use our services"</a> and Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
 
@@ -106,14 +112,15 @@
 <h2>Why we are allowed to use it</h2>
 <p>If you are in the European Economic Area, the UK or another place with similar laws, these are the legal bases we rely on:</p>
 <ul>
-<li><b>Search, subscriptions, episode downloads and purchases:</b> to provide the app and the features you ask for.</li>
+<li><b>Search, subscriptions, episode downloads, the Featured list and purchases:</b> to provide the app and the features you ask for.</li>
+<li><b>Featured taps:</b> our legitimate interest in knowing how often each Featured show is tapped, and in telling the shows we feature.</li>
 <li><b>Gift codes:</b> to give you the free year you asked for, and our legitimate interest in making sure each code is used once per phone.</li>
 <li><b>Crash and reliability reports:</b> our legitimate interest in finding and fixing problems that could stop an alarm ringing.</li>
 <li><b>Ads:</b> your consent, where the law requires it. Otherwise, our legitimate interest in paying for the free version.</li>
 </ul>
 
 <h2>Where data is processed</h2>
-<p>Our gift code server and Firebase Crashlytics run on Google's infrastructure, mainly in the United States. Google processes this data for us under its data processing terms, which include the standard contractual clauses approved for transfers out of the European Economic Area and the UK.</p>
+<p>Our server (gift codes and Featured taps) and Firebase Crashlytics run on Google's infrastructure, mainly in the United States. Google processes this data for us under its data processing terms, which include the standard contractual clauses approved for transfers out of the European Economic Area and the UK. The Featured list is hosted by GitHub, a US company, under its own privacy statement.</p>
 
 <h2 id="podcasters">If we email you about your podcast</h2>
 <p>We write to podcast hosts to offer a collaboration and free Premium. If we have emailed you, this part is about you.</p>
@@ -142,7 +149,7 @@
 <p>The search field has a microphone button. Tapping it hands over to your phone's own speech recogniser, usually Google's, which listens and hands the app back text. Alarmcast never records audio, holds no microphone permission, and receives only the words that came back.</p>
 
 <h2>Security</h2>
-<p>Requests to Apple, Podcast Index, Google AdMob, Google Play, Firebase Crashlytics and our gift code server are made over encrypted (HTTPS) connections. Podcast feeds and audio are served by the podcasts themselves, so their security is theirs. Alarmcast has no accounts, and the only thing our server keeps is the scrambled phone ID from a redeemed gift code, with no name, email or account attached.</p>
+<p>Requests to Apple, Podcast Index, Google AdMob, Google Play, Firebase Crashlytics, our website and our server are made over encrypted (HTTPS) connections. Podcast feeds and audio are served by the podcasts themselves, so their security is theirs. Alarmcast has no accounts, and nothing our server keeps carries a name, email or account.</p>
 
 <h2>Permissions</h2>
 <p>Alarmcast asks for the permissions an alarm clock needs to ring reliably: exact alarms, notifications, full-screen alarm notifications, foreground service, wake lock, vibration, network access, start-on-boot, and permission to sit outside battery optimisation. The free version also uses the advertising ID permission for ads. None of the others collect anything about you.</p>
@@ -155,6 +162,7 @@
 <li><b>Local data</b> (alarms, subscriptions, preferences): deleted when you uninstall the app, or by clearing app data in Android settings.</li>
 <li><b>Crash reports:</b> retained by Firebase per Google's standard retention policy. Since only a random installation ID is attached, we cannot tell which reports are yours, so we cannot look up or delete an individual's crash history. Deleting the app going forward stops any new reports.</li>
 <li><b>Gift code redemptions:</b> kept while we offer gift codes. They hold no name or email, so we cannot tell which record is yours.</li>
+<li><b>Featured tap counts:</b> kept with no end date. Each is a count for one show on one day and holds nothing about you.</li>
 </ul>
 
 <h2>Your rights</h2>
