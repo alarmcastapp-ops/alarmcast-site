@@ -27,6 +27,8 @@
 @media (max-width: 760px){.trow{grid-template-columns:minmax(0,1fr)}.trow > div:last-child{max-width:216px;box-sizing:border-box}}
 @media (max-width: 600px){.ptable{min-width:0 !important}.ptable,.ptable thead,.ptable tbody{display:block}.ptable tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.ptable th,.ptable td{display:block;width:auto !important;padding:8px 4px !important}.ptable th:first-child{display:none}.ptable td:first-child{grid-column:1/-1;padding:10px 0 0 !important;font-weight:500}}
 @media (max-width: 600px){.chain{flex-direction:column;gap:6px !important}.chain li[aria-hidden]{display:none}}
+.film-tall{display:none}
+@media (max-width: 700px){.film-wide{display:none}.film-tall{display:block}}
   </style>
 </head>
 <body>
@@ -356,12 +358,25 @@
 
 <div id="get" style="max-width: 1120px; margin: 0 auto; padding: 96px 24px 96px">
 <span style="display: block; position: relative; width: 101px; height: 88px; margin: 0 0 20px 0"><img src="/assets/bird.svg" alt="The Alarmcast bird, singing" width="158" height="158" style="position: absolute; left: -23px; top: -34px; width: 158px; height: 158px; max-width: none"></span>
+<div style="display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: flex-start">
+<div style="flex: 1 1 420px; min-width: 0">
 <h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.12; letter-spacing: -0.01em">Wake up to something worth hearing.</h2>
 <p style="margin: 20px 0 0; font-size: 19px; color: #4A4A4A; max-width: 52ch">Alarmcast is free on Google Play. Set an alarm tonight, point it at a show you like, and wake up to someone talking tomorrow.</p>
 <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center">
 <a href="https://play.google.com/store/apps/details?id=com.alarmcast.app&amp;referrer=utm_source%3Dalarmcast.app%26utm_campaign%3Dwebsite" style="display: inline-block; margin: -12px; line-height: 0"><img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="width: 194px; height: 75px; display: block"></a>
 <a href="#features" style="font-size: 16px; text-underline-offset: 3px; padding: 10px 0">Explore features</a>
 <a id="gift" href="/gift/" style="font-size: 16px; text-underline-offset: 3px; padding: 10px 0">Have a gift code?</a>
+</div>
+</div>
+
+<div id="film" style="flex: 1 1 440px; min-width: 0">
+<div class="film-wide" style="max-width: 560px; margin: 0 0 0 auto; background: #1A1A1A; border-radius: 10px; overflow: hidden; line-height: 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.45)">
+<video controls="" playsinline="" preload="none" width="1280" height="720" poster="/assets/video/alarmcast-film-wide.webp" aria-label="Alarmcast in 49 seconds, with sound" style="width: 100%; height: auto; display: block; background: #1A1A1A"><source src="/assets/video/alarmcast-film-wide.mp4" type="video/mp4"></video>
+</div>
+<div class="film-tall" style="max-width: 280px; margin: 0; background: #1A1A1A; border-radius: 10px; overflow: hidden; line-height: 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.45)">
+<video controls="" playsinline="" preload="none" width="720" height="1280" poster="/assets/video/alarmcast-film-tall.webp" aria-label="Alarmcast in 49 seconds, with sound" style="width: 100%; height: auto; display: block; background: #1A1A1A"><source src="/assets/video/alarmcast-film-tall.mp4" type="video/mp4"></video>
+</div>
+</div>
 </div>
 <p id="podcasters" style="margin: 56px 0 0; color: #4A4A4A; max-width: 56ch">We love podcasts. Waking up to conversation makes a better start to the day, and gives shows a new way to find listeners. <a href="/podcasters/" style="text-underline-offset: 3px">Make a podcast? Put your show in Featured</a></p>
 <p style="margin: 12px 0 0; color: #4A4A4A">Or say hello at <a href="mailto:hello@alarmcast.app" style="text-underline-offset: 3px">hello@alarmcast.app</a></p>
